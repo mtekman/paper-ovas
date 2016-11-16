@@ -1,10 +1,18 @@
 \abstract{\textbf{Motivation:}\
-Haplotype reconstruction remains an important tool for determining the precise path of descent undertaken by a trait locus as it co-segregates with neighbouring markers. The resulting analysis outlines the phased genotypes that comprise said locus across affected individuals within a multiple family setting, and is instrumental in facilitating the search of sequence-analysis driven studies by providing a Mendelian context in which to narrow a region of interest.\
-Previously, only autosomal penetrance models could be determined via popular haplotype analysis programs such as \hpainter, where haploblocks reconstructed on the X chromosome produced inconsistent recombination artefacts. Here, we describe \haplo, a novel in-browser web application that performs haplotype reconstruction for all autosomal and X-linked penetrance models by harnessing the capabilities of an A* best-first search algorithm. \haplo also performs haplotype visualization for prior haplotype analyses from popular linkage programs such as Allegro, Simwalk, Genehunter, and Merlin. The application was written explicitly for web browsers in order to ensure fast uptake and portability, and encompasses complete pedigree creation utilities ported to the web in order to appropriate the advanced features emerging from the new HTML5 specification.\\\
 \
-\textbf{Results:} We implement our approach with an initial pass to set possible founder allele groups at each marker-locus by traversing down through the pedigree in trios. The A* search algorithm then performs a walk-through of the founder allele groups under the heuristic of minimizing the number of crossovers between adjacent markers. In addition to several autosomal pedigrees, \haplo correctly resolved complex pedigrees of X-linked and consanguineous inheritance.\\
+The advent of modern high-throughput genetics has broadened the gap between the ever-growing volume of sequencing data against the tools required to process them. The need to pinpoint a small subset of functionally important variants has now shifted towards identifying the critical differences between normal variants and disease-causing ones.\
 \
-\textbf{Availability:} \haplo is licensed under GPLv3 and is hosted and maintained via Bitbucket.\\\
+Our High-throughput Sequence Analysis Pipeline (\app) is an open-source multi-step analysis environment designed to annotate and extract useful variants from Variant Call Format (VCF) files under an inheritance context though top-down filtering via swappable modules run entirely off a live bootable medium accessed locally through a web interface.\
+\
+\textbf{Methods:}\
+\
+The pipeline consists of three key stages that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. Up to 12 filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify: transcription factors, housekeeping genes, organ specificity, and protein domains.
+\
+\textbf{Results:}  
+\
+\app performed an autosomal recessive analysis upon 5 whole-exome sequenced individuals presenting the same phenotype from multiple consanguineous families to identify 3 causative novel variants.
+\
+\textbf{Availability:} \app is licensed under GPLv3 and is hosted and maintained via Bitbucket.\\\
 \
 \textit{Source Code:}\ \ \url|https://www.bitbucket.io/mozere/HSAP_Pipeline|\\
 \
