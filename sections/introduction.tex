@@ -1,24 +1,19 @@
 
 \section{Introduction}
 
-The technological evolution of sequencing platforms has progressed rapidly since the completion of the Human Genome project via Sanger sequencing of DNA using read lengths not exceeding 1000 base-pairs (bp). Modern high-throughput  sequencing (HTS) post-Sanger era have superseded this standard ten-fold, allowing for a greater number of variants to be sequenced across the whole-genome by employing "shotgun sequencing" approaches which perform mass fragmentation/amplification upon a target sequence.
+The technological evolution of sequencing platforms has progressed rapidly since the completion of the Human Genome project via Sanger sequencing. Modern high-throughput sequencing (HTS) approaches post-Sanger era have superseded this standard ten-fold, allowing for a greater number of variants to be sequenced across the whole-genome by employing "shotgun sequencing" approaches which perform mass fragmentation/amplification upon a target sequence.
 
 The raw sequence FASTA reads of these HTS platforms are aligned to a specific version of the NCBI reference sequence and collated into a Binary Alignment Map (BAM) where variants of interest can then be individually "called" to form a Variant Call Format (VCF) file of novel or known variants conforming to a specific variant database (dbSNP).
 
-Where BAM data can be viewed as storing horizontal stretches of sequence reads that pile up on top of one another as they align, VCF calling is akin to taking vertical cross-sections of such pileups at specific locations such that a section of a pileup numbering 50 reads of one nucleobase and 50 reads of another can be attributed to a high quality heterozygous variant with a total read depth of 100.
+BAM data can be viewed as storing horizontal stretches of sequence reads that pile up on top of one another as they align, VCF calling is akin to taking vertical cross-sections of such pileups at specific locations such that a section of a pileup numbering 50 reads of one nucleobase and 50 reads of another can be attributed to a high quality heterozygous variant with a total read depth of 100.
 
-Volume of high through data name some latforms, process of b
+The VCF specification was designed for the 1000 Genomes project, where a single file can contain more than one sample individual if they were  sequenced under the same batch. The format is also flexible with annotations where additional fields can be outlined in the header and adhered to in the body of the data. 
 
-%\enlargethispage{5pt}
-Mendelian phenotypic traits are transmitted from one generation to the next through the flow of their associated genotypes following known models of inheritance. For each maternal and paternal chromosome pair, alleles are randomly assorted between sister homologs to then be inherited by offspring as separate parental alleles as a result of chromosomal crossover (recombination) events during meiosis. Offspring are then said to be recombinant if by consequence these events reflect in the genotypes such that child genotypes do not match either of their parents.
+The extensibility of the format is adhered to within \app, where the core idealogy behind the pipeline is to preserve the core input file specification, where the input and output of each annotation and filtration step is a VCF file in order to facilitate the chaining of pipeline modules downstream. 
 
-%\enlargethispage{3pt}
-\vspace{-1pt}
-The location of these points of recombination are of great interest to researchers wishing to precisely pinpoint a trait locus that co-segregates with a given allele, and genetic linkage studies simulate this mechanism over genotyped pedigrees via stochastic processes. 
 
-In the advent of high-throughput genetics, families are genotyped primarily through the use of DNA beadchips technologies which determine the allele of a target fragment by (mass) hybridisation against fixed probes of known alleles through the use amplification/fragmentation techniques upon short-strand DNA \citep{oliphant2002beadarray}.
 
-%The genotyping process involves the mass amplification/fragmentation of short-strand DNA that makes orientation-specific genotypes difficult to produce such that for two alleles \textit{A} and \textit{B} it would not be possible to localise a genotype of \textit{AB} to a sense or anti-sense strand. Such 
+
 Genotypes determined by these processes are said to be \textit{unphased} due to the ambiguity in whether an allele is inherited maternally or paternally, and haplotype reconstruction methods aim to resolve this by tracing possible paths of descent through a pedigree which ambiguously inherited alleles might follow over successive meioses without contradicting those more explicitly obtained.
 
 These methods often run within the scope of linkage operations operating under a descent-graph model which estimate LOD scores based on a similar principle \citep{sobel1996descent}, following known penetrance models outlined in Fig ~\ref{fig:descent}.
