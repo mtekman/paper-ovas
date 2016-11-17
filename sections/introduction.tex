@@ -1,15 +1,21 @@
 
 \section{Introduction}
 
+\enlargethispage{30pt}
+
 The technological evolution of sequencing platforms has progressed rapidly since the completion of the Human Genome project via Sanger sequencing. Modern high-throughput sequencing (HTS) approaches post-Sanger era have superseded this standard ten-fold, allowing for a greater number of variants to be sequenced across the whole-genome by employing "shotgun sequencing" approaches which perform mass fragmentation/amplification upon a target sequence.
 
-The raw sequence FASTA reads of these HTS platforms are aligned to a specific version of the NCBI reference sequence and collated into a Binary Alignment Map (BAM) where variants of interest can then be individually "called" to form a Variant Call Format (VCF) file of novel or known variants conforming to a specific variant database (dbSNP).
+The raw sequence FASTA reads produced by these HTS platforms are aligned to a specific version of the NCBI reference sequence and collated into a Binary Alignment Map (BAM) where variants of interest can then be individually "called" to form a Variant Call Format (VCF) file of novel or known variants conforming to a specific variant database (dbSNP).
 
-BAM data can be viewed as storing horizontal stretches of sequence reads that pile up on top of one another as they align, VCF calling is akin to taking vertical cross-sections of such pileups at specific locations such that a section of a pileup numbering 50 reads of one nucleobase and 50 reads of another can be attributed to a high quality heterozygous variant with a total read depth of 100.
+BAM data can be viewed as storing horizontal stretches of sequence reads that pile up on top of one another as they align, VCF calling is akin to taking vertical cross-sections of such pileups at specific locations such that a section of a pileup numbering $m$ reads of one nucleobase and $n$ reads of another can be attributed to a high quality heterozygous variant with a total read depth of $m + n$.
 
 The VCF specification was designed for the 1000 Genomes project, where a single file can contain more than one sample individual if they were  sequenced under the same batch. The format is also flexible with annotations where additional fields can be outlined in the header and adhered to in the body of the data. 
 
-The extensibility of the format is adhered to within \app, where the core idealogy behind the pipeline is to preserve the core input file specification, where the input and output of each annotation and filtration step is a VCF file in order to facilitate the chaining of pipeline modules downstream. 
+Variants major and minor 
+
+\app caters extensively to the format, with each annotation and filtration module taking VCF file(s) as input and producing VCF file(s) as output in order to facilitate the chaining of subsequent pipeline modules downstream.
+
+
 
 
 
