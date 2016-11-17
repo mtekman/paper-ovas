@@ -1,5 +1,9 @@
 \section{Discussion}
 
+In order to reduce the number of false positives, many suites make use of extraneous databases in order to favour some variants over others based on previous analyses through learning mechanisms cite(Illumina knowledge base). Though such methods do produce a more useful subset of variants, they are hard to quantify due to the "black-box" nature in which their results were derived cite(some study shitting on illumina), creating disparity between the end-user and their analysis.
+
+Transparent filtering methods are more likelier to instil greater confidence in the data with the added benefit of customization to better tailor a filter to an analysis in the case of open-source implementations.
+
 \subsection{Path-finding approach}
 
 The A* search is not restricted to allele pairs nor biallelic markers (SNPs), since the path-finding approach processes each chromosome separately with the only interaction between homologs being subject to the parental exclusion groups that are passed on from the last chromosome processed. This makes the approach inclusive of common polymorphic markers (VNTRs and STRs) as well as providing an advantageous theoretical backbone to explore monosomy, trisomy, and tetrasomy cases.
