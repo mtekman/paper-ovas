@@ -1,6 +1,13 @@
 
 \section{Approach}
 
+The core ideology behind \app is to preserve the VCF specification at each stage of analysis such that the output of each annotation of filtration module can 
+
+
+
+\app caters extensively to the format, with each annotation and filtration module taking VCF file(s) as input and producing VCF file(s) as output in order to facilitate the chaining of subsequent pipeline modules downstream.
+
+
 Our approach performs haplotype reconstruction by converting the task of resolving uncertain haplotypes in a chromosome into a path-finding problem, and performing an A* best-first search upon each.
 
 \subsection{A* Best-First}
