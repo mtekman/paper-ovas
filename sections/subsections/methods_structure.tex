@@ -3,9 +3,22 @@
 
 The annotation stages of the pipeline prime the variants with relevant metadata that will then be filtered against user-criterion throughout the rest of the pipeline. The annotation stage is the only mandatory stage of the pipeline, and a great portion of filtering occurs at these stages too, with up to 90\% of  true negatives being discarded.
 
-As a result of the large demand placed upon these modules, they were written in the C++ in order to reduce time and memory constraints on low-end platforms.
+As a result of the large demand placed upon the modules at this stage, they were written in the C++ in order to reduce time and memory constraints on low-end platforms. The stage is split into four modules (in order of processing): \textit{GenePender}, \textit{FuncAnnot}, and \textit{BamZygo}.
+%\textit{snvindel}
 
-The frst 
+\textit{Genepender} appends a gene-context to the variants under a user-configured level of detail at the gene/intergenic junction or the exon/intron/splice/UTR sub-divisions, including isoforms. For whole-genome sequenced data, as much as 90\% of input variants can be discarded due to falling in wholly intergenic regions. Regulatory variants further up or downstream of UTR can be specified by defining custom margins of enclosement.
+
+
+%\textit{SNVIndel} simply determines whether a variant is Single Nucleotide Polymorhpism (SNV) or an Insertion-Deletion (InDel) compared to the reference genome
+
+\textit{FuncAnnot} applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.
+
+\textit{BamZygo} addresses a confidence issue in dealing with pre-processed variants where heterozygosity and homozygosity would be assigned based on post-quality filtering. This module recalculates allele frequencies and makes a judgement independent of any other assessment.
+
+Once fully annotated, the resultant output VCFs are ready to be processed by the filtration modules.
+
+%Disc: This is the slowest step o the entire pipeline, and yet the most crucial due to the sheer number of variants filtered out.
+
 
 \subsubsection{Filtration Modules}
 \subsubsection{Further Annotation}
