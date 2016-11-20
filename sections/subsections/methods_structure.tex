@@ -3,17 +3,16 @@
 
 The annotation stages of the pipeline prime the variants with relevant metadata that will then be filtered against user-criterion throughout the rest of the pipeline. The annotation stage is the only mandatory stage of the pipeline, and a great portion of filtering occurs at these stages too, with up to 90\% of  true negatives being discarded.
 
-As a result of the large demand placed upon the modules at this stage, they were written in the C++ in order to reduce time and memory constraints on low-end platforms. The stage is split into four modules (in order of processing): \textit{GenePender}, \textit{FuncAnnot}, and \textit{BamZygo}.
-%\textit{snvindel}
+As a result of the large demand placed upon the modules at this stage, they were written in the C++ in order to reduce time and memory constraints on low-end platforms. The stage is split into three modules (in order of processing): 
 
-\textit{Genepender} appends a gene-context to the variants under a user-configured level of detail at the gene/intergenic junction or the exon/intron/splice/UTR sub-divisions, including isoforms. For whole-genome sequenced data, as much as 90\% of input variants can be discarded due to falling in wholly intergenic regions. Regulatory variants further up or downstream of UTR can be specified by defining custom margins of enclosement.
-
+\begin{itemize}
+\elem{GenePender}{Appends a gene-context to the variants under a user-configured level of detail at the gene/intergenic junction or the exon/intron/splice/UTR sub-divisions, including isoforms. For whole-genome sequenced data, as much as 90\% of input variants can be discarded due to falling in wholly intergenic regions. Regulatory variants further up or downstream of UTR can be specified by defining custom margins of enclosement.
+}
+\elem{FuncAnnot}{Applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.}
+\elem{BamZygo}{Addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module recalculates allele frequencies and makes a judgement independent of any other assessment.}
+\end{itemize}
 
 %\textit{SNVIndel} simply determines whether a variant is Single Nucleotide Polymorhpism (SNV) or an Insertion-Deletion (InDel) compared to the reference genome
-
-\textit{FuncAnnot} applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.
-
-\textit{BamZygo} addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module recalculates allele frequencies and makes a judgement independent of any other assessment.
 
 Once fully annotated, the resultant output VCFs are ready to be processed by the filtration modules.
 
@@ -22,16 +21,93 @@ Once fully annotated, the resultant output VCFs are ready to be processed by the
 
 \subsubsection{Filtration Modules}
 
-% P85
-% file:///home/tetris/Downloads/HSAP-122.pdf
+The filtration modules consist of a series of Python(v2.7) scripts designed to parse these fields with the aim of minimizing the need for any mapping or additional pass-throughs.
 
-Physical Location, Read Depth, Call Quality (score), Alternative Allele Frequency, Novel Variant, Common Gene/Variant Filter, Mutation Type, Inheritance Filter
+A variant line in a VCF file describes six mandatory fields grouped into three distinct categories (in order of filtration complexity):
+
+\begin{enumerate}
+\belem{Variant Properties}{(CHROM) chromosome number, (POS) physical base-pair position, (REF) reference allele, and (ALT) alternate allele(s).
+
+	These are processed by the following filtration modules:
+	\begin{itemize}
+	\elem{Physical Location}{Parses the first two columns only; chromosome and physical base-pair position. A locus set is provided by the user and all variants that exist inclusively within are kept in the output.}
+	\elem{Novel Variant}{Parses the third column only describing variant identifier, and where not present (represented as '.') to keep the variant.}
+	\end{itemize}
+}
+
+\belem{Variant Metadata}{(INFO) variant call information consisting of various call related properties summarizing the FASTA strand pileup it bisects.
+
+	The INFO field consists of variant call report information which only alludes to the quality of the sample data, but not to the sample data itself, enabling for fast single-pass processing.
+
+	\begin{itemize}
+	\elem{Read Depth}{Filters based upon the number of FASTA reads aligned at that position, discarding any variants falling below the user-set limit.}
+	\elem{Call Quality}{The variant caller often assigns its own scoring nomenclature (non-transparent, often related to read-depth) which is processed or ignored at this step.}
+	\elem{Mutation Type}{Makes use of \textit{FuncAnnot} annotations to filter single variants based upon user-set requirements of including any (multiple) of missense, nonsense, and synonymous mutation types.}	
+	\elem{Common Gene}{Requires more than one input VCF. Depending on the level of domain specificity (gene/exon), maps out all domains common across all input and produces an output set of VCF files that solely include variants that fall within those domains only.}
+	% Disc: Useful for unrelated individuals with the same pheno.
+	\elem{Common Variant}{As previous, but under the more stringent requirement that all output variants match the same position.}
+	% Disc: Useful for siblings
+	\end{itemize}
+}
+
+\belem{Sample Data}{(FORMAT) Sample format field denoting the format which all subsequent sample data conform to.
+
+	The sample data and format field cannot exist without the other, and it is required that the modules in this category process the format field before scanning the data. 
+
+	\begin{itemize}
+	\elem{Alternate Allele Frequency}{Scans the sample data in order ascertain the absolute frequencies of the alternate allele(s) in the population, useful for filtering out variants that are too rare or homozygous in the population(???).}
+	\elem{Inheritance Filter}{Requires multiple VCF inputs. Performs trait penetrance modelling for differently affected individuals following sibling-sibling, and sibling-parent relations.}
+	\end{itemize}
+}
+\end{enumerate}
+
+
 
 \subsubsection{Inheritance Filtering}
 
-Autosomal Dominant, Autosomal Recessive, X-linked Dominant, X-linked Recessive, Mosaicism
+For all detected parent-offspring trios, offspring variants are filtered out if not present in any of the parents.
+
+Further context-based filtering is performed depending on the penetrance-model specified. The four classical modes of Mendelian inheritance are covered, as well as the unique case of mosaic penetrance:
+
+\begin{itemize}
+
+\belem{Autosomal Dominant}{The phenotype is caused by a single mutant autosomal allele, and affected individuals must have affected parents, mapping any \{HOM,HET\}$\mapsto$\{HET,HOM\}. Affected siblings are filtered for any common variants and against unaffected controls.}
+
+\belem{Autosomal Recessive}{The phenotype is caused by a loss of function stemming from both copies of an autosomal gene, likely from the result of consanguineous breeding [cite(Lander,2001)]. Two paths of transmission are considered from parent$\mapsto$offspring depending on whether the affected offspring variant is heterozygous (HET) or homozygous (HOM):
+
+	\begin{itemize}
+	\elem{HOM}{Affected must map HOM$\mapsto$HOM, whereas unaffected parents are treated as carriers and can map both \{HOM,HET\}$\mapsto$HOM.}
+	\elem{HET}{Parents are assumed to be carriers and map HET$\mapsto$HET. Offspring are scanned for multiple-HET mutations within a gene in order to cover the case of compound heterozygous inheritance.}
+	\end{itemize}
+
+Siblings are then filtered for common variants existing within affecteds siblings only, discarding those also present in unaffected controls.
+}
+
+\belem{X-linked Dominant}{As with autosomal dominant but with the mutant allele on the X-chromosome.}
+
+\belem{X-linked Recessive}{As with autosomal recessive but with mutations occurring on the X-chromosome. Males with a single mutant copy are hemizygous and are treated as homozygous, exempting them from compound heterozygosity checking.}
+\end{itemize}
+
+Mosaicism is treated as a special case, where allele frequencies are pre-calculated for each variant and then filtered against user-set thresholds conforming to expected mosaic frequency ranges (typically between 15-35\%).
+
+
+% P 37, 85, 107
+% file:///home/tetris/Downloads/HSAP-122.pdf
 
 
 \subsubsection{Further Annotation}
 
-Isoform to ID, Protein db, Gene expression.
+The last stage of pipeline constitutes a small subset of variants which have successfully passed through the main filtering stages and require finer analysis which is enabled by providing an even greater context to compare the variants. Additional annotation relates to the downstream effects of said variants such as structure, function, and expression.
+
+:
+
+\begin{itemize}
+\elem{Isoform Context}{Translates gene isoforms into their RefSeq nomenclature counterparts.}
+\elem{Protein Context}{Assigns protein annotation information from UniProt sources to assign information related protein domain.}
+\elem{Gene Expression}{Organ and tissue-specific data from the Encode GNF Atlas2 database is provided along with expression ratios which can be further filtered against user-specified limits.}
+\elem{Transcription Factor}{Variants that fall within a transcription factor encoding gene are outlined (and optionally filtered).}
+\elem{House Keeping}{Genes with known house-keeping function are additionally outlined here.}
+\end{itemize}
+
+
+
