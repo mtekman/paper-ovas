@@ -15,9 +15,18 @@ Each line of the VCF body describes a single variant; physical position paired w
 
 Variant analysis suites all work under the same principle; filtering all variants under a user-specified set of criteria against the various variant annotations present in the VCF in order to produce a subset informative to the phenotype. Optimistic filtering measures will produce a smaller set with the drawback of missing key causative variants, and conservative filtering measures will produce too many. 
 
-The effectiveness of an analysis rests primarily upon the accuracy of the variant annotations which can attribute to as much as X\% of false positives cite(some article), as well as the frequency of false negatives that are discarded due to overly-stringent quality filtering. A common approach to addressing both issues is through learning algorithms that can be trained to favour individual variants over others with the caveat of producing results via 'black-box' methods that may create some disparity between the user and their data. A more transparent approach is to expand the scope of the filtering beyond the variant/gene-level and explore variants under a larger context.
+The effectiveness of an analysis rests primarily upon the accuracy of the variant annotations which can attribute to as much as X\% of false positives cite(some article), as well as the frequency of false negatives that are discarded due to overly-stringent quality filtering. A common approach to addressing both issues is through learning algorithms that can be trained to favour individual variants over others with the caveat of producing results via 'black-box' methods that may create some disparity between the user and their data. 
+
+A more transparent approach is to expand the scope of the filtering beyond the variant/gene-level and explore variants under a larger trait-penetrance context outlined in Fig~\ref{fig:inheritance}. 
+
+Mendelian traits conform to the four classical modes on inheritance of autosomal/X-linked dominant/recessive penetrance. Dominant disorders result from the inheritance of a single mutant allele which is manifested in each subsequent generation with a 50\% chance of likelihood in offspring from a single affected parent. Autosomal and X-linked dominant models are identical with the exception of the transmitting chromosome.
+
+Recessive traits require the inheritance of two mutant alleles on opposing strands in order to completely block any functioning copies of the causative gene. Parents are typically carriers with affected offspring. These disorders are primarily a result of consanguineous marriages, where a single mutant allele manifests on both alleles due to the multiple paths of descent it can undertake [cite(Lander,2001)]. In the case of X-linked recessive inheritance, males with a single mutant copy are hemizygous and are forced to express the phenotype.
+
+For non-Mendelian disorders, we also consider the special case of \textit{mosaicism}; where de novo mutations constitute <something something might be good to wikipedia this>.
+
+Here we outline an open-source variant analysis suite that makes use of these inheritance modelling scenarios in order to reduce the number of false positives.
 
 
-\placeholderimage{fig:ablocus}{An example locus of interest in a chromosome depicting haplotypes as vertical marks that are assigned founder allele groups A B C or D, with striped marks (U1,U2,U3) representing soon-to-be-resolved uncertain haplotypes. Two scenarios shown with (a) uncertain haplotypes flanked by founder allele group B on both sides, and (b) uncertain haplotypes flanked by founder allele groups B and C on either side.}
+\placeholderimage{fig:inheritance}{Picture of the types of inheritance}
 
-Here we outline an open-source variant analysis suite that makes use of inheritance modelling to reduce the number of false positives.
