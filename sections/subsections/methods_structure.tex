@@ -13,7 +13,7 @@ As a result of the large demand placed upon the modules at this stage, they were
 
 \textit{FuncAnnot} applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.
 
-\textit{BamZygo} addresses a confidence issue in dealing with pre-processed variants where heterozygosity and homozygosity would be assigned based on post-quality filtering. This module recalculates allele frequencies and makes a judgement independent of any other assessment.
+\textit{BamZygo} addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module recalculates allele frequencies and makes a judgement independent of any other assessment.
 
 Once fully annotated, the resultant output VCFs are ready to be processed by the filtration modules.
 
@@ -21,4 +21,17 @@ Once fully annotated, the resultant output VCFs are ready to be processed by the
 
 
 \subsubsection{Filtration Modules}
+
+% P85
+% file:///home/tetris/Downloads/HSAP-122.pdf
+
+Physical Location, Read Depth, Call Quality (score), Alternative Allele Frequency, Novel Variant, Common Gene/Variant Filter, Mutation Type, Inheritance Filter
+
+\subsubsection{Inheritance Filtering}
+
+Autosomal Dominant, Autosomal Recessive, X-linked Dominant, X-linked Recessive, Mosaicism
+
+
 \subsubsection{Further Annotation}
+
+Isoform to ID, Protein db, Gene expression.
