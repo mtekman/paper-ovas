@@ -65,15 +65,13 @@ A variant line in a VCF file describes six mandatory fields grouped into three d
 
 \subsubsection{Inheritance Filtering}
 
-For all detected parent-offspring trios, offspring variants are filtered out if not present in any of the parents.
-
-Further context-based filtering is performed depending on the penetrance-model specified. The four classical modes of Mendelian inheritance are covered, as well as the unique case of mosaic penetrance:
+For all detected parent-offspring trios, offspring variants are filtered out if not present in any of the parents. Further context-based filtering is performed depending on the penetrance-model specified:
 
 \begin{itemize}
 
 \belem{Autosomal Dominant}{The phenotype is caused by a single mutant autosomal allele, and affected individuals must have affected parents, mapping any \{HOM,HET\}$\mapsto$\{HET,HOM\}. Affected siblings are filtered for any common variants and against unaffected controls.}
 
-\belem{Autosomal Recessive}{The phenotype is caused by a loss of function stemming from both copies of an autosomal gene, likely from the result of consanguineous breeding [cite(Lander,2001)]. Two paths of transmission are considered from parent$\mapsto$offspring depending on whether the affected offspring variant is heterozygous (HET) or homozygous (HOM):
+\belem{Autosomal Recessive}{The phenotype is caused by a loss of function stemming from both copies of an autosomal gene, likely from the result of consanguineous breeding. Two paths of transmission are considered from parent$\mapsto$offspring depending on whether the affected offspring variant is heterozygous (HET) or homozygous (HOM):
 
 	\begin{itemize}
 	\elem{HOM}{Affected must map HOM$\mapsto$HOM, whereas unaffected parents are treated as carriers and can map both \{HOM,HET\}$\mapsto$HOM.}
