@@ -1,3 +1,6 @@
+\subsection{Pipeline Modules}
+
+\app consists of a series of inter-connecting Bash shell scripts which serve as necessary framework to accommodate wrappers for subsequent modules in order to chain (or "pipe") them together, as well as provide anchors for static and dynamic data management throughout general operation.
 
 \subsubsection{Core Annotation}
 
@@ -93,11 +96,9 @@ Mosaicism is treated as a special case, where allele frequencies are pre-calcula
 % file:///home/tetris/Downloads/HSAP-122.pdf
 
 
-\subsubsection{Further Annotation}
+\subsubsection{Extended Annotation}
 
 The last stage of pipeline constitutes a small subset of variants which have successfully passed through the main filtering stages and require finer analysis which is enabled by providing an even greater context to compare the variants. Additional annotation relates to the downstream effects of said variants such as structure, function, and expression.
-
-:
 
 \begin{itemize}
 \elem{Isoform Context}{Translates gene isoforms into their RefSeq nomenclature counterparts.}
