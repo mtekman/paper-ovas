@@ -18,15 +18,16 @@ In the case of user-termination, re-upload is not neccesary for the same analysi
 
 Once complete, the pipeline self-terminates and produces an interactive report of the remaining variants primed for feature presentation/concealment to help pinpoint variants of interest such as those shown in Fig~\ref{fig:report}.
 
-\placeholderimage{fig:report}
-{Report of potential causative variants with dynamic filtering options.}
-
 The pipeline is spawned in a GNU \textit{screen} session in order to enable process control and resumeablility, where snapshots of a session in-process are repeatedly retrieved from the shell process to the web front-end via \textit{PHP} scripts. The front-end itself is hosted via a minimal \textit{lighttpd} server, and ongoing \app processes can be managed both from the web-interface as well as from the shell provided in the live environment.
 
 %Conc: Future work would be to provide file snapshots at each stage of processing for better progress reporting, automatic pedigree-creation to 
 
-\placeholderimage{fig:webend}
+\fig{fig:webend}{images/screens/pipe/pipe_3_final.jpg}
 {Web-interface running an analysis}
+
+\fig{fig:report}{images/screens/report/report_small_naomi.jpg}
+{Report of potential causative variants with dynamic filtering options.}
+
 
 
 \subsubsection{Self-Contained Environment}
