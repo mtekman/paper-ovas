@@ -9,7 +9,8 @@ The raw sequence FASTA reads produced by these HTS platforms are aligned to a sp
 
 BAM and VCF data are orthogonally related, with the former storing horizontal stretches of FASTA sequence reads aligned unevenly on top of one another forming "pile ups", and the latter taking vertical cross-sections of these pileups at specific loci to form a variant call; e.g.  a vertical-section of a pileup of interest numbering $n$ reads of one nucleobase and $n$ reads of a different nucleobase can be reported as a high quality heterozygous variant with a total read depth of $2n \text{ for large } n$.
 
-\placeholderimage{fig:pileup}{A picture of a pileup with variant cross-sections being taken. Maybe also some demonstration of homozygous and heterozygous variants.}
+\fig{fig:pileup}{images/keep/pileup.jpg}
+{Visualization of a BAM file using Golden Helix Genome Browser. (a) Read depth representing the amount of reads that have been aligned to the reference sequence (c) for each bp. The pile-up (b) shows each read in the given region. The red column indicates a single variant, with summarized variant properties shown in table (d).}
 
 The VCF specification was designed for the 1000 Genomes project to produce a robust format that could house the many samples often sequenced under the same batch. The format is flexible with annotations, where additional fields can be outlined in the header and adhered to in the body of the data. 
 
@@ -30,5 +31,19 @@ For non-Mendelian disorders, we also consider the special case of \textit{mosaic
 Here we outline an open-source variant analysis suite that makes use of these inheritance modelling scenarios with the aim to vastly reduce the number of false positives.
 
 
-\placeholderimage{fig:inheritance}{Picture of the types of inheritance}
+\fig{fig:inheritance}{images/keep/inh_autosomal.jpg}
+	{Autosomal inheritance pattern with red disease allele, both parents as 
+(A) Recessive inheritance, both parents as heterozygous carriers with an unaffected:carrier:affected ratio of 1:2:1.
+(B) Dominant inheritance, one parent affected with an unaffected:affected ratio of 1:1.}
+	
+\fig{fig:inheritance}{images/keep/inh_xlinked.jpg}
+	{X-linked inheritance pattern with a red disease allele.
+(A) Recessive inheritance, mother is a disease-carrier. A mother will pass her disease-allele
+to half of her offspring, resulting just sons to be affected.
+(B) Recessive inheritance, father is affected. A father will pass his disease-allele to all of
+his daughters resulting all of them to be a disease-carriers.
+(C) Dominant inheritance, father is affected. A father will pass his disease-allele to all his
+daughters resulting all of them to be affected. 
+(D) Dominant inheritance, mother is affected. A mother will pass her disease-allele
+equally to daughters and sons, resulting half of them to be affected.}
 
