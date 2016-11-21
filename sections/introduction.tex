@@ -3,17 +3,19 @@
 
 \enlargethispage{30pt}
 
-The technological evolution of sequencing platforms has progressed rapidly since the completion of the Human Genome project via Sanger sequencing. Modern high-throughput sequencing (HTS) approaches post-Sanger era have superseded this standard ten-fold, allowing for a greater number of variants to be sequenced across the whole-genome by employing "shotgun sequencing" approaches which perform mass fragmentation/amplification upon a target sequence.
+The technological evolution of sequencing platforms has progressed rapidly since the completion of the Human Genome project via Sanger sequencing methods. Modern high-throughput sequencing (HTS) approaches post-Sanger era have superseded this standard ten-fold, allowing for a greater number of variants to be sequenced across the whole-genome by employing "shotgun sequencing" approaches which perform mass fragmentation/amplification upon a target sequence.
 
 The raw sequence FASTA reads produced by these HTS platforms are aligned to a specific version of the NCBI reference sequence and collated into a Binary Alignment Map (BAM) where variants of interest can then be individually "called" to form a Variant Call Format (VCF) file of novel or known variants conforming to a specific variant database (dbSNP).
 
-BAM data can be viewed as storing horizontal stretches of sequence reads that pile up on top of one another as they align, VCF calling is akin to taking vertical cross-sections of such pileups at specific locations such that a section of a pileup numbering $m$ reads of one nucleobase and $n$ reads of another can be attributed to a high quality heterozygous variant with a total read depth of $m + n$.
+BAM and VCF data are orthogonally related, with the former storing horizontal stretches of FASTA sequence reads aligned unevenly on top of one another forming "pile ups", and the latter taking vertical cross-sections of these pileups at specific loci to form a variant call; e.g.  a vertical-section of a pileup of interest numbering $n$ reads of one nucleobase and $n$ reads of a different nucleobase can be reported as a high quality heterozygous variant with a total read depth of $2n \text{ for large } n$.
+
+\placeholderimage{fig:pileup}{A picture of a pileup with variant cross-sections being taken. Maybe also some demonstration of homozygous and heterozygous variants.}
 
 The VCF specification was designed for the 1000 Genomes project to produce a robust format that could house the many samples often sequenced under the same batch. The format is flexible with annotations, where additional fields can be outlined in the header and adhered to in the body of the data. 
 
 Each line of the VCF body describes a single variant; physical position paired with a reference allele (as ascribed by a reference genome consistent across the entire VCF file) and alternate alleles that appear within samples. Major and minor alleles are specific only to the sample population but their frequencies can be pre-computed and appended to a variant line as additional information to then be utilized in small population analyses such as inheritance modelling.
 
-Variant analysis suites all work under the same principle; filtering all variants under a user-specified set of criteria against the various variant annotations present in the VCF in order to produce a subset informative to the phenotype. Optimistic filtering measures will produce a smaller set with the drawback of missing key causative variants, and conservative filtering measures will produce too many. 
+Variant analysis suites all work under the same principle; filtering all variants under a user-specified set of criteria against the various variant annotations present in the VCF in order to produce a subset informative to the phenotype. Optimistic filtering measures will produce a smaller set with the drawback of missing key causative variants, and conservative filtering measures will produce too many false positives.
 
 The effectiveness of an analysis rests primarily upon the accuracy of the variant annotations which can attribute to as much as X\% of false positives cite(some article), as well as the frequency of false negatives that are discarded due to overly-stringent quality filtering. A common approach to addressing both issues is through learning algorithms that can be trained to favour individual variants over others with the caveat of producing results via 'black-box' methods that may create some disparity between the user and their data. 
 
@@ -23,9 +25,9 @@ Mendelian traits conform to the four classical modes on inheritance of autosomal
 
 Recessive traits require the inheritance of two mutant alleles on opposing strands in order to completely block any functioning copies of the causative gene. Parents are typically carriers with affected offspring. These disorders are primarily a result of consanguineous marriages, where a single mutant allele manifests on both alleles due to the multiple paths of descent it can undertake [cite(Lander,2001)]. In the case of X-linked recessive inheritance, males with a single mutant copy are hemizygous and are forced to express the phenotype.
 
-For non-Mendelian disorders, we also consider the special case of \textit{mosaicism}; where de novo mutations constitute <something something might be good to wikipedia this>.
+For non-Mendelian disorders, we also consider the special case of \textit{mosaicism}; where embryonic de novo mutations produce two or more populations of cells that result in segregated sets of genotypes within the same individual. Mosaic genotypes can be revealed stochastically by measuring alternate allele frequencies against expected values.
 
-Here we outline an open-source variant analysis suite that makes use of these inheritance modelling scenarios in order to reduce the number of false positives.
+Here we outline an open-source variant analysis suite that makes use of these inheritance modelling scenarios with the aim to vastly reduce the number of false positives.
 
 
 \placeholderimage{fig:inheritance}{Picture of the types of inheritance}
