@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ref=main
-browse=chromium
+browse=firefox
 
 # when in doubt, throw hammers...
 (
