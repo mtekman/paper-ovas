@@ -1,13 +1,18 @@
 \section{Discussion}
 
-In order to reduce the number of false positives, many suites make use of extraneous databases in order to favour some variants over others based on previous analyses through learning mechanisms cite(Illumina knowledge base). Though such methods do produce a more useful subset of variants, they are hard to quantify due to the "black-box" nature in which their results were derived cite(some study shitting on illumina), creating disparity between the end-user and their analysis.
-
-Transparent filtering methods are more likelier to instil greater confidence in the data with the added benefit of customization to better tailor a filter to an analysis in the case of open-source implementations.
+\subsection{Analysis Accuracy and Inheritance Modelling}
 
 
-
-The portability of \app grants a major advantage over present-day web-based pipelines because it keeps all analyses securely \textit{in situ}. This lends a significant benefit to regions in the world without consistent or active internet
-
-can operate completely without an active internet connection with the added benefit of keeping all analyses \textit{in situ}. 
+\fig{fig:result}{images/keep/control_result.jpg}
+{The progression of output variants through the core annotation stages under an autosomal recessuve inheritance filter for 5 affected individuals, 3 of which are siblings. Linkage data was utilized and novel variants were selected due to the rarity of the phenotype.}
 
 
+\subsection{Transparency and Ownership}
+
+The portability of \app grants a significant advantage over present-day web-based pipelines by keeping all analyses securely \textit{in situ}, which is greatly beneficial to regions of the world without consistent or active internet in addition to researchers handling personal or private data.
+
+Cloud-based analyses require input data to be uploaded to an external server in order to perform processing, and data ownership after upload is not always retained especially in the case where the work was performed within the cloud.
+
+Further, many cloud-services employ non-transparent proprietary methods to reduce the number of false-positives and false-negatives. A common approach is to make use of an internal database or learning algorithm that favours some variants over others based on previous analyses (or a similar training), resulting in informative variants produced by unquantifiable "black-box" means, creating disparity between the end-user and their analysis.
+
+Transparent filtering methods are likelier to instil greater confidence in the data with the added benefit of customization to better tailor a filter to an analysis in the case of open-source implementations, as with the case of \app.
