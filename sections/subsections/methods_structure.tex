@@ -1,6 +1,9 @@
 \subsection{Pipeline Modules}
 
-\app consists of a series of inter-connecting Bash shell scripts which serve as necessary framework to accommodate wrappers for subsequent modules in order to chain (or "pipe") them together, as well as provide anchors for static and dynamic data management throughout general operation as shown in Fig~\ref{fig:structure}.
+Each module is tasked with the function of separating variants from an input file into two distinct output VCF groups of "filtered" and "discarded"; with the former group being passed into the next module, and the latter being halted at the current point of processing to be stored for potential debugging purposes.
+
+The discard process at each module lends a progressive performance increase in the processing speed of each subsequent module due to the input being only a subset of the input that came before it, whilst still retaining the aggregate total of discarded variants at each step.
+
 
 \figbottom{fig:structure}{images/keep/structure.jpg}
  {Overall structure of the \app pipeline}
@@ -12,17 +15,19 @@ The annotation stages of the pipeline prime the variants with relevant metadata 
 As a result of the large demand placed upon the modules at this stage, they were written in the C++ in order to reduce time and memory constraints on low-end platforms. The stage is split into three modules (in order of processing): 
 
 \begin{itemize}
-\elem{GenePender}{Appends a gene-context to the variants under a user-configured level of detail at the gene/intergenic junction or the exon/intron/splice/UTR sub-divisions, including isoforms. For whole-genome sequenced data, as much as 90\% of input variants can be discarded due to falling in wholly intergenic regions. Regulatory variants further up or downstream of UTR can be specified by defining custom margins of enclosement.
+
+\elem{GenePender}{Appends a gene-context to the variants under a user-configured level of detail at the gene/intergenic junction or the exon/intron/splice/UTR sub-divisions, including isoforms. Regulatory variants further up or downstream of UTR can be specified by defining custom margins of enclosement, and wholly intergenic regions are discarded by default (though can be kept upon user preference). 
 }
-\elem{FuncAnnot}{Applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.}
-\elem{BamZygo}{Addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module recalculates allele frequencies and makes a judgement independent of any other assessment.}
+\elem{FuncAnnot}{Applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.
+}
+\elem{BamZygo}{Addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module recalculates allele frequencies and makes a judgement independent of any other assessment.
+}
 \end{itemize}
 
 %\textit{SNVIndel} simply determines whether a variant is Single Nucleotide Polymorhpism (SNV) or an Insertion-Deletion (InDel) compared to the reference genome
 
 Once fully annotated, the resultant output VCFs are ready to be processed by the filtration modules.
 
-%Disc: This is the slowest step o the entire pipeline, and yet the most crucial due to the sheer number of variants filtered out.
 
 
 \subsubsection{Filtration Modules}
@@ -50,9 +55,8 @@ A variant line in a VCF file describes six mandatory fields grouped into three d
 	\elem{Call Quality}{The variant caller often assigns its own scoring nomenclature (non-transparent, often related to read-depth) which is processed or ignored at this step.}
 	\elem{Mutation Type}{Makes use of \textit{FuncAnnot} annotations to filter single variants based upon user-set requirements of including any (multiple) of missense, nonsense, and synonymous mutation types.}	
 	\elem{Common Gene}{Requires more than one input VCF. Depending on the level of domain specificity (gene/exon), maps out all domains common across all input and produces an output set of VCF files that solely include variants that fall within those domains only.}
-	% Disc: Useful for unrelated individuals with the same pheno.
 	\elem{Common Variant}{As previous, but under the more stringent requirement that all output variants match the same position.}
-	% Disc: Useful for siblings
+
 	\end{itemize}
 }
 
