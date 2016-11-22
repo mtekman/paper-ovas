@@ -1,15 +1,21 @@
 \section{Conclusion}
 
-\app provides a unified environment to create, analyse, and visualize all aspects of a pedigree and their associated haplotype sets. Pedigree creation allows for the conception of multiple large families via intuitive line drawing and node creation mechanisms that are preserved over multiple sessions, which may prove more beneficial to clinicians who acquire patient data in incremental phases.
+The self-contained environment provided by \app allows researchers to tailor all aspects of their analysis and retain control of their data sets at any phase of processing by means of the transparent open-source modules that comprise the pipeline. 
 
-For researchers, the haplotype reconstruction readily accommodates prior analysis for a variety of input formats but also expediently performs its own background analysis without any noticeable latency. The visualization aspect of the application surpasses single pedigree analysis and provides a clear mode of inspection to compare differently-affected individuals and their haplotypes across multiple families. Additional tools encompass most use-cases spanning from cursory region-of-interest inspection by various locus specifiers, through to further fine analysis where automatic recombination detection and block homology become more conducive.
+The live environment, paired with the web front-end, provides the additional advantage of abstracting the end-user from the underlying platform specifics by streamlining the input and configuration process, as well as logging active progress descriptions for the current stage of processing, and lastly providing a malleable final report upon all remaining variants discovered complete with dynamic filtering capabilities.
 
-The underlying A* search proves to be an effective means of haplotype reconstruction with performance that persists across platforms with browsers based upon the same Javascript engines. The asynchronous nature of the language enables disconnected blocks of code to execute independently of one another which, in a genomic context, allows for the parallel evaluation of chromosomes of individuals in the same generation or within different pedigrees. 
+The entirety of all uploaded variants are processed first at the gene annotation stage, placing significant strain at the initial stage of the pipeline that is only managed through the use of employing C++ binaries to overcome the performance bottleneck that would otherwise exist with Python/Bash scripts.
 
-The graphics context supplied by the HTML5 schema to browsers via the various the Javascript frameworks enable fast and powerful graphical content on the web, which will persist and only improve as web-based utilities become the more convenient standard for developers. Desktop applications rely on the existence of (or the installation of) additional libraries in order for them to run, which greatly hinders the uptake process of said applications.
-
-KineticJS as a graphics framework was chosen due to its development stability with active development being frozen since 2014 \citep{kinetictar}. Numerous forks have been spawned of since however, and in order for \app to benefit from performance speedups additional to those derived from the browser engine optimizations, it will need to migrate to one of the primary alternatives; ConcreteJS, a creation of the original developer who further modularized KineticJS components by eliminating the core scene-graph model of which KineticJS is based upon \citep{concretejs}; KonvaJS, a popular fork which extends features and already hosts many optimizations over the original such as batch draw methods, image caching, and custom event listeners \citep{konvajs}.
+The annotation step is crucial however, where the vast majority of whole-genome sequenced variants are deemed wholly intergenic and are filtered out as uninformative to the analysis. More common exome-sequencing data observe less of a reduction at a much faster processing rate due to the smaller number of total variants, but at the impediment of missing regulatory elements due to lack of coverage.
 
 
-Future renditions of \app will aim to integrate the visualization and creation components better to provide better flexibility in modifying an existing pedigree with haplotype data. Additional features could include SVG export, the option to view more than one locus in a chromosome during haplotype visualization, and NodeJS based back-end operations for batch production of pedigrees in the use of automated pipelines.
 
+
+Future: pedigree creation, integrate haplo. File 
+Conc: Future work would be to provide file snapshots at each stage of processing for better progress reporting, automatic pedigree-creation to 
+
+parelliizaiotn
+
+genemaps that dont exist, updating snp and fasta, requires internet retrieval.
+
+reruns are trivial if annotation is done already
