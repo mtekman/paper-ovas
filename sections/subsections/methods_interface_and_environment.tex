@@ -20,7 +20,6 @@ Once complete, the pipeline self-terminates and produces an interactive report o
 
 The pipeline is spawned in a GNU \textit{screen} session in order to enable process control and resumeablility, where snapshots of a session in-process are repeatedly retrieved from the shell process to the web front-end via \textit{PHP} scripts. The front-end itself is hosted via a minimal \textit{lighttpd} server, and ongoing \app processes can be managed both from the web-interface as well as from the shell provided in the live environment.
 
-%Conc: Future work would be to provide file snapshots at each stage of processing for better progress reporting, automatic pedigree-creation to 
 
 \fig{fig:webend}{images/screens/pipe/pipe_3_final.jpg}
 {Web-interface running an analysis}
