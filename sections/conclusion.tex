@@ -8,14 +8,12 @@ The entirety of all uploaded variants are processed first at the gene annotation
 
 The annotation step is crucial however, where the vast majority of whole-genome sequenced variants are deemed wholly intergenic and are filtered out as uninformative to the analysis. More common exome-sequencing data observe less of a reduction at a much faster processing rate due to the smaller number of total variants, but at the impediment of missing regulatory elements due to lack of coverage.
 
+Modules downstream of the annotation stage run trivially, and due to the pipeline's resume feature which prevents \app from processing the same data twice, many subsequent analyses with different module configurations can be run in quick succession after the initial annotation step is complete.
 
+\app is future-secure due to the inclusion of the background scripts that generated the static data being packaged with the live environment. Updates to the human genome reference, variant databases, and FASTA sequences can be retrieved on demand for platforms with active internet connections. Changes will preserve across successive boots for non-volatile storage mediums such as USB sticks, ideal in deployment scenarios with infrequent internet access.
 
+A number of future improvements are to be expected, with further streamlining of the file input process through the web front-end by means of integrating a pedigree creation tool in-browser that will generate a pedigree file from families drawn by the user within a HTML5 canvas.
 
-Future: pedigree creation, integrate haplo. File 
-Conc: Future work would be to provide file snapshots at each stage of processing for better progress reporting, automatic pedigree-creation to 
+Planned enhancements to the core \app back-end will incorporate parallelization to over-arching framework in order to process independent files or modules asynchronously, which as shown in Table~\ref{table:results} would lend no significant performance increase in current filtering modules due to their trivial runtimes, but will become more essential in the future for undeniably denser VCF input sets.
 
-parelliizaiotn
-
-genemaps that dont exist, updating snp and fasta, requires internet retrieval.
-
-reruns are trivial if annotation is done already
+More immediate changes will focus on developing additional filtering modules and module parameters, such as mitochondrial penetrance modelling and cancer-specific mosaic filtering.
