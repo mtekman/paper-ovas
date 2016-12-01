@@ -25,7 +25,7 @@ As a result of the large demand placed upon the modules at this stage, they were
 }
 \elem{Adding Function}{(via \textit{FuncAnnot}) Applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.
 }
-\elem{Adding Zygosity}{(via \textit{BamZygo}) Addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module sets zygosity by nucleotide base-count alone, and determines HET/HOM assignments based upon a user-set frequency threshold (default $<0.65$).
+\elem{Adding Zygosity}{(via \textit{AddZygo}) Addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module sets zygosity by nucleotide base-count alone, and determines HET/HOM assignments based upon a user-set frequency threshold (default $<0.65$).
 }
 \end{itemize}
 
@@ -89,7 +89,7 @@ For all detected parent-offspring trios, variants undergo context-based filterin
 \belem{Autosomal Recessive}{The phenotype is caused by a loss of function stemming from both copies of an autosomal gene, likely from the result of consanguineous breeding. Two paths of transmission are considered from parent$\mapsto$offspring depending on whether the affected offspring variant is compound-heterozygous (C-HET) or homozygous (HOM):
 
 	\begin{itemize}
-	\elem{HOM}{At least one parent must map {HOM}$\mapsto$HOM.}
+	\elem{HOM}{At least one parent maps HOM$\mapsto$HOM, or \{HET/HET\}$\mapsto$HOM if both parents are carriers.}
 	\elem{C-HET}{Parents are assumed to be carriers for different singular HET variants across common genes, which compound in offspring as multiple HET variants within the same gene. Under a gene context, this is resolved via \{HET1/HET2\}$\mapsto$\{HET1+HET2\} mapping to produce a C-HET gene.}
 	\end{itemize}
 

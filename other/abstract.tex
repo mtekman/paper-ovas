@@ -4,13 +4,12 @@ The advent of modern high-throughput genetics has broadened the gap between the 
 \
 Our High-throughput Sequence Analysis Pipeline (\app) is an open-source multi-step analysis environment designed to annotate and extract useful variants from Variant Call Format (VCF) files under an inheritance context though top-down filtering via swappable modules run entirely off a live bootable medium accessed locally through a web interface.\\
 \
-\
 \textbf{Methods:}\
 The pipeline consists of three key stages that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. Up to 12 filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains.\\
 \
 \textbf{Results:}\
 \
-Two autosomal recessive and one X-linked dominant case studies comprising of whole-exome and whole-genome sequencing data sets were analysed to identify singular rare causative variants in each.
+Three case studies were analysed; 2 of autosomal recessive penetrance, and an X-linked dominant. \app made effective use of different module configurations to identify singular rare causative variants from whole-exome sequenced input samples.
 \\
 \textbf{Availability:} \app is licensed under GPLv3 and is hosted and maintained via Bitbucket.\\\
 \
