@@ -1,18 +1,24 @@
 
 \section{Introduction}
 
-\enlargethispage{30pt}
+%\enlargethispage{30pt}
 
-The technological evolution of sequencing platforms has progressed rapidly since the completion of the Human Genome project via Sanger sequencing methods \citep{lander2001initial,sanger1977dna}. Modern high-throughput sequencing (HTS) approaches post-Sanger era have superseded this standard ten-fold, allowing for a greater number of variants to be sequenced across the whole-genome by employing "shotgun sequencing" approaches which perform mass fragmentation/amplification upon a target sequence \citep{lengauer2007bioinformatics,pabinger2014survey}.
+The technological evolution of sequencing platforms has progressed rapidly since the completion of the Human Genome project via Sanger sequencing methods \citep{lander2001initial,sanger1977dna}. Modern high-throughput sequencing (HTS) approaches post-Sanger era have superseded this standard, allowing for a greater number of variants to be sequenced across the whole-genome by employing "shotgun sequencing" approaches which perform mass fragmentation/amplification upon a target sequence \citep{lengauer2007bioinformatics,pabinger2014survey}.
 
-The raw sequence FASTA reads produced by these HTS platforms are aligned to a specific version of the NCBI reference sequence and collated into a Binary Alignment Map (BAM) where variants of interest can then be individually "called" to form a Variant Call Format (VCF) file of novel or known variants conforming to a specific variant database (dbSNP) \citep{li2009sequence,danecek2011variant}.
+The raw sequence FASTQ reads produced by these HTS platforms are aligned to a specific version of the NCBI reference sequence and collated into a Binary Alignment Map (BAM) where variants of interest can then be individually "called" to form a Variant Call Format (VCF) file of novel or known variants conforming to a specific variant database (dbSNP) \citep{li2009sequence,danecek2011variant}.
 
-BAM and VCF data are orthogonally related, with the former storing horizontal stretches of FASTA sequence reads aligned unevenly on top of one another forming "pile ups", and the latter taking vertical cross-sections of these pileups at specific loci to form a variant call; e.g.  a vertical-section of a pileup of interest numbering $n$ reads of one nucleobase and $n$ reads of a different nucleobase can be reported as a high quality heterozygous variant with a total read depth of $2n \text{ for large } n$.
+BAM and VCF data are orthogonally related, with the former storing horizontal stretches of FASTA sequence reads aligned unevenly on top of one another forming "pile ups", and the latter taking vertical cross-sections of these pileups at specific loci to form a variant call.
 
-\fig{fig:pileup}{images/keep/pileup.jpg}
-{Visualization of a BAM file using Golden Helix Genome Browser. (a) Read depth representing the amount of reads that have been aligned to the reference sequence (c) for each bp. The pile-up (b) shows each read in the given region. The red column indicates a single variant, with summarized variant properties shown in table (d).}
+%; e.g.  a vertical-section of a pileup of interest numbering $n$ reads of one nucleobase and $n$ reads of a different nucleobase can be reported as a high quality heterozygous variant with a total read depth of $2n \text{ for large } n$.
 
-The VCF specification was designed for the 1000 Genomes project to produce a robust format that could house the many samples often sequenced under the same batch. The format is flexible with annotations, where additional fields can be outlined in the header and adhered to in the body of the data \citep{danecek2011variant}. 
+%\fig{fig:pileup}{images/keep/pileup.jpg}
+%{Visualization of a BAM file using Golden Helix Genome Browser. (a) Read depth representing the amount of reads that have been aligned to the reference sequence (c) for each bp. The pile-up (b) shows each read in the given region. The red column indicates a single variant, with summarized variant properties shown in table (d).}
+
+\fig{fig:vcf}{images/keep/vcf_header.jpg}
+{VCF header and body data describing the type of annotations and their contents respectively.}
+
+
+The VCF specification was designed for the 1000 Genomes project to produce a robust format that could house the many samples often sequenced under the same batch, but has since been adopted by other projects such as UK10K, dbSNP, NHLBI Exome Project, and others. As shown in Fig~\ref{fig:vcf}, the format is flexible with annotations, where additional fields can be outlined in the header and adhered to in the body of the data \citep{danecek2011variant}. 
 
 Each line of the VCF body describes a single variant; physical position paired with a reference allele (as ascribed by a reference genome consistent across the entire VCF file) and alternate alleles that appear within samples. Major and minor alleles are specific only to the sample population but their frequencies can be pre-computed and appended to a variant line as additional information to then be utilized in small population analyses such as inheritance modelling \citep{danecek2011variant}.
 

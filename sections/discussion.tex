@@ -1,31 +1,11 @@
+
 \section{Discussion}
 
-\figbottom{fig:result}{images/keep/control_result.jpg}
-{The progression of output variants through the core annotation stages under an autosomal recessuve inheritance filter for 5 affected individuals, 3 of which are siblings. Linkage data was utilized and novel variants were selected due to the rarity of the phenotype.}
-
-
-\subsection{Pipeline Results and Inheritance Modelling}
-
-Three families presented with an autosomal recessive phenotype of proteinuria and hyperinsulinism, with whole-genome sequencing being performed upon the affected members of each pedigree. From the 5 affected VCF input data acquired, 3 were siblings permitting the use of variant-level filtering.
-
-Each VCF file comprised of approximately 270,000 variants (SNPs and InDels) and were profiled against a gene map at the first annotation step via \textit{GenePender} that comprised of exons, introns, 5' and 3' UTR, and essential splice sites (5bp).
-
-As much as 90\% of variants were deemed wholly intergenic and filtered at the annotation stage, leaving a drastically reduced subset of approximately 30,000 potentially informative variants. Following the VCF depicted in Fig~\ref{fig:result}, a further 4,544 variants are discarded as a result of the autosomal recessive filter which searched for homozygous or compound heterozygous variants alone, due to the lack of parental input data to further pre-screen for Mendelian variants. Sibling filtering at the common variant-level assisted in this regard, and the remaining genes were bisected between pedigrees through the use of the common gene filter.
-
-Prior linkage analysis hinted at regions of interest with significant LOD-scores (>3) and this vastly reduced the number to 104 unique variants shared across all affecteds. The rarity of the phenotype prompted a search for novel variants, resulting in just 3 potentially causative-variants, 1 of which was a missense mutation that was later confirmed to be the disease-originating variant.\
-\
-(I made that last part up, please correct.)
-
-
-\subsection{Performance}
-
-\input{sections/floats/results_table}
-
-Depending upon the total input variants as well as the number and ordering of modules used, an average initial analysis using any number of modules (excluding alternate allele filtering and gene expression annotations) for VCF files containing 300,000 variants each, will attribute a total of 10 minutes per VCF.
+Depending upon the total input variants as well as the number and ordering of modules used, an average initial analysis using any number of modules (excluding alternate allele filtering) for VCF files containing 300,000 variants each, will attribute a total of 2 minutes per VCF.
 
 There are several limiting steps however, with the largest bottleneck occurring at initial gene annotation stage, which must prime all input variants for downstream filtering through the use of a gene (or exon) map that is dependent upon user parameters. Gene maps for a variety of user parameters already exist as static files in the live environment, but not all use-cases are covered and a new gene map must be generated for irregular setups which can take up to 1 hour depending on internet connection (if any) and proximity from the closest UCSC MySQL mirror.
 
-In the case of general gene map use-cases, the \textit{GenePender} annotation step still requires 200 times more processing time than most other modules, and was the sole reason that all annotation modules were re-written in C++ to benefit from a significant performance increase that reduced the module's processing time to under 3 minutes as shown in Table~\ref{table:results}. 
+In the case of general gene map use-cases, the \textit{Adding Genes} annotation step still requires 200 times more processing time than most other modules, and was the sole reason that all annotation modules were re-written in C++ to benefit from a significant performance increase that reduced the module's processing time from an initial time of 10 minutes to under 3 minutes (Table~\ref{table:results}). 
 
 The rest of the annotation modules are comparatively much faster, with the functional annotations experiencing mild latency related to disk read speeds when performing repeated byte-offset lookup upon FASTA files. The initial sorting of the variants upon file upload is valuable in this regard due to the higher tendency of adjacent variants to share the same disk cluster and reap paging benefits.
 
@@ -47,3 +27,4 @@ Further, many cloud-services employ non-transparent proprietary methods to reduc
 Transparent filtering methods are likelier to instil greater confidence in the data with the added benefit of customization to better tailor a filter to an analysis in the case of open-source implementations, as with the case of \app.
 
 
+\input{sections/floats/results_table}
