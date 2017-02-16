@@ -1,4 +1,4 @@
-
+ 
 \subsection{Application Suite and Interface}
 
 The pipeline was originally developed in a headless Linux shell environment to be deployed on any Unix-like system that supports Bash, appealing to experienced technicians who can perform their own input validation. However, significant effort was made to include researchers from non-computing backgrounds who could benefit from the rich processing without the cost additional groundwork.
@@ -20,12 +20,11 @@ Once complete, the pipeline self-terminates and produces an interactive report o
 
 The pipeline is spawned in a GNU \textit{screen} session in order to enable process control and resumeablility, where snapshots of a session in-process are repeatedly retrieved from the shell process to the web front-end via \textit{PHP} scripts. UI elements are managed with CSS and minimal Javascript, with the exception of the interactive report which performs table operations primarily through the latter. The front-end itself is hosted via a minimal \textit{lighttpd} server, and ongoing \app processes can be managed both from the web-interface as well as from the shell provided in the live environment.
 
+\fig[1]{fig:webend}{images/screens/pipe/pipe_3_final.jpg}
+{Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab.}
 
-\fig{fig:webend}{images/screens/pipe/pipe_3_final.jpg}
-{Web-interface running an analysis}
-
-\fig{fig:report}{images/screens/report/report_small_naomi.jpg}
-{Report of potential causative variants with dynamic filtering options.}
+\fig[1]{fig:report}{images/screens/report/report_small_naomi.jpg}
+{The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor).}
 
 
 

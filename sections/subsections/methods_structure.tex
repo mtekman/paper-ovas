@@ -1,3 +1,4 @@
+
 \subsection{Pipeline Modules}
 
 Each module is tasked with the function of separating variants from an input file into two distinct output VCF groups of "filtered" and "discarded"; with the former group being passed into the next module, and the latter being halted at the current point of processing to be stored for potential debugging purposes.
@@ -14,10 +15,6 @@ All VCF files immediately undergo initial preparation upon file upload from the 
 The annotation stages of the pipeline then prime the variants with relevant metadata that will then be filtered against user-criterion throughout the rest of the pipeline. The annotation stage is the only mandatory stage of the pipeline, and a great portion of filtering occurs at these stages too, with up to 90\% of true negatives being discarded.
 
 As a result of the large demand placed upon the modules at this stage, they were written in the C++ in order to reduce time and memory constraints on low-end platforms. The stage is split into three modules (in order of processing): 
-
-\fig{fig:structure}{images/keep/structure.jpg}
- {Overall structure of the \app pipeline}
-
 
 \begin{itemize}
 
@@ -37,15 +34,14 @@ Once fully annotated, the resultant output VCFs are ready to be processed by the
 
 \subsubsection{Filtration Modules}
 
-The filtration modules consist of a series of Python(v2.7) scripts designed to parse these fields with the aim of minimizing the need for any mapping or additional pass-throughs.
+The filtration modules consist of a series of Python (v2.7) scripts designed to parse these fields with the aim of minimizing the need for any mapping or additional pass-throughs.
 
 A variant line in a VCF file describes six mandatory fields grouped into three distinct categories (in order of filtration complexity):
 
 \begin{enumerate}
-\belem{Variant Properties}{(CHROM) chromosome number, (POS) physical base-pair position, (REF) reference allele, and (ALT) alternate allele(s).
-
-	These are processed by the following filtration modules:
-	\begin{itemize}
+\belem{Variant Properties}{(CHROM) chromosome number, (POS) physical base-pair position, (REF) reference allele, and (ALT) alternate allele(s). These are processed by the following filtration modules:
+\vspace{-5pt}
+\begin{itemize}
 	\elem{Physical Location Filter}{Parses the first two columns only; chromosome and physical base-pair position. A locus set is provided by the user and all variants that exist inclusively within are kept in the output.}
 	\elem{Novel Variant Filter}{Parses the third column only describing variant identifier, and where not present (represented as '.') to keep the variant.}
 	\end{itemize}
@@ -59,7 +55,7 @@ A variant line in a VCF file describes six mandatory fields grouped into three d
 	\elem{Read Depth Filter}{Discards any variants falling below a user-set limit upon the number of FASTA reads aligned at that position.}
 	\elem{Call Quality Filter}{The variant caller often assigns its own scoring nomenclature (non-transparent, often related to read-depth) which is processed or ignored at this step.}
 	\elem{Mutation Type Filter}{Makes use of annotations acquired at the \textit{Adding Function} stage in order to filter single variants based upon user-set requirements of including any (multiple) of missense, nonsense, and synonymous mutation types.}
-	\elem{Same Gene Filter}{Requires more than one input VCF. Depending on the level of domain specificity (gene/exon), maps out all domains common across all input and produces an output set of VCF files that solely include variants that fall within those domains only.}
+	\elem{Same Gene Filter}{Depending on the level of domain specificity (gene/exon), maps out all domains common across all input VCF files and produces an output set of VCFs that solely include variants falling within those domains only.}
 	\elem{Same Variant Filter}{As previous, but under the more stringent requirement that all output variants match the same position.}
 
 	\end{itemize}

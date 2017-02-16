@@ -1,14 +1,14 @@
 %Fig at top or bottom
-\newcommand{\fig}[3]{\
+\newcommand{\fig}[4][1]{\
 \begin{figure}[!tpb]
-	\centerline{\includegraphics[width=\columnwidth]{#2}}\caption{#3}\label{#1}
+	\centerline{\includegraphics[width=#1\columnwidth]{#3}}\caption{#4}\label{#2}
 \end{figure}
 }
 
 %Fig at bottom
-\newcommand{\figbottom}[3]{\
+\newcommand{\figbottom}[4][1]{\
 \begin{figure}[!b]
-	\centerline{\includegraphics[width=\columnwidth]{#2}}\caption{#3}\label{#1}
+	\centerline{\includegraphics[width=#1\columnwidth]{#3}}\caption{#4}\label{#2}
 \end{figure}
 }
 

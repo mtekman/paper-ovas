@@ -2,34 +2,34 @@
 
 \subsection{Pipeline Results and Inheritance Modelling}
 
-\subsubsection{First Case: Hyperinsulinism}
+\subsubsection{First Case}
 
-Three families presented with an autosomal recessive phenotype of proteinuria and hyperinsulinism, with whole-exome sequencing being performed upon the affected members of each pedigree. From the 5 affected VCF input data acquired, 3 were siblings permitting the use of variant-level filtering.
+Three families presented with an autosomal recessive disease, with whole-exome sequencing being performed upon the affected members of each pedigree. From the 5 affected VCF input data acquired, 3 were siblings permitting the use of variant-level filtering.
 
 Each VCF file comprised of approximately 270,000 variants (SNPs and InDels) and were profiled against a gene map at the first annotation step (\textit{Adding Genes}) that comprised of exons, introns, 5' and 3' UTR, and essential splice sites (5bp).
 
-As much as 90\% of variants were deemed wholly intergenic and filtered at the annotation stage, leaving a drastically reduced subset of approximately 30,000 potentially informative variants. Following the VCF depicted in Fig~\ref{fig:result} (top), a further 4,544 variants are discarded as a result of the autosomal recessive filter which searched for homozygous or compound heterozygous variants alone, due to the lack of parental input data to further pre-screen for Mendelian variants. Sibling filtering at the common variant-level assisted in this regard, and the remaining genes were bisected between pedigrees through the use of the common gene filter.
+As much as 90\% of variants were deemed wholly intergenic and filtered at the annotation stage, leaving a drastically reduced subset of approximately 30,000 potentially relevant variants. Following the VCF depicted in Fig~\ref{fig:result} (top), a further 4,544 variants are discarded as a result of the autosomal recessive filter which searched for homozygous or compound heterozygous variants alone, due to the lack of parental input data to further pre-screen for Mendelian variants. Sibling filtering at the common variant-level assisted in this regard, and the remaining genes were bisected between pedigrees through the use of the common gene filter.
 
 Prior linkage analysis hinted at regions of interest with significant LOD-scores (>3) and this vastly reduced the number to 104 unique variants shared across all affecteds. The rarity of the phenotype prompted a search for novel variants, resulting in just 3 potentially causative-variants, 1 of which was a missense mutation that was later confirmed to be the disease-originating variant.
 
 
-\subsubsection{Second Case: Hereditary Gingival Fibromatosis}
+\subsubsection{Second Case}
 
-A single family displaying a phenotype of hereditary gingival fibromatosis (HGF) under an X-Linked dominant inheritance model. Whole-exome sequencing was performed upon 8 individuals (7 affected, 1 unaffected) with almost 290,000 variants in each VCF file. 
+A single family displaying a phenotype under an X-Linked dominant inheritance model. Whole-exome sequencing was performed upon 8 individuals (7 affected, 1 unaffected) with almost 290,000 variants in each VCF file. 
 
 As before, the first annotation step filtered out the majority of variants, with an 89.3\% reduction due to variants being wholly intergenic/intronic. Significant linkage analysis outlined a narrow region of interest upon chromosome X, which coupled with the \textit{Physical Location Filter} reduced the initial set to just 351 variants (Fig~\ref{fig:result} (middle)). A cascade of filters targeting novel non-synonymous mutations under an X-linked dominant scenario (common across affecteds) resulted in a single causative missense variant.
 
 
-\subsubsection{Third Case: C1q Nephropathy}
+\subsubsection{Third Case}
 
-Four siblings from a second-cousin consanguineous marriage were described with C1q nephropathy, a rare cause for steroid-resistant nephrotic syndrome with a mutation segregating in an autosomal recessive fashion \citep{vizjak2008pathology}. Exome-sequencing was performed on each sibling with an initial targeted set of approximately 70,000 variants.
+Four siblings were presented from a consanguineous marriage with a nephrotic syndrome segregating in an autosomal recessive fashion. Exome-sequencing was performed on each sibling with an initial targeted set of approximately 70,000 variants.
 
 Core annotation accounted for a 65.9\% reduction in total variants, and a missense/nonsense \textit{Mutation Type Filter} reduced the initial set to under 11,000 variants (Fig~\ref{fig:result} (bottom)). Due to the rarity of phenotype, the \textit{Alternate Allele Frequency} module was utilized  to filter for any variants with a frequency less than 0.01 within dbSNP (version 142), vastly reducing the number to a cluster of 878 variants.
 
-Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong affinity to the kidney.
+Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong expression in the kidney.
 
-
-\fig{fig:result}{images/keep/control_result_total.jpg}
+\fig[1]{fig:result}{images/keep/control_result_total.jpg}
 {The progression of output variants through core annotation and filtration stages for each of the three separate cases.}
+
 
 %under an autosomal recessive inheritance filter for 5 affected individuals, 3 of which are siblings. Linkage data was utilized and novel variants were selected due to the rarity of the phenotype.
