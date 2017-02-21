@@ -1,22 +1,48 @@
 \documentclass{assets/biotemplate/bioinfo}
 
-\copyrightyear{2016} \pubyear{2016}
+\copyrightyear{2017} \pubyear{2017}
 \access{Advance Access Publication Date: XXX XXX XXXX}
 \appnotes{XXXXXXXXXXXX}
 
-%provided
+
 \usepackage{assets/biotemplate/url}
 \usepackage{assets/biotemplate/algorithm2e}
 
 % Numbering in eqns
 \numberwithin{equation}{section}
 
-
 % App defns
 \def\app{OVAS}
 
-\input{other/commands}
 
+
+
+%%% CUSTOMIZATIONS -- override/discard where neccesary
+
+%Fig at top or bottom
+\newcommand{\fig}[4][1]{\
+\begin{figure}[!tpb]
+	\centerline{\includegraphics[width=#1\columnwidth]{#3}}\caption{#4}\label{#2}
+\end{figure}
+}
+
+%Fig at bottom
+\newcommand{\figbottom}[4][1]{\
+\begin{figure}[!b]
+	\centerline{\includegraphics[width=#1\columnwidth]{#3}}\caption{#4}\label{#2}
+\end{figure}
+}
+
+%Itemize
+\newcommand{\elem}[2]{\item[-]{\it #1}{,  #2}}
+\newcommand{\belem}[2]{\item[]{\bf #1}{ - #2}}
+
+
+
+
+
+
+%%% DOCUMENT
 \begin{document}
 
 \firstpage{1}
@@ -87,15 +113,6 @@ The raw sequence FASTQ reads produced by these HTS platforms are aligned to a sp
 
 BAM and VCF data are orthogonally related, with the former storing horizontal stretches of FASTA sequence reads aligned unevenly on top of one another forming "pile ups", and the latter taking vertical cross-sections of these pileups at specific loci to form a variant call.
 
-%; e.g.  a vertical-section of a pileup of interest numbering $n$ reads of one nucleobase and $n$ reads of a different nucleobase can be reported as a high quality heterozygous variant with a total read depth of $2n \text{ for large } n$.
-
-%\fig{fig:pileup}{images/keep/pileup.jpg}
-%{Visualization of a BAM file using Golden Helix Genome Browser. (a) Read depth representing the amount of reads that have been aligned to the reference sequence (c) for each bp. The pile-up (b) shows each read in the given region. The red column indicates a single variant, with summarized variant properties shown in table (d).}
-
-%\fig{fig:vcf}{images/keep/vcf_header.jpg}
-%{VCF header and body data describing the type of annotations and their contents respectively.}
-
-
 The VCF specification was designed for the 1000 Genomes project to produce a robust format that could house the many samples often sequenced under the same batch, but has since been adopted by other projects such as UK10K, dbSNP, NHLBI Exome Project, and others. The format is flexible with annotations, where additional fields can be outlined in the header and adhered to in the body of the data. Each line of the VCF body describes a single variant; physical position paired with a reference allele (as ascribed by a reference genome consistent across the entire VCF file) and alternate alleles that appear within samples. Major and minor alleles are specific only to the sample population but their frequencies can be pre-computed and appended to a variant line as additional information to then be utilized in small population analyses such as inheritance modelling \citep{danecek2011variant}.
 
 Variant analysis suites all work under the same principle; filtering all variants under a user-specified set of criteria against the various variant annotations present in the VCF in order to produce a subset informative to the phenotype. Optimistic filtering measures will produce a smaller set with the drawback of missing key causative variants, and conservative filtering measures will produce too many false positives. The effectiveness of an analysis rests primarily upon the accuracy of the variant annotations which can attribute to as much as 15\% of false negatives \citep{warden2014detailed}, as well as the frequency of false negatives that are discarded due to overly-stringent quality filtering. A common approach to addressing both issues is through learning algorithms that can be trained to favour individual variants over others with the caveat of producing results via 'black-box' methods that may create some disparity between the user and their data \citep{pabinger2014survey}. 
@@ -109,12 +126,12 @@ For non-Mendelian disorders, we also consider the special case of \textit{mosaic
 Here we outline our Open-source Variant Analysis Suite (\app{}) that makes use of these inheritance modelling scenarios with the aim to vastly reduce the number of false positives.
 
 
-\fig{fig:inheritance}{images/keep/inh_autosomal.jpg}
+\fig{fig:inheritance}{images/inh_autosomal.jpg}
 	{Autosomal inheritance pattern with red disease allele, both parents as 
 (A) Recessive inheritance, both parents as heterozygous carriers with an unaffected:carrier:affected ratio of 1:2:1.
 (B) Dominant inheritance, one parent affected with an unaffected:affected ratio of 1:1.}
 	
-\fig{fig:inheritancex}{images/keep/inh_xlinked.jpg}
+\fig{fig:inheritancex}{images/inh_xlinked.jpg}
 	{X-linked inheritance pattern with a red disease allele.
 (A) Recessive inheritance, mother is a disease-carrier. A mother will pass her disease-allele
 to half of her offspring, resulting just sons to be affected.
@@ -146,7 +163,7 @@ Though core operations are managed primarily through back-end shell scripts, the
 
 \app{} consists of a series of inter-connecting Bash shell scripts which serve as necessary framework to accommodate wrappers for subsequent modules in order to chain (or "pipe") them together, as well as provide anchors for static and dynamic data management throughout general operation as shown in Fig~\ref{fig:structure}.
 
-\fig[0.7]{fig:structure}{images/keep/structure.jpg}
+\fig[0.7]{fig:structure}{images/structure.jpg}
  {Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline in conjunction with static map and reference data; to be processed in turn by the core annotation, optional filtering, and additional annotation modules.} 
 
 
@@ -167,10 +184,10 @@ A drop-down box of available penetrance model provides mutually-exclusive model-
 The pipeline is spawned in a GNU \textit{screen} session in order to enable process control and resumeablility, where snapshots of a session in-process are repeatedly retrieved from the shell process to the web front-end via \textit{PHP} scripts. UI elements are managed with CSS and minimal Javascript, with the exception of the interactive report which performs table operations primarily through the latter. The front-end itself is hosted via a minimal \textit{lighttpd} server, and ongoing \app{} processes can be managed both from the web-interface as well as from the shell provided in the live environment.
 
 
-\fig[1]{fig:webend}{images/screens/pipe/pipe_3_final.jpg}
+\fig[1]{fig:webend}{images/pipe_3_final.jpg}
 {Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab.}\
 \
-\fig[1]{fig:report}{images/screens/report/report_small_naomi.jpg}
+\fig[1]{fig:report}{images/report_small.jpg}
 {The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor).}
 
 
@@ -207,8 +224,6 @@ The annotation stages of the pipeline then prime the variants with relevant meta
 \elem{Adding Zygosity}{(via \textit{AddZygo}) Addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module sets zygosity by nucleotide base-count alone, and determines HET/HOM assignments based upon a user-set frequency threshold (default $<0.65$).
 }
 \end{itemize}
-
-%\textit{SNVIndel} simply determines whether a variant is Single Nucleotide Polymorhpism (SNV) or an Insertion-Deletion (InDel) compared to the reference genome
 
 Once fully annotated, the resultant output VCFs are ready to be processed by the filtering modules.
 
@@ -326,16 +341,12 @@ Core annotation accounted for a 65.9\% reduction in total variants, and a missen
 
 Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong expression in the kidney.
 
-\fig[1]{fig:result}{images/keep/control_result_total.jpg}
+\fig[1]{fig:result}{images/control_result_total.jpg}
 {The progression of output variants through core annotation and filtering stages for each of the three separate cases.}
 
 
-%under an autosomal recessive inheritance filter for 5 affected individuals, 3 of which are siblings. Linkage data was utilized and novel variants were selected due to the rarity of the phenotype.
-
-
 %% DISCUSSION
-
-\input{sections/floats/results_table}
+\input{results_table} %float
 
 \vspace{-1cm}
 \section{Discussion}
@@ -374,14 +385,6 @@ The annotation step is crucial, especially for whole-genome sequence data where 
 
 \app{} is future-secure due to the inclusion of the background scripts that generated the static data being packaged with the live environment. Updates to the human genome reference, variant databases, and FASTA sequences can be retrieved on demand for platforms with active internet connections. Changes will preserve across successive boots for non-volatile storage mediums such as USB sticks, ideal in deployment scenarios with infrequent or absent internet access.
 
-
-%A number of future improvements are to be expected, with further streamlining of the file input process through the web front-end by means of integrating a pedigree creation tool in-browser that will generate a pedigree file from families drawn by the user within a HTML5 canvas.
-
-%Planned enhancements to the core \app{} back-end will incorporate parallelization to the over-arching framework in order to process independent files or modules asynchronously, which as shown in Table~\ref{table:results} would lend no significant performance increase in current filtering modules due to their trivial runtimes, but will become more essential in the future for inevitably denser VCF input sets.
-
-%More immediate changes will focus on implementing additional feature annotation and filtering modules such as alternative splice sites and transcription factor binding sites, as well as extending existing modules parameters to incorporate special-case scenarios such as mitochondrial penetrance and cancer-specific mosaic filtering.
-
-
 %% ACK
 
 \vspace{-0.3cm}
@@ -395,17 +398,8 @@ DB and RK were in part supported by St. Peter's Trust for Kidney, Bladder and Pr
 \vspace{-15pt}
 
 %% BIBLIO
-%\bibliographystyle{natbib}
-%\bibliographystyle{achemnat}
-%\bibliographystyle{plainnat}
-%\bibliographystyle{abbrv}
-
 \bibliographystyle{assets/biotemplate/natbib}
-%
-%\bibliographystyle{plain}
-%
-%\bibliographystyle{IEEEtran}
-\bibliography{other/smallbib}
+\bibliography{bibliography}
 
 
 \end{document}
