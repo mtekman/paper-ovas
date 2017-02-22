@@ -498,8 +498,7 @@
 %        Vol. 00\ no. 00 \@pubyear\\
 %        \hfill Pages \thepagerange
 %  }
-  \hfill\includegraphics{assets/biotemplate/OUP_First_SBk_Bot_8401.eps}}
-%  \hfill\includegraphics{OUP_First_SBk_Bot_8401.eps}} % -- editted by mct
+  \hfill\includegraphics{OUP_First_SBk_Bot_8401.eps}}
   \vskip2pt
   \rule{415pt}{2\p@}\par%
   \helvetica

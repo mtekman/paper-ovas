@@ -1,45 +1,16 @@
-\documentclass{assets/biotemplate/bioinfo}
+\documentclass{bioinfo}
 
 \copyrightyear{2017} \pubyear{2017}
 \access{Advance Access Publication Date: XXX XXX XXXX}
 \appnotes{XXXXXXXXXXXX}
 
 
-\usepackage{assets/biotemplate/url}
-\usepackage{assets/biotemplate/algorithm2e}
+\usepackage{url}
+\usepackage{algorithm2e}
 
-% Numbering in eqns
-\numberwithin{equation}{section}
 
 % App defns
 \def\app{OVAS}
-
-
-
-
-%%% CUSTOMIZATIONS -- override/discard where neccesary
-
-%Fig at top or bottom
-\newcommand{\fig}[4][1]{\
-\begin{figure}[!tpb]
-	\centerline{\includegraphics[width=#1\columnwidth]{#3}}\caption{#4}\label{#2}
-\end{figure}
-}
-
-%Fig at bottom
-\newcommand{\figbottom}[4][1]{\
-\begin{figure}[!b]
-	\centerline{\includegraphics[width=#1\columnwidth]{#3}}\caption{#4}\label{#2}
-\end{figure}
-}
-
-%Itemize
-\newcommand{\elem}[2]{\item[-]{\it #1}{,  #2}}
-\newcommand{\belem}[2]{\item[]{\bf #1}{ - #2}}
-
-
-
-
 
 
 %%% DOCUMENT
@@ -125,23 +96,15 @@ For non-Mendelian disorders, we also consider the special case of \textit{mosaic
 
 Here we outline our Open-source Variant Analysis Suite (\app{}) that makes use of these inheritance modelling scenarios with the aim to vastly reduce the number of false positives.
 
-
-\fig{fig:inheritance}{images/inh_autosomal.jpg}
-	{Autosomal inheritance pattern with red disease allele, both parents as 
+\begin{figure}[!tpb]
+  \centerline{\includegraphics[width=\columnwidth]{inh_autosomal.jpg}}\caption{Autosomal inheritance pattern with red disease allele, both parents as 
 (A) Recessive inheritance, both parents as heterozygous carriers with an unaffected:carrier:affected ratio of 1:2:1.
-(B) Dominant inheritance, one parent affected with an unaffected:affected ratio of 1:1.}
-	
-\fig{fig:inheritancex}{images/inh_xlinked.jpg}
-	{X-linked inheritance pattern with a red disease allele.
-(A) Recessive inheritance, mother is a disease-carrier. A mother will pass her disease-allele
-to half of her offspring, resulting just sons to be affected.
-(B) Recessive inheritance, father is affected. A father will pass his disease-allele to all of
-his daughters resulting all of them to be a disease-carriers.
-(C) Dominant inheritance, father is affected. A father will pass his disease-allele to all his
-daughters resulting all of them to be affected. 
-(D) Dominant inheritance, mother is affected. A mother will pass her disease-allele
-equally to daughters and sons, resulting half of them to be affected.}
+(B) Dominant inheritance, one parent affected with an unaffected:affected ratio of 1:1.}\label{fig:inheritance}
+\end{figure}
 
+\begin{figure}[!tpb]
+  \centerline{\includegraphics[width=\columnwidth]{inh_xlinked.jpg}}\caption{X-linked inheritance pattern with a red disease allele. (A) Recessive inheritance, mother is a disease-carrier. A mother will pass her disease-allele to half of her offspring, resulting just sons to be affected. (B) Recessive inheritance, father is affected. A father will pass his disease-allele to all of his daughters resulting all of them to be a disease-carriers. (C) Dominant inheritance, father is affected. A father will pass his disease-allele to all his daughters resulting all of them to be affected. (D) Dominant inheritance, mother is affected. A mother will pass her disease-allele equally to daughters and sons, resulting half of them to be affected.}\label{fig:inheritancex}
+\end{figure}
 
 
 %% APPROACH
@@ -163,8 +126,9 @@ Though core operations are managed primarily through back-end shell scripts, the
 
 \app{} consists of a series of inter-connecting Bash shell scripts which serve as necessary framework to accommodate wrappers for subsequent modules in order to chain (or "pipe") them together, as well as provide anchors for static and dynamic data management throughout general operation as shown in Fig~\ref{fig:structure}.
 
-\fig[0.7]{fig:structure}{images/structure.jpg}
- {Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline in conjunction with static map and reference data; to be processed in turn by the core annotation, optional filtering, and additional annotation modules.} 
+\begin{figure}[!tpb]
+  \centerline{\includegraphics[width=0.7\columnwidth]{structure.jpg}}\caption{Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline in conjunction with static map and reference data; to be processed in turn by the core annotation, optional filtering, and additional annotation modules.}\label{fig:structure}
+\end{figure}
 
 
  
@@ -183,13 +147,12 @@ A drop-down box of available penetrance model provides mutually-exclusive model-
 
 The pipeline is spawned in a GNU \textit{screen} session in order to enable process control and resumeablility, where snapshots of a session in-process are repeatedly retrieved from the shell process to the web front-end via \textit{PHP} scripts. UI elements are managed with CSS and minimal Javascript, with the exception of the interactive report which performs table operations primarily through the latter. The front-end itself is hosted via a minimal \textit{lighttpd} server, and ongoing \app{} processes can be managed both from the web-interface as well as from the shell provided in the live environment.
 
-
-\fig[1]{fig:webend}{images/pipe_3_final.jpg}
-{Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab.}\
-\
-\fig[1]{fig:report}{images/report_small.jpg}
-{The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor).}
-
+\begin{figure}[!tpb]
+  \centerline{\includegraphics[width=\columnwidth]{pipe_3_final.jpg}}\caption{Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab.}\label{fig:webend}
+\end{figure}\
+\begin{figure}[!tpb]
+  \centerline{\includegraphics[width=\columnwidth]{report_small.jpg}}\caption{The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor).}\label{fig:report}
+\end{figure}
 
 
 \subsubsection{Self-Contained Environment}
@@ -217,11 +180,11 @@ The annotation stages of the pipeline then prime the variants with relevant meta
 
 \begin{itemize}
 
-\elem{Adding Genes}{(via \textit{GenePender}) Appends a gene-context to the variants under a user-configured level of detail at the gene/intergenic junction or the exon/intron/splice/UTR sub-divisions, including isoforms. Regulatory variants further up or downstream of UTR can be specified by defining custom margins of enclosement, and wholly intergenic regions are discarded by default (though can be kept upon user preference). 
+\item[-]{\it Adding Genes}{, (via \textit{GenePender}) Appends a gene-context to the variants under a user-configured level of detail at the gene/intergenic junction or the exon/intron/splice/UTR sub-divisions, including isoforms. Regulatory variants further up or downstream of UTR can be specified by defining custom margins of enclosement, and wholly intergenic regions are discarded by default (though can be kept upon user preference). 
 }
-\elem{Adding Function}{(via \textit{FuncAnnot}) Applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.
+\item[-]{\it Adding Function}{, (via \textit{FuncAnnot}) Applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.
 }
-\elem{Adding Zygosity}{(via \textit{AddZygo}) Addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module sets zygosity by nucleotide base-count alone, and determines HET/HOM assignments based upon a user-set frequency threshold (default $<0.65$).
+\item[-]{\it Adding Zygosity}{, (via \textit{AddZygo}) Addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module sets zygosity by nucleotide base-count alone, and determines HET/HOM assignments based upon a user-set frequency threshold (default $<0.65$).
 }
 \end{itemize}
 
@@ -234,35 +197,35 @@ Once fully annotated, the resultant output VCFs are ready to be processed by the
 The filtering modules consist of a series of Python (v2.7) scripts designed to parse these fields with the aim of minimizing the need for any mapping or additional pass-throughs. A variant line in a VCF file describes six mandatory fields grouped into three distinct categories (in order of filtering complexity):
 
 \begin{enumerate}
-\belem{Variant Properties}{(CHROM) chromosome number, (POS) physical base-pair position, (REF) reference allele, and (ALT) alternate allele(s). These are processed by the following filtering modules:
+\item[]{\bf Variant Properties}{ - (CHROM) chromosome number, (POS) physical base-pair position, (REF) reference allele, and (ALT) alternate allele(s). These are processed by the following filtering modules:
 \vspace{-5pt}
 \begin{itemize}
-	\elem{Physical Location Filter}{Parses the first two columns only; chromosome and physical base-pair position. A locus set is provided by the user and all variants that exist inclusively within are kept in the output.}
-	\elem{Novel Variant Filter}{Parses the third column only describing variant identifier, and where not present (represented as '.') to keep the variant.}
+	\item[-]{\it Physical Location Filter}{, Parses the first two columns only; chromosome and physical base-pair position. A locus set is provided by the user and all variants that exist inclusively within are kept in the output.}
+	\item[-]{\it Novel Variant Filter}{, Parses the third column only describing variant identifier, and where not present (represented as '.') to keep the variant.}
 	\end{itemize}
 }
 
-\belem{Variant Metadata}{(INFO) variant call information consisting of various call related properties summarizing the FASTA strand pileup it bisects.
+\item[]{\bf Variant Metadata}{ - (INFO) variant call information consisting of various call related properties summarizing the FASTA strand pileup it bisects.
 
 	The INFO field consists of variant call report information which only alludes to the quality of the sample data, but not to the sample data itself, enabling for fast single-pass processing.
 
 	\begin{itemize}
-	\elem{Read Depth Filter}{Discards any variants falling below a user-set limit upon the number of FASTA reads aligned at that position.}
-	\elem{Call Quality Filter}{The variant caller often assigns its own scoring nomenclature (non-transparent, often related to read-depth) which is processed or ignored at this step.}
-	\elem{Mutation Type Filter}{Makes use of annotations acquired at the \textit{Adding Function} stage in order to filter single variants based upon user-set requirements of including any (multiple) of missense, nonsense, and synonymous mutation types.}
-	\elem{Same Gene Filter}{Depending on the level of domain specificity (gene/exon), maps out all domains common across all input VCF files and produces an output set of VCFs that solely include variants falling within those domains only.}
-	\elem{Same Variant Filter}{As previous, but under the more stringent requirement that all output variants match the same position.}
+	\item[-]{\it Read Depth Filter}{Discards any variants falling below a user-set limit upon the number of FASTA reads aligned at that position.}
+	\item[-]{\it Call Quality Filter}{, The variant caller often assigns its own scoring nomenclature (non-transparent, often related to read-depth) which is processed or ignored at this step.}
+	\item[-]{\it Mutation Type Filter}{, Makes use of annotations acquired at the \textit{Adding Function} stage in order to filter single variants based upon user-set requirements of including any (multiple) of missense, nonsense, and synonymous mutation types.}
+	\item[-]{\it Same Gene Filter}{, Depending on the level of domain specificity (gene/exon), maps out all domains common across all input VCF files and produces an output set of VCFs that solely include variants falling within those domains only.}
+	\item[-]{\it Same Variant Filter}{, As previous, but under the more stringent requirement that all output variants match the same position.}
 
 	\end{itemize}
 }
 
-\belem{Sample Data}{(FORMAT) Sample format field denoting the format which all subsequent sample data conform to.
+\item[]{\bf Sample Data}{ - (FORMAT) Sample format field denoting the format which all subsequent sample data conform to.
 
 	The sample data and format field cannot exist without the other, and it is required that the modules in this category process the format field before scanning the data. 
 
 	\begin{itemize}
-	\elem{Alternate Allele Frequency}{Scans the sample data in order ascertain the absolute frequencies of the alternate allele(s) in the population, removing variants with frequencies exceeding user-defined upper/lower-bound thresholds.}
-	\elem{Inheritance Filter}{Requires multiple VCF inputs. Performs trait penetrance modelling for differently affected individuals following sibling-sibling, and sibling-parent relations.}
+	\item[-]{\it Alternate Allele Frequency}{, Scans the sample data in order ascertain the absolute frequencies of the alternate allele(s) in the population, removing variants with frequencies exceeding user-defined upper/lower-bound thresholds.}
+	\item[-]{\it Inheritance Filter}{, Requires multiple VCF inputs. Performs trait penetrance modelling for differently affected individuals following sibling-sibling, and sibling-parent relations.}
 	\end{itemize}
 }
 \end{enumerate}
@@ -275,21 +238,21 @@ For all detected parent-offspring trios, variants undergo context-based filterin
 
 \begin{itemize}
 
-\belem{Autosomal Dominant}{The phenotype is caused by a single mutant autosomal allele, and affected individuals must have affected parents, mapping any \{HOM,HET\}$\mapsto$\{HET,HOM\} under complete penetrance. Under a \textit{de novo} context all common affected variants are filtered against unaffected controls, otherwise variant commonality is kept within sibling groups.}
+\item[]{\bf Autosomal Dominant}{ - The phenotype is caused by a single mutant autosomal allele, and affected individuals must have affected parents, mapping any \{HOM,HET\}$\mapsto$\{HET,HOM\} under complete penetrance. Under a \textit{de novo} context all common affected variants are filtered against unaffected controls, otherwise variant commonality is kept within sibling groups.}
 
-\belem{Autosomal Recessive}{The phenotype is caused by a loss of function stemming from both copies of an autosomal gene, at times from the result of consanguineous breeding. Two paths of transmission are considered from parent$\mapsto$offspring depending on whether the affected offspring variant is compound-heterozygous (C-HET) or homozygous (HOM):
+\item[]{\bf Autosomal Recessive}{ - The phenotype is caused by a loss of function stemming from both copies of an autosomal gene, at times from the result of consanguineous breeding. Two paths of transmission are considered from parent$\mapsto$offspring depending on whether the affected offspring variant is compound-heterozygous (C-HET) or homozygous (HOM):
 
 	\begin{itemize}
-	\elem{HOM}{At least one parent maps HOM$\mapsto$HOM, or \{HET/HET\}$\mapsto$HOM if both parents are carriers.}
-	\elem{C-HET}{Parents are assumed to be carriers for different singular HET variants across common genes, which compound in offspring as multiple HET variants within the same gene. Under a gene context, this is resolved via \{HET1/HET2\}$\mapsto$\{HET1+HET2\} mapping to produce a C-HET gene.}
+	\item[-]{\it HOM}{, At least one parent maps HOM$\mapsto$HOM, or \{HET/HET\}$\mapsto$HOM if both parents are carriers.}
+	\item[-]{\it C-HET}{, Parents are assumed to be carriers for different singular HET variants across common genes, which compound in offspring as multiple HET variants within the same gene. Under a gene context, this is resolved via \{HET1/HET2\}$\mapsto$\{HET1+HET2\} mapping to produce a C-HET gene.}
 	\end{itemize}
 
 Siblings are then filtered for common variants existing within affecteds siblings only, discarding those that are homozygous in unaffected controls.
 }
 
-\belem{X-linked Dominant}{As with autosomal dominant but with the mutant allele on the X-chromosome.}
+\item[]{\bf X-linked Dominant}{ - As with autosomal dominant but with the mutant allele on the X-chromosome.}
 
-\belem{X-linked Recessive}{As with autosomal recessive but with mutations occurring on the X-chromosome. Males with a single mutant copy are hemizygous and are treated as homozygous, exempting them from compound heterozygosity checking.}
+\item[]{\bf X-linked Recessive}{ - As with autosomal recessive but with mutations occurring on the X-chromosome. Males with a single mutant copy are hemizygous and are treated as homozygous, exempting them from compound heterozygosity checking.}
 \end{itemize}
 
 Mosaicism is treated as a special case, where allele frequencies are pre-calculated for each variant and then filtered against user-set thresholds conforming to expected mosaic frequency ranges (typically between 10-35\%).
@@ -304,9 +267,9 @@ Mosaicism is treated as a special case, where allele frequencies are pre-calcula
 The last stage of pipeline constitutes a small subset of variants which have successfully passed through the main filtering stages and require finer analysis which is enabled by providing an even greater context to compare the variants. Additional annotation relates to the downstream effects of said variants such as structure, function, and expression.
 
 \begin{itemize}
-\elem{Isoform Context}{Translates gene isoforms into their RefSeq nomenclature counterparts.}
-\elem{Protein Context}{Assigns protein annotation information from UniProt sources to assign information related protein domain.}
-\elem{Gene Expression}{Organ and tissue-specific data from the Encode GNF Atlas2 database is provided along with expression ratios which can be further filtered against user-specified limits.}
+\item[-]{\it Isoform Context}{, Translates gene isoforms into their RefSeq nomenclature counterparts.}
+\item[-]{\it Protein Context}{, Assigns protein annotation information from UniProt sources to assign information related protein domain.}
+\item[-]{\it Gene Expression}{, Organ and tissue-specific data from the Encode GNF Atlas2 database is provided along with expression ratios which can be further filtered against user-specified limits.}
 \end{itemize}
 
 \end{methods}
@@ -341,12 +304,53 @@ Core annotation accounted for a 65.9\% reduction in total variants, and a missen
 
 Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong expression in the kidney.
 
-\fig[1]{fig:result}{images/control_result_total.jpg}
-{The progression of output variants through core annotation and filtering stages for each of the three separate cases.}
+\begin{figure}[!tpb]
+  \centerline{\includegraphics[width=\columnwidth]{control_result_total.jpg}}\caption{The progression of output variants through core annotation and filtering stages for each of the three separate cases.}\label{fig:result}
+\end{figure}
 
 
 %% DISCUSSION
-\input{results_table} %float
+
+%% Results table
+
+\begin{table}[!t]
+\processtable{Average single-core runtimes of VCF files containing 50,000 variants passing individually through all filters\label{table:results}}
+{\begin{tabular}{| c | *2c |} \hline %\toprule
+%\emph{Pipeline} & \emph{Module} & \emph{Runtime} \\
+%\emph{Stage} & \emph{Name} & \emph{(seconds)} \\
+\emph{Pipeline Stage} & \emph{Module Name} & \emph{Runtime (seconds)} \\
+\hline
+% A multirow would be more benefial here
+% but let's keep package req down for now
+             & Adding Genes     & 125\\
+Annotation   & Adding Function & 28.7\\
+             & Adding Zygosity & 0.81\\
+\hline
+             & Physical Location Filter & 1.02 \\
+             & Read Depth Filter        & 1.26 \\
+             & Call Quality Filter      & 0.93\\
+Filtering    & AAF Filter               & 432\\
+             & Mutation Type Filter     & 1.08\\
+             & Novel Variant Filter     & 1.12\\
+             & Same Gene Filter       & 22.5\\
+             & Same Variant Filter    & 26.1\\
+\hline
+             & AD Inheritance    & 0.83\\
+ Trait       & AR Inheritance    & 1.22\\
+Penetrance   & XD Inheritance    & 0.74\\
+  Model      & XR Inheritance    & 1.39\\
+             & Mosaicism         & 0.94\\
+\hline
+                 & Isoform Context      & 2.28\\
+   Extended      & Protein Context      & 4.10\\
+ Annotation      & Gene Expression      & 145\\
+%                 & Transcription Factor & 0.86\\
+%                 & House-Keeping        & 0.93\\
+\hline
+%\botrule
+\end{tabular}}
+{Single VCF file timings for Annotation, Filtering, and Extended Annotation modules. Trait Penetrance module timings are based on three VCFs consisting of a parent-offspring trio. Tests were run on a 2GHz dual-core processor with 4GB RAM.}
+\end{table}
 
 \vspace{-1cm}
 \section{Discussion}
@@ -398,7 +402,7 @@ DB and RK were in part supported by St. Peter's Trust for Kidney, Bladder and Pr
 \vspace{-15pt}
 
 %% BIBLIO
-\bibliographystyle{assets/biotemplate/natbib}
+\bibliographystyle{natbib}
 \bibliography{bibliography}
 
 
