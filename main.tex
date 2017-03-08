@@ -7,6 +7,7 @@
 
 \usepackage{url}
 \usepackage{algorithm2e}
+\usepackage{graphicx}
 
 
 % App defns
@@ -97,18 +98,17 @@ For non-Mendelian disorders, we also consider the special case of \textit{mosaic
 Here we outline our Open-source Variant Analysis Suite (\app{}) that makes use of these inheritance modelling scenarios with the aim to vastly reduce the number of false positives.
 
 \begin{figure}[!tpb]
-  \centerline{\includegraphics[width=\columnwidth]{inh_autosomal.jpg}}\caption{Autosomal inheritance pattern with red disease allele, both parents as 
+  \centerline{\includegraphics[natwidth=250bp,natheight=111bp]{inh_autosomal.jpg}}\caption{Autosomal inheritance pattern with red disease allele, both parents as 
 (A) Recessive inheritance, both parents as heterozygous carriers with an unaffected:carrier:affected ratio of 1:2:1.
 (B) Dominant inheritance, one parent affected with an unaffected:affected ratio of 1:1.}\label{fig:inheritance}
-\end{figure}
-
+\end{figure}\
 \begin{figure}[!tpb]
-  \centerline{\includegraphics[width=\columnwidth]{inh_xlinked.jpg}}\caption{X-linked inheritance pattern with a red disease allele. (A) Recessive inheritance, mother is a disease-carrier. A mother will pass her disease-allele to half of her offspring, resulting just sons to be affected. (B) Recessive inheritance, father is affected. A father will pass his disease-allele to all of his daughters resulting all of them to be a disease-carriers. (C) Dominant inheritance, father is affected. A father will pass his disease-allele to all his daughters resulting all of them to be affected. (D) Dominant inheritance, mother is affected. A mother will pass her disease-allele equally to daughters and sons, resulting half of them to be affected.}\label{fig:inheritancex}
+  \centerline{\includegraphics[natwidth=250bp,natheight=201bp]{inh_xlinked.jpg}}\caption{X-linked inheritance pattern with a red disease allele. (A) Recessive inheritance, mother is a disease-carrier. A mother will pass her disease-allele to half of her offspring, resulting just sons to be affected. (B) Recessive inheritance, father is affected. A father will pass his disease-allele to all of his daughters resulting all of them to be a disease-carriers. (C) Dominant inheritance, father is affected. A father will pass his disease-allele to all his daughters resulting all of them to be affected. (D) Dominant inheritance, mother is affected. A mother will pass her disease-allele equally to daughters and sons, resulting half of them to be affected.}\label{fig:inheritancex}
 \end{figure}
 
 
 %% APPROACH
-\vspace{-1cm}
+%\vspace{-1cm}
 \section{Approach}
 
 The core ideology behind \app{} was to preserve the VCF specification at each step of the analysis, and this is catered to extensively within the pipeline where each module inputs and outputs VCF file(s) in order to facilitate the chaining of subsequent pipeline modules downstream. This allows for full analysis transparency, where results can be extracted at any stage of an ongoing analysis. 
@@ -127,7 +127,7 @@ Though core operations are managed primarily through back-end shell scripts, the
 \app{} consists of a series of inter-connecting Bash shell scripts which serve as necessary framework to accommodate wrappers for subsequent modules in order to chain (or "pipe") them together, as well as provide anchors for static and dynamic data management throughout general operation as shown in Fig~\ref{fig:structure}.
 
 \begin{figure}[!tpb]
-  \centerline{\includegraphics[width=0.7\columnwidth]{structure.jpg}}\caption{Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline in conjunction with static map and reference data; to be processed in turn by the core annotation, optional filtering, and additional annotation modules.}\label{fig:structure}
+  \centerline{\includegraphics[natwidth=180bp,natheight=120bp]{structure.jpg}}\caption{Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline in conjunction with static map and reference data; to be processed in turn by the core annotation, optional filtering, and additional annotation modules.}\label{fig:structure}
 \end{figure}
 
 
@@ -139,6 +139,13 @@ The pipeline was originally developed in a headless Linux shell environment to b
 
 \subsubsection{Web-front}
 
+\begin{figure}[!tpb]
+  \centerline{\includegraphics[natwidth=220bp,natheight=240bp]{pipe_3_final.jpg}}\caption{Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab.}\label{fig:webend}
+\end{figure}
+\begin{figure}[!tpb]
+  \centerline{\includegraphics[natwidth=220bp,natheight=190bp]{report_small.jpg}}\caption{The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor).}\label{fig:report}
+\end{figure}
+
 To necessitate the uptake of \app{}, a web interface was created to facilitate input validation and pipeline configuration process.
 
 The file upload procedure is streamlined by means of a pedigree file which pre-specifies cases (affecteds) and controls (unaffecteds) as well as their relation to one another. Pedigree data is automatically parsed into a file upload utility where the user can drag and drop their VCF files into the appropriate bins for processing. The interface extends to display configuration options for each annotation and filtering module whilst uploading occurs in the background. Modules are enabled by expanding check-boxes to display individual module parameters and thresholds that can be overridden by user criterion, examples of which can be shown in Fig~\ref{fig:webend}. 
@@ -146,13 +153,6 @@ The file upload procedure is streamlined by means of a pedigree file which pre-s
 A drop-down box of available penetrance model provides mutually-exclusive model-dependent options to better refine the analysis, such as parent or unaffected sibling-specific filtering. Additional annotation requirements are set (or skipped upon preference) and then the pipeline is run in tandem to the existing input session. In the case of user-termination, re-upload is not necessary for the same analysis as the process will reuse the temporary files from the last session and will not repeat the same work twice, resuming from where it left off. Once complete, the pipeline self-terminates and produces an interactive report of the remaining variants primed for feature presentation/concealment to help pinpoint variants of interest such as those shown in Fig~\ref{fig:report}.
 
 The pipeline is spawned in a GNU \textit{screen} session in order to enable process control and resumeablility, where snapshots of a session in-process are repeatedly retrieved from the shell process to the web front-end via \textit{PHP} scripts. UI elements are managed with CSS and minimal Javascript, with the exception of the interactive report which performs table operations primarily through the latter. The front-end itself is hosted via a minimal \textit{lighttpd} server, and ongoing \app{} processes can be managed both from the web-interface as well as from the shell provided in the live environment.
-
-\begin{figure}[!tpb]
-  \centerline{\includegraphics[width=\columnwidth]{pipe_3_final.jpg}}\caption{Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab.}\label{fig:webend}
-\end{figure}\
-\begin{figure}[!tpb]
-  \centerline{\includegraphics[width=\columnwidth]{report_small.jpg}}\caption{The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor).}\label{fig:report}
-\end{figure}
 
 
 \subsubsection{Self-Contained Environment}
@@ -275,6 +275,10 @@ The last stage of pipeline constitutes a small subset of variants which have suc
 \end{methods}
 
 
+\begin{figure}[!tpb]
+  \centerline{\includegraphics[natwidth=250bp,natheight=500bp]{control_result_total.jpg}}\caption{The progression of output variants through core annotation and filtering stages for each of the three separate cases.}\label{fig:result}
+\end{figure}
+
 %% RESULTS
 \section{Results}
 
@@ -303,11 +307,6 @@ Four siblings were presented from a consanguineous marriage with a nephrotic syn
 Core annotation accounted for a 65.9\% reduction in total variants, and a missense/nonsense \textit{Mutation Type Filter} reduced the initial set to under 11,000 variants (Fig~\ref{fig:result} (bottom)). Due to the rarity of phenotype, the \textit{Alternate Allele Frequency} module was utilized  to filter for any variants with a frequency less than 0.01 within dbSNP (version 142), vastly reducing the number to a cluster of 878 variants.
 
 Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong expression in the kidney.
-
-\begin{figure}[!tpb]
-  \centerline{\includegraphics[width=\columnwidth]{control_result_total.jpg}}\caption{The progression of output variants through core annotation and filtering stages for each of the three separate cases.}\label{fig:result}
-\end{figure}
-
 
 %% DISCUSSION
 
@@ -352,7 +351,7 @@ Penetrance   & XD Inheritance    & 0.74\\
 {Single VCF file timings for Annotation, Filtering, and Extended Annotation modules. Trait Penetrance module timings are based on three VCFs consisting of a parent-offspring trio. Tests were run on a 2GHz dual-core processor with 4GB RAM.}
 \end{table}
 
-\vspace{-1cm}
+%\vspace{-1cm}
 \section{Discussion}
 
 Depending upon the total input variants as well as the number and ordering of modules used, an average initial analysis using any number of modules (excluding alternate allele filtering) for VCF files containing 300,000 variants each, will attribute a total of 2 minutes per VCF.

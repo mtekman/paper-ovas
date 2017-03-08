@@ -1,0 +1,964 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<modsCollection xmlns="http://www.loc.gov/mods/v3">
+<mods ID="kari2014consanguinity">
+    <titleInfo>
+        <title>Consanguinity in Saudi Arabia</title>
+        <subTitle>a unique opportunity for pediatric kidney research</subTitle>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Jameela</namePart>
+        <namePart type="given">A</namePart>
+        <namePart type="family">Kari</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Detlef</namePart>
+        <namePart type="family">Bockenhauer</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Horia</namePart>
+        <namePart type="family">Stanescu</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Mamdooh</namePart>
+        <namePart type="family">Gari</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Robert</namePart>
+        <namePart type="family">Kleta</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Ajay</namePart>
+        <namePart type="given">K</namePart>
+        <namePart type="family">Singh</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2014</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>American Journal of Kidney Diseases</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>Elsevier</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">kari2014consanguinity</identifier>
+    <part>
+        <date>2014</date>
+        <detail type="volume"><number>63</number></detail>
+        <detail type="issue"><number>2</number></detail>
+        <extent unit="page">
+            <start>304</start>
+            <end>310</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="bockenhauer2012genetic">
+    <titleInfo>
+        <title>Genetic testing in renal disease</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Detlef</namePart>
+        <namePart type="family">Bockenhauer</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Alan</namePart>
+        <namePart type="given">J</namePart>
+        <namePart type="family">Medlar</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Emma</namePart>
+        <namePart type="family">Ashton</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Robert</namePart>
+        <namePart type="family">Kleta</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Nick</namePart>
+        <namePart type="family">Lench</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2012</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Pediatric Nephrology</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>Springer-Verlag</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">bockenhauer2012genetic</identifier>
+    <part>
+        <date>2012</date>
+        <detail type="volume"><number>27</number></detail>
+        <detail type="issue"><number>6</number></detail>
+        <extent unit="page">
+            <start>873</start>
+            <end>883</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="lander2001initial">
+    <titleInfo>
+        <title>Initial sequencing and analysis of the human genome</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Eric</namePart>
+        <namePart type="given">S</namePart>
+        <namePart type="family">Lander</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Lauren</namePart>
+        <namePart type="given">M</namePart>
+        <namePart type="family">Linton</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Bruce</namePart>
+        <namePart type="family">Birren</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Chad</namePart>
+        <namePart type="family">Nusbaum</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Michael</namePart>
+        <namePart type="given">C</namePart>
+        <namePart type="family">Zody</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Jennifer</namePart>
+        <namePart type="family">Baldwin</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Keri</namePart>
+        <namePart type="family">Devon</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Ken</namePart>
+        <namePart type="family">Dewar</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Michael</namePart>
+        <namePart type="family">Doyle</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">William</namePart>
+        <namePart type="family">FitzHugh</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name>
+        <namePart>others</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2001</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Nature</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>Nature Publishing Group</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">lander2001initial</identifier>
+    <part>
+        <date>2001</date>
+        <detail type="volume"><number>409</number></detail>
+        <detail type="issue"><number>6822</number></detail>
+        <extent unit="page">
+            <start>860</start>
+            <end>921</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="sanger1977dna">
+    <titleInfo>
+        <title>DNA sequencing with chain-terminating inhibitors</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Frederick</namePart>
+        <namePart type="family">Sanger</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Steven</namePart>
+        <namePart type="family">Nicklen</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Alan</namePart>
+        <namePart type="given">R</namePart>
+        <namePart type="family">Coulson</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>1977</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Proceedings of the National Academy of Sciences</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>National Acad Sciences</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">sanger1977dna</identifier>
+    <part>
+        <date>1977</date>
+        <detail type="volume"><number>74</number></detail>
+        <detail type="issue"><number>12</number></detail>
+        <extent unit="page">
+            <start>5463</start>
+            <end>5467</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="lengauer2007bioinformatics">
+    <titleInfo>
+        <title>Bioinformatics-From Genomes to Therapies</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Thomas</namePart>
+        <namePart type="family">Lengauer</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <issuance>monographic</issuance>
+        <dateIssued>2007</dateIssued>
+        <publisher>Wiley Online Library</publisher>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre authority="marcgt">book</genre>
+    <identifier type="citekey">lengauer2007bioinformatics</identifier>
+</mods>
+<mods ID="pabinger2014survey">
+    <titleInfo>
+        <title>A survey of tools for variant analysis of next-generation genome sequencing data</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Stephan</namePart>
+        <namePart type="family">Pabinger</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Andreas</namePart>
+        <namePart type="family">Dander</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Maria</namePart>
+        <namePart type="family">Fischer</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Rene</namePart>
+        <namePart type="family">Snajder</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Michael</namePart>
+        <namePart type="family">Sperk</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Mirjana</namePart>
+        <namePart type="family">Efremova</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Birgit</namePart>
+        <namePart type="family">Krabichler</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Michael</namePart>
+        <namePart type="given">R</namePart>
+        <namePart type="family">Speicher</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Johannes</namePart>
+        <namePart type="family">Zschocke</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Zlatko</namePart>
+        <namePart type="family">Trajanoski</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2014</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Briefings in bioinformatics</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>Oxford Univ Press</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">pabinger2014survey</identifier>
+    <part>
+        <date>2014</date>
+        <detail type="volume"><number>15</number></detail>
+        <detail type="issue"><number>2</number></detail>
+        <extent unit="page">
+            <start>256</start>
+            <end>278</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="li2009sequence">
+    <titleInfo>
+        <title>The sequence alignment/map format and SAMtools</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Heng</namePart>
+        <namePart type="family">Li</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Bob</namePart>
+        <namePart type="family">Handsaker</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Alec</namePart>
+        <namePart type="family">Wysoker</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Tim</namePart>
+        <namePart type="family">Fennell</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Jue</namePart>
+        <namePart type="family">Ruan</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Nils</namePart>
+        <namePart type="family">Homer</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Gabor</namePart>
+        <namePart type="family">Marth</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Goncalo</namePart>
+        <namePart type="family">Abecasis</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Richard</namePart>
+        <namePart type="family">Durbin</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name>
+        <namePart>others</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2009</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Bioinformatics</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>Oxford Univ Press</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">li2009sequence</identifier>
+    <part>
+        <date>2009</date>
+        <detail type="volume"><number>25</number></detail>
+        <detail type="issue"><number>16</number></detail>
+        <extent unit="page">
+            <start>2078</start>
+            <end>2079</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="danecek2011variant">
+    <titleInfo>
+        <title>The variant call format and VCFtools</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Petr</namePart>
+        <namePart type="family">Danecek</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Adam</namePart>
+        <namePart type="family">Auton</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Goncalo</namePart>
+        <namePart type="family">Abecasis</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Cornelis</namePart>
+        <namePart type="given">A</namePart>
+        <namePart type="family">Albers</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Eric</namePart>
+        <namePart type="family">Banks</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Mark</namePart>
+        <namePart type="given">A</namePart>
+        <namePart type="family">DePristo</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Robert</namePart>
+        <namePart type="given">E</namePart>
+        <namePart type="family">Handsaker</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Gerton</namePart>
+        <namePart type="family">Lunter</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Gabor</namePart>
+        <namePart type="given">T</namePart>
+        <namePart type="family">Marth</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Stephen</namePart>
+        <namePart type="given">T</namePart>
+        <namePart type="family">Sherry</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name>
+        <namePart>others</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2011</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Bioinformatics</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>Oxford Univ Press</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">danecek2011variant</identifier>
+    <part>
+        <date>2011</date>
+        <detail type="volume"><number>27</number></detail>
+        <detail type="issue"><number>15</number></detail>
+        <extent unit="page">
+            <start>2156</start>
+            <end>2158</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="warden2014detailed">
+    <titleInfo>
+        <title>Detailed comparison of two popular variant calling packages for exome and targeted exon studies</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Charles</namePart>
+        <namePart type="given">D</namePart>
+        <namePart type="family">Warden</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Aaron</namePart>
+        <namePart type="given">W</namePart>
+        <namePart type="family">Adamson</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Susan</namePart>
+        <namePart type="given">L</namePart>
+        <namePart type="family">Neuhausen</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Xiwei</namePart>
+        <namePart type="family">Wu</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2014</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>PeerJ</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>PeerJ Inc.</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">warden2014detailed</identifier>
+    <part>
+        <date>2014</date>
+        <detail type="volume"><number>2</number></detail>
+        <detail type="page"><number>e600</number></detail>
+    </part>
+</mods>
+<mods ID="biesecker2013genomic">
+    <titleInfo>
+        <title>A genomic view of mosaicism and human disease</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Leslie</namePart>
+        <namePart type="given">G</namePart>
+        <namePart type="family">Biesecker</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Nancy</namePart>
+        <namePart type="given">B</namePart>
+        <namePart type="family">Spinner</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2013</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Nature Reviews Genetics</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>Nature Publishing Group</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">biesecker2013genomic</identifier>
+    <part>
+        <date>2013</date>
+        <detail type="volume"><number>14</number></detail>
+        <detail type="issue"><number>5</number></detail>
+        <extent unit="page">
+            <start>307</start>
+            <end>320</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="karolchik2003ucsc">
+    <titleInfo>
+        <title>The UCSC genome browser database</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Donna</namePart>
+        <namePart type="family">Karolchik</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Robert</namePart>
+        <namePart type="family">Baertsch</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Mark</namePart>
+        <namePart type="family">Diekhans</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Terrence</namePart>
+        <namePart type="given">S</namePart>
+        <namePart type="family">Furey</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Angie</namePart>
+        <namePart type="family">Hinrichs</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Y</namePart>
+        <namePart type="given">T</namePart>
+        <namePart type="family">Lu</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Krishna</namePart>
+        <namePart type="given">M</namePart>
+        <namePart type="family">Roskin</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Matthias</namePart>
+        <namePart type="family">Schwartz</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Charles</namePart>
+        <namePart type="given">W</namePart>
+        <namePart type="family">Sugnet</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Daryl</namePart>
+        <namePart type="given">J</namePart>
+        <namePart type="family">Thomas</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name>
+        <namePart>others</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2003</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Nucleic acids research</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>Oxford Univ Press</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">karolchik2003ucsc</identifier>
+    <part>
+        <date>2003</date>
+        <detail type="volume"><number>31</number></detail>
+        <detail type="issue"><number>1</number></detail>
+        <extent unit="page">
+            <start>51</start>
+            <end>54</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="scheifler1986x">
+    <titleInfo>
+        <title>The X window system</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Robert</namePart>
+        <namePart type="given">W</namePart>
+        <namePart type="family">Scheifler</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">Jim</namePart>
+        <namePart type="family">Gettys</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>1986</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>ACM Transactions on Graphics (TOG)</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+            <publisher>ACM</publisher>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">scheifler1986x</identifier>
+    <part>
+        <date>1986</date>
+        <detail type="volume"><number>5</number></detail>
+        <detail type="issue"><number>2</number></detail>
+        <extent unit="page">
+            <start>79</start>
+            <end>109</end>
+        </extent>
+    </part>
+</mods>
+<mods ID="lougher2008squashfs">
+    <titleInfo>
+        <title>SquashFS</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Phillip</namePart>
+        <namePart type="family">Lougher</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <name type="personal">
+        <namePart type="given">R</namePart>
+        <namePart type="family">Lougher</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2008</dateIssued>
+    </originInfo>
+    <identifier type="citekey">lougher2008squashfs</identifier>
+    <location>
+        <url>http://www.squashfs-lzma.org/</url>
+    </location>
+</mods>
+<mods ID="reed2010information">
+    <titleInfo>
+        <title>Information ’Ownership’ in the Cloud</title>
+    </titleInfo>
+    <name type="personal">
+        <namePart type="given">Chris</namePart>
+        <namePart type="family">Reed</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="text">author</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+        <dateIssued>2010</dateIssued>
+    </originInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre>journal article</genre>
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Queen Mary School of Law Legal Studies Research Paper</title>
+        </titleInfo>
+        <originInfo>
+            <issuance>continuing</issuance>
+        </originInfo>
+        <genre authority="marcgt">periodical</genre>
+        <genre>academic journal</genre>
+    </relatedItem>
+    <identifier type="citekey">reed2010information</identifier>
+    <part>
+        <date>2010</date>
+        <detail type="issue"><number>45</number></detail>
+    </part>
+</mods>
+</modsCollection>

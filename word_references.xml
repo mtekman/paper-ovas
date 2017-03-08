@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<b:Sources SelectedStyle="" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"  xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" >
+<b:Source>
+<b:Tag>kari2014consanguinity</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>Elsevier</b:Publisher>
+<b:Year>2014</b:Year>
+<b:PeriodicalTitle>American Journal of Kidney Diseases</b:PeriodicalTitle>
+<b:Volume>63</b:Volume>
+<b:Issue>2</b:Issue>
+<b:Pages>304-310</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Kari</b:Last><b:First>Jameela</b:First><b:Middle>A</b:Middle></b:Person>
+<b:Person><b:Last>Bockenhauer</b:Last><b:First>Detlef</b:First></b:Person>
+<b:Person><b:Last>Stanescu</b:Last><b:First>Horia</b:First></b:Person>
+<b:Person><b:Last>Gari</b:Last><b:First>Mamdooh</b:First></b:Person>
+<b:Person><b:Last>Kleta</b:Last><b:First>Robert</b:First></b:Person>
+<b:Person><b:Last>Singh</b:Last><b:First>Ajay</b:First><b:Middle>K</b:Middle></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>Consanguinity in Saudi Arabia: a unique opportunity for pediatric kidney research</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>bockenhauer2012genetic</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>Springer-Verlag</b:Publisher>
+<b:Year>2012</b:Year>
+<b:PeriodicalTitle>Pediatric Nephrology</b:PeriodicalTitle>
+<b:Volume>27</b:Volume>
+<b:Issue>6</b:Issue>
+<b:Pages>873-883</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Bockenhauer</b:Last><b:First>Detlef</b:First></b:Person>
+<b:Person><b:Last>Medlar</b:Last><b:First>Alan</b:First><b:Middle>J</b:Middle></b:Person>
+<b:Person><b:Last>Ashton</b:Last><b:First>Emma</b:First></b:Person>
+<b:Person><b:Last>Kleta</b:Last><b:First>Robert</b:First></b:Person>
+<b:Person><b:Last>Lench</b:Last><b:First>Nick</b:First></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>Genetic testing in renal disease</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>lander2001initial</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>Nature Publishing Group</b:Publisher>
+<b:Year>2001</b:Year>
+<b:PeriodicalTitle>Nature</b:PeriodicalTitle>
+<b:Volume>409</b:Volume>
+<b:Issue>6822</b:Issue>
+<b:Pages>860-921</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Lander</b:Last><b:First>Eric</b:First><b:Middle>S</b:Middle></b:Person>
+<b:Person><b:Last>Linton</b:Last><b:First>Lauren</b:First><b:Middle>M</b:Middle></b:Person>
+<b:Person><b:Last>Birren</b:Last><b:First>Bruce</b:First></b:Person>
+<b:Person><b:Last>Nusbaum</b:Last><b:First>Chad</b:First></b:Person>
+<b:Person><b:Last>Zody</b:Last><b:First>Michael</b:First><b:Middle>C</b:Middle></b:Person>
+<b:Person><b:Last>Baldwin</b:Last><b:First>Jennifer</b:First></b:Person>
+<b:Person><b:Last>Devon</b:Last><b:First>Keri</b:First></b:Person>
+<b:Person><b:Last>Dewar</b:Last><b:First>Ken</b:First></b:Person>
+<b:Person><b:Last>Doyle</b:Last><b:First>Michael</b:First></b:Person>
+<b:Person><b:Last>FitzHugh</b:Last><b:First>William</b:First></b:Person>
+<b:Person><b:Last>others</b:Last></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>Initial sequencing and analysis of the human genome</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>sanger1977dna</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>National Acad Sciences</b:Publisher>
+<b:Year>1977</b:Year>
+<b:PeriodicalTitle>Proceedings of the National Academy of Sciences</b:PeriodicalTitle>
+<b:Volume>74</b:Volume>
+<b:Issue>12</b:Issue>
+<b:Pages>5463-5467</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Sanger</b:Last><b:First>Frederick</b:First></b:Person>
+<b:Person><b:Last>Nicklen</b:Last><b:First>Steven</b:First></b:Person>
+<b:Person><b:Last>Coulson</b:Last><b:First>Alan</b:First><b:Middle>R</b:Middle></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>DNA sequencing with chain-terminating inhibitors</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>lengauer2007bioinformatics</b:Tag>
+<b:SourceType>Book</b:SourceType>
+<b:Publisher>Wiley Online Library</b:Publisher>
+<b:Year>2007</b:Year>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Lengauer</b:Last><b:First>Thomas</b:First></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>Bioinformatics-From Genomes to Therapies</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>pabinger2014survey</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>Oxford Univ Press</b:Publisher>
+<b:Year>2014</b:Year>
+<b:PeriodicalTitle>Briefings in bioinformatics</b:PeriodicalTitle>
+<b:Volume>15</b:Volume>
+<b:Issue>2</b:Issue>
+<b:Pages>256-278</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Pabinger</b:Last><b:First>Stephan</b:First></b:Person>
+<b:Person><b:Last>Dander</b:Last><b:First>Andreas</b:First></b:Person>
+<b:Person><b:Last>Fischer</b:Last><b:First>Maria</b:First></b:Person>
+<b:Person><b:Last>Snajder</b:Last><b:First>Rene</b:First></b:Person>
+<b:Person><b:Last>Sperk</b:Last><b:First>Michael</b:First></b:Person>
+<b:Person><b:Last>Efremova</b:Last><b:First>Mirjana</b:First></b:Person>
+<b:Person><b:Last>Krabichler</b:Last><b:First>Birgit</b:First></b:Person>
+<b:Person><b:Last>Speicher</b:Last><b:First>Michael</b:First><b:Middle>R</b:Middle></b:Person>
+<b:Person><b:Last>Zschocke</b:Last><b:First>Johannes</b:First></b:Person>
+<b:Person><b:Last>Trajanoski</b:Last><b:First>Zlatko</b:First></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>A survey of tools for variant analysis of next-generation genome sequencing data</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>li2009sequence</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>Oxford Univ Press</b:Publisher>
+<b:Year>2009</b:Year>
+<b:PeriodicalTitle>Bioinformatics</b:PeriodicalTitle>
+<b:Volume>25</b:Volume>
+<b:Issue>16</b:Issue>
+<b:Pages>2078-2079</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Li</b:Last><b:First>Heng</b:First></b:Person>
+<b:Person><b:Last>Handsaker</b:Last><b:First>Bob</b:First></b:Person>
+<b:Person><b:Last>Wysoker</b:Last><b:First>Alec</b:First></b:Person>
+<b:Person><b:Last>Fennell</b:Last><b:First>Tim</b:First></b:Person>
+<b:Person><b:Last>Ruan</b:Last><b:First>Jue</b:First></b:Person>
+<b:Person><b:Last>Homer</b:Last><b:First>Nils</b:First></b:Person>
+<b:Person><b:Last>Marth</b:Last><b:First>Gabor</b:First></b:Person>
+<b:Person><b:Last>Abecasis</b:Last><b:First>Goncalo</b:First></b:Person>
+<b:Person><b:Last>Durbin</b:Last><b:First>Richard</b:First></b:Person>
+<b:Person><b:Last>others</b:Last></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>The sequence alignment/map format and SAMtools</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>danecek2011variant</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>Oxford Univ Press</b:Publisher>
+<b:Year>2011</b:Year>
+<b:PeriodicalTitle>Bioinformatics</b:PeriodicalTitle>
+<b:Volume>27</b:Volume>
+<b:Issue>15</b:Issue>
+<b:Pages>2156-2158</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Danecek</b:Last><b:First>Petr</b:First></b:Person>
+<b:Person><b:Last>Auton</b:Last><b:First>Adam</b:First></b:Person>
+<b:Person><b:Last>Abecasis</b:Last><b:First>Goncalo</b:First></b:Person>
+<b:Person><b:Last>Albers</b:Last><b:First>Cornelis</b:First><b:Middle>A</b:Middle></b:Person>
+<b:Person><b:Last>Banks</b:Last><b:First>Eric</b:First></b:Person>
+<b:Person><b:Last>DePristo</b:Last><b:First>Mark</b:First><b:Middle>A</b:Middle></b:Person>
+<b:Person><b:Last>Handsaker</b:Last><b:First>Robert</b:First><b:Middle>E</b:Middle></b:Person>
+<b:Person><b:Last>Lunter</b:Last><b:First>Gerton</b:First></b:Person>
+<b:Person><b:Last>Marth</b:Last><b:First>Gabor</b:First><b:Middle>T</b:Middle></b:Person>
+<b:Person><b:Last>Sherry</b:Last><b:First>Stephen</b:First><b:Middle>T</b:Middle></b:Person>
+<b:Person><b:Last>others</b:Last></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>The variant call format and VCFtools</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>warden2014detailed</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>PeerJ Inc.</b:Publisher>
+<b:Year>2014</b:Year>
+<b:PeriodicalTitle>PeerJ</b:PeriodicalTitle>
+<b:Volume>2</b:Volume>
+<b:Pages>e600</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Warden</b:Last><b:First>Charles</b:First><b:Middle>D</b:Middle></b:Person>
+<b:Person><b:Last>Adamson</b:Last><b:First>Aaron</b:First><b:Middle>W</b:Middle></b:Person>
+<b:Person><b:Last>Neuhausen</b:Last><b:First>Susan</b:First><b:Middle>L</b:Middle></b:Person>
+<b:Person><b:Last>Wu</b:Last><b:First>Xiwei</b:First></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>Detailed comparison of two popular variant calling packages for exome and targeted exon studies</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>biesecker2013genomic</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>Nature Publishing Group</b:Publisher>
+<b:Year>2013</b:Year>
+<b:PeriodicalTitle>Nature Reviews Genetics</b:PeriodicalTitle>
+<b:Volume>14</b:Volume>
+<b:Issue>5</b:Issue>
+<b:Pages>307-320</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Biesecker</b:Last><b:First>Leslie</b:First><b:Middle>G</b:Middle></b:Person>
+<b:Person><b:Last>Spinner</b:Last><b:First>Nancy</b:First><b:Middle>B</b:Middle></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>A genomic view of mosaicism and human disease</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>karolchik2003ucsc</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>Oxford Univ Press</b:Publisher>
+<b:Year>2003</b:Year>
+<b:PeriodicalTitle>Nucleic acids research</b:PeriodicalTitle>
+<b:Volume>31</b:Volume>
+<b:Issue>1</b:Issue>
+<b:Pages>51-54</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Karolchik</b:Last><b:First>Donna</b:First></b:Person>
+<b:Person><b:Last>Baertsch</b:Last><b:First>Robert</b:First></b:Person>
+<b:Person><b:Last>Diekhans</b:Last><b:First>Mark</b:First></b:Person>
+<b:Person><b:Last>Furey</b:Last><b:First>Terrence</b:First><b:Middle>S</b:Middle></b:Person>
+<b:Person><b:Last>Hinrichs</b:Last><b:First>Angie</b:First></b:Person>
+<b:Person><b:Last>Lu</b:Last><b:First>Y</b:First><b:Middle>T</b:Middle></b:Person>
+<b:Person><b:Last>Roskin</b:Last><b:First>Krishna</b:First><b:Middle>M</b:Middle></b:Person>
+<b:Person><b:Last>Schwartz</b:Last><b:First>Matthias</b:First></b:Person>
+<b:Person><b:Last>Sugnet</b:Last><b:First>Charles</b:First><b:Middle>W</b:Middle></b:Person>
+<b:Person><b:Last>Thomas</b:Last><b:First>Daryl</b:First><b:Middle>J</b:Middle></b:Person>
+<b:Person><b:Last>others</b:Last></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>The UCSC genome browser database</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>scheifler1986x</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Publisher>ACM</b:Publisher>
+<b:Year>1986</b:Year>
+<b:PeriodicalTitle>ACM Transactions on Graphics (TOG)</b:PeriodicalTitle>
+<b:Volume>5</b:Volume>
+<b:Issue>2</b:Issue>
+<b:Pages>79-109</b:Pages>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Scheifler</b:Last><b:First>Robert</b:First><b:Middle>W</b:Middle></b:Person>
+<b:Person><b:Last>Gettys</b:Last><b:First>Jim</b:First></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>The X window system</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>lougher2008squashfs</b:Tag>
+<b:SourceType>Misc</b:SourceType>
+<b:Year>2008</b:Year>
+<b:Url>http://www.squashfs-lzma.org/</b:Url>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Lougher</b:Last><b:First>Phillip</b:First></b:Person>
+<b:Person><b:Last>Lougher</b:Last><b:First>R</b:First></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>SquashFS</b:Title>
+</b:Source>
+<b:Source>
+<b:Tag>reed2010information</b:Tag>
+<b:SourceType>ArticleInAPeriodical</b:SourceType>
+<b:Year>2010</b:Year>
+<b:PeriodicalTitle>Queen Mary School of Law Legal Studies Research Paper</b:PeriodicalTitle>
+<b:Issue>45</b:Issue>
+<b:Author>
+<b:Author><b:NameList>
+<b:Person><b:Last>Reed</b:Last><b:First>Chris</b:First></b:Person>
+</b:NameList></b:Author>
+</b:Author>
+<b:Title>Information ’Ownership’ in the Cloud</b:Title>
+</b:Source>
+</b:Sources>
