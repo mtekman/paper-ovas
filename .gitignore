@@ -5,3 +5,5 @@
 *.aux
 *.gz
 ignore
+*.ps
+*.dvi
