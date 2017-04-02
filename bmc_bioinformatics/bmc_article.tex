@@ -367,9 +367,7 @@ are processed by two main modules: {\it Physical Location Filter}, which parses 
 
 \noindent
 {\bf Variant Metadata}\\
-Here, the variant call information field (INFO) is processed, which consists of various variant-calling related properties which summarize the FASTA strand pileup the variant bisects.\\
-
-	The INFO field consists of variant call report information which only alludes to the quality of the sample data, but not to the sample data itself, enabling for fast single-pass processing.
+Here, the variant call information field (INFO) is processed, which consists of variant-calling properties summarizing the FASTA strand pileup bisected by the variant. The INFO field alludes to the quality of the sample data, but not to the sample data itself, enabling for fast single-pass processing.
 
 \begin{itemize}
 	\item[-]{\it Read Depth Filter}{Discards any variants falling below a user-set limit upon the number of FASTA reads aligned at that position.}
@@ -377,8 +375,7 @@ Here, the variant call information field (INFO) is processed, which consists of 
 	\item[-]{\it Mutation Type Filter}{, Makes use of annotations acquired at the \textit{Adding Function} stage in order to filter single variants based upon user-set requirements of including any (multiple) of missense, nonsense, and synonymous mutation types.}
 	\item[-]{\it Same Gene Filter}{, Depending on the level of domain specificity (gene/exon), maps out all domains common across all input VCF files and produces an output set of VCFs that solely include variants falling within those domains only.}
 	\item[-]{\it Same Variant Filter}{, As previous, but under the more stringent requirement that all output variants match the same position.}
-
-	\end{itemize}
+\end{itemize}
 
 
 {\bf Sample Data}{ - (FORMAT) Sample format field denoting the format which all subsequent sample data conform to.
@@ -575,7 +572,7 @@ This work was supported by St. Peter's Trust for Kidney, Bladder and Prostate Re
 
 \begin{figure}[h!]
   \centerline{\includegraphics[scale=0.5]{pipeline_overall.eps}}
-  \caption{\csentence{}Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline in conjunction with static map and reference data; to be processed in turn by the core annotation, optional filtering, and additional annotation modules.\label{fig:structure}}
+  \caption{\csentence{}Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline and are processed in turn by the core annotation (Adding Genes (AG), Adding Function (AF), Adding Zygosity (AZ)), optional filtering (Physical Location (PL), Read Depth (RD), Mutation Type (MT), Alternate Allele Frequency (AAF), Call Quality (CQ), Same Variant (SV), Same Gene (SG)), trait penetrance modelling (Autosomal Dominant (AD), Autosomal Recessive (AR), X-linked Dominant (XD), X-linked Recessive (XR), Mosaic (MO), and additional annotation modules (Isoform Context (IC), Protein Context (PC), Gene Expression (GEX)). \label{fig:structure}}
 \end{figure}
 
 \begin{figure}[h!]
