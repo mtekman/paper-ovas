@@ -71,9 +71,9 @@
 %%                                             %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\RequirePackage{graphicx}  % added by mct
-\def\includegraphic{}
-\def\includegraphics{}
+\RequirePackage{graphicx}  % added by mct
+%\def\includegraphic{}
+%\def\includegraphics{}
 
 
 
@@ -418,7 +418,7 @@ Three families presented with an autosomal recessive disease, with whole-exome s
 
 As much as 90\% of variants were deemed wholly intergenic and filtered at the annotation stage, leaving a drastically reduced subset of approximately 30,000 potentially relevant variants. Following the VCF depicted in Figure~\ref{fig:result} (top), a further 4,544 variants are discarded as a result of the autosomal recessive filter which searched for homozygous or compound heterozygous variants alone, due to the lack of parental input data to further pre-screen for Mendelian variants. Sibling filtering at the common variant-level assisted in this regard, and the remaining genes were bisected between pedigrees through the use of the common gene filter.
 
-Prior linkage analysis hinted at regions of interest with significant LOD-scores (>3) and this vastly reduced the number to 104 unique variants shared across all affecteds. The rarity of the phenotype prompted a search for novel variants, resulting in just 3 potentially causative-variants, 1 of which was a missense mutation that was later confirmed to be the disease-originating variant.
+Prior linkage analysis hinted at regions of interest with significant LOD-scores ($>$3) and this vastly reduced the number to 104 unique variants shared across all affecteds. The rarity of the phenotype prompted a search for novel variants, resulting in just 3 potentially causative-variants, 1 of which was a missense mutation that was later confirmed to be the disease-originating variant.
 
 
 \subsection*{Second Case}
@@ -558,31 +558,31 @@ This work was supported by St. Peter's Trust for Kidney, Bladder and Prostate Re
 \section*{Figures}
 
 \begin{figure}[h!]
-%  \centerline{\includegraphics[scale=1]{inh_autosomal.eps}}
+  \centerline{\includegraphics[scale=1]{inh_autosomal.eps}}
   \caption{\csentence{}Autosomal inheritance pattern with red disease allele.
 (A) Recessive inheritance, both parents as heterozygous carriers with an unaffected:carrier:affected ratio of 1:2:1.
 (B) Dominant inheritance, one parent affected with an unaffected:affected ratio of 1:1.\label{fig:inheritance}}
 \vspace{1em}
-%  \centerline{\includegraphics[scale=1]{inh_xlinked.eps}}
+  \centerline{\includegraphics[scale=1]{inh_xlinked.eps}}
   \caption{\csentence{}X-linked inheritance pattern with a red disease allele. (A) Recessive inheritance, mother is a disease-carrier. A mother will pass her disease-allele to half of her offspring, resulting just sons to be affected. (B) Recessive inheritance, father is affected. A father will pass his disease-allele to all of his daughters resulting all of them to be a disease-carriers. (C) Dominant inheritance, father is affected. A father will pass his disease-allele to all his daughters resulting all of them to be affected. (D) Dominant inheritance, mother is affected. A mother will pass her disease-allele equally to daughters and sons, resulting half of them to be affected.\label{fig:inheritancex}}
 \end{figure}
 
 \begin{figure}[h!]
-%  \centerline{\includegraphics[scale=0.5]{pipeline_overall.eps}}
+  \centerline{\includegraphics[scale=0.5]{pipeline_overall.eps}}
   \caption{\csentence{}Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline and are processed in turn by the core annotation, optional filtering, trait penetrance modelling, and additional annotation modules. \label{fig:structure}}
 \end{figure}
 
 \begin{figure}[h!]
-%  \centerline{\includegraphics[scale=1]{pipe_3_final.eps}}
+  \centerline{\includegraphics[scale=1]{pipe_3_final.eps}}
 \caption{\csentence{}Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab.\label{fig:webend}}
 \end{figure}
 \begin{figure}[h!]
-%  \centerline{\includegraphics[scale=1]{report_small.eps}}
+  \centerline{\includegraphics[scale=1]{report_small.eps}}
 \caption{\csentence{}The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor).\label{fig:report}}
 \end{figure}
 
 \begin{figure}[h!]
-%  \centerline{\includegraphics[scale=1]{control_result_total.eps}}
+  \centerline{\includegraphics[scale=1]{control_result_total.eps}}
 \caption{\csentence{}The progression of output variants through core annotation and filtering stages for each of the three separate cases.\label{fig:result}}
 \end{figure}
 
