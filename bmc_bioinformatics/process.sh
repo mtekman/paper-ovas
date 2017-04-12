@@ -1,0 +1,10 @@
+#!/bin/bash
+
+zip bmcbio_ovas_paper_2017_04_11.zip\
+    bmc_article.tex\
+    *.eps\
+    bibliography.bib\
+    vancouver.bst\
+    bmcart.cls\
+    bmcart-biblio.sty\
+    "Reference PDF".pdf

@@ -154,8 +154,8 @@
  
 \address[id=aff1]{%                                                   % unique id
   \orgname{Division of Medicine, University College London}, % university, etc
-  \postcode{NW3 2PF}                                % post or zip code
   \city{London},                              % city
+  \postcode{NW3 2PF}                          % post or zip code
   \cny{UK}                                    % country
 }
 \address[id=aff2]{%
@@ -201,10 +201,10 @@ Faculty of Medicine, King Abdulaziz University},
 The advent of modern high-throughput genetics continually broadens the gap between the rising volume of sequencing data, and the tools required to process them. The need to pinpoint a small subset of functionally important variants has now shifted towards identifying the critical differences between normal variants and disease-causing ones. The ever-increasing reliance on cloud-based services for sequence analysis and the non-transparent methods they utilize has prompted the need for more in-situ services that can provide a safer and more accessible environment to process patient data, especially in circumstances where continuous internet usage is limited.
 
 \parttitle{Results}\
-To address these issues, we herein propose our standalone sequence analysis pipeline \emph{\app{}}; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. Up to 12 filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed three case studies; 2 of autosomal recessive, and one of X-linked dominant inheritance. \app{} made effective use of different module configurations to identify singular rare causative variants from whole-exome sequenced input samples.
+To address these issues, we herein propose our standalone Open-source Variant Analysis Sequencing \emph{(\app{})} pipeline; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. Up to 12 filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed three case studies; 2 of autosomal recessive, and one of X-linked dominant inheritance. \app{} made effective use of different module configurations to identify singular rare causative variants from whole-exome sequenced input samples.
 
 \parttitle{Conclusion}
-\app{} is a offline open-source modular-driven analysis environment, designed to annotate and extract useful variants from Variant Call Format (VCF) files, and process them under an inheritance context through a top-down filtering schema of swappable modules, run entirely off a live bootable medium and accessed locally through a web-browser.
+\app{} is an offline open-source modular-driven analysis environment, designed to annotate and extract useful variants from Variant Call Format (VCF) files, and process them under an inheritance context through a top-down filtering schema of swappable modules, run entirely off a live bootable medium and accessed locally through a web-browser.
 
 \parttitle{Supplementary information} Supplementary data is available from \textit{BMC-Bioinformatics} online.\\
 \end{abstract}
@@ -274,15 +274,15 @@ The raw sequence FASTQ reads produced by these HTS platforms are aligned to a sp
 
 BAM and VCF data are orthogonally related, with the former storing horizontal stretches of FASTA sequence reads aligned unevenly on top of one another forming "pile ups", and the latter taking vertical cross-sections of these pileups at specific loci to form a variant call.
 
-The VCF specification was designed for the 1000 Genomes project to produce a robust format that could house the many samples often sequenced under the same batch, but has since been adopted by other projects such as UK10K, dbSNP, NHLBI Exome Project, and others. The format is flexible with annotations, where additional fields can be outlined in the header and adhered to in the body of the data. Each line of the VCF body describes a single variant; physical position paired with a reference allele (as ascribed by a reference genome consistent across the entire VCF file) and alternate alleles that appear within samples. Major and minor alleles are specific only to the sample population but their frequencies can be pre-computed and appended to a variant line as additional information to then be utilized in small population analyses such as inheritance modelling \cite{danecek2011variant}.
+The VCF specification was designed for the 1000 Genomes project to produce a robust format that could house the many samples often sequenced under the same batch, but has since been adopted by projects such as UK10K, dbSNP, NHLBI Exome Project, amongst others. The format is flexible with annotations, where additional fields can be outlined in the header and adhered to in the body of the data. Each line of the VCF body describes a single variant; physical position paired with a reference allele (as ascribed by a reference genome consistent across the entire VCF file) and alternate alleles that appear within samples. Major and minor alleles are specific only to the sample population but their frequencies can be pre-computed and appended to a variant line as additional information to then be utilized in small population analyses such as inheritance modelling \cite{danecek2011variant}.
 
 Variant analysis suites all work under the same principle; filtering all variants under a user-specified set of criteria against the various variant annotations present in the VCF in order to produce a subset informative to the phenotype. Optimistic filtering measures will produce a smaller set with the drawback of missing key causative variants, and conservative filtering measures will produce too many false positives. The effectiveness of an analysis rests primarily upon the accuracy of the variant annotations which can attribute to as much as 15\% of false negatives \cite{warden2014detailed}, as well as the frequency of false negatives that are discarded due to overly-stringent quality filtering. A common approach to addressing both issues is through learning algorithms that can be trained to favour individual variants over others with the caveat of producing results via 'black-box' methods that may create some disparity between the user and their data \cite{pabinger2014survey}. 
 
-A more transparent approach is to expand the scope of the filtering beyond the variant/gene-level and explore variants under a larger trait-penetrance context outlined in Figure~\ref{fig:inheritance}.
+A more transparent approach is to expand the scope of the filtering beyond the variant / gene-level and explore variants under a larger trait-penetrance context outlined in Figure~\ref{fig:inheritance}.
 
-Mendelian traits conform to the four classical modes on inheritance of autosomal/X-linked dominant/recessive penetrance. Dominant disorders result from the inheritance of a single mutant allele which is manifested in each subsequent generation with a 50\% chance of likelihood in offspring from a single affected parent. Recessive traits require the inheritance of two mutant alleles on opposing strands in order to completely block any functioning copies of the causative gene. Parents are typically carriers with affected offspring. These disorders are at times a result of consanguineous marriages, where a single mutant allele manifests on both alleles due to the multiple paths of descent it can undertake \cite{kari2014consanguinity}. In the case of X-linked recessive inheritance, males with a single mutant copy are hemizygous and must express the phenotype as shown in Figure~\ref{fig:inheritancex}.
+Mendelian traits conform to the four classical modes on inheritance of autosomal / X-linked, dominant / recessive penetrance. Dominant disorders result from the inheritance of a single mutant allele which is manifested in each subsequent generation with a 50\% chance of likelihood in offspring from a single affected parent. Recessive traits require the inheritance of two mutant alleles on opposing strands in order to block any functioning copies of the causative gene. Parents are typically carriers with affected offspring. These disorders are at times a result of consanguineous marriages, where a single mutant allele manifests on both alleles due to the multiple paths of descent it can undertake \cite{kari2014consanguinity}. In the case of X-linked recessive inheritance, males with a single mutant copy are hemizygous and must express the phenotype as shown in Figure~\ref{fig:inheritancex}.
 
-For non-Mendelian disorders, we also consider the special case of \textit{mosaicism}; where embryonic de novo mutations produce two or more populations of cells that result in segregated sets of genotypes within the same individual. Mosaic genotypes can be revealed stochastically by measuring alternate allele frequencies against expected values \cite{biesecker2013genomic}.
+For non-Mendelian disorders, we also consider the special case of \textit{mosaicism}; where de novo mutations produce two or more populations of cells that result in segregated sets of genotypes within the same individual. Mosaic genotypes can be revealed stochastically by measuring alternate allele frequencies against expected values \cite{biesecker2013genomic}.
 
 Here we outline our Open-source Variant Analysis Suite (\app{}) that makes use of these inheritance modelling scenarios with the aim to vastly reduce the number of false positives.
 
@@ -434,11 +434,11 @@ Four siblings were presented from a consanguineous marriage with a nephrotic syn
 
 Core annotation accounted for a 65.9\% reduction in total variants, and a missense/nonsense \textit{Mutation Type Filter} reduced the initial set to under 11,000 variants (Figure~\ref{fig:result} (bottom)). Due to the rarity of phenotype, the \textit{Alternate Allele Frequency} module was utilized  to filter for any variants with a frequency less than 0.01 within dbSNP (version 142), vastly reducing the number to a cluster of 878 variants.
 
-Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong expression in the kidney.
+Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong organ specific expression.
 
 
 %% DISCUSSION
-\section{Discussion}
+\section*{Discussion}
 
 Depending upon the total input variants as well as the number and ordering of modules used, an average initial analysis using any number of modules (excluding alternate allele filtering) for VCF files containing 300,000 variants each, will attribute a total of 2 minutes per VCF.
 
@@ -464,7 +464,7 @@ Transparent filtering methods are likelier to instil greater confidence in the d
 
 %% CONCLUSIONS
 
-\section{Conclusions}
+\section*{Conclusions}
 
 The self-contained environment provided by \app{} allows researchers to tailor all aspects of their analysis and retain control of their data sets at any phase of processing by means of the transparent open-source modules that comprise the pipeline. 
 
@@ -484,7 +484,7 @@ The annotation step is crucial, especially for whole-genome sequence data where 
 \begin{backmatter}
 
 \section*{Availability of Data and Materials}
-\app{} was developed under C++, Python, and Bash shell scripts. It is free software licensed under GPLv3, with the source code and live ISO binary image freely accessible for download at \url{https://www.bitbucket.io/momo13/ovas-pipeline.git}. The data that support the findings of this study are included as example sets within the live ISO image. The \app{} pipeline can either be directly installed locally on a pre-existing Linux OS, or it can be accessed in-situ by booting the live image.
+\app{} was developed under C++, Python, and Bash shell scripts. It is free software licensed under GPLv3, with the source code and live ISO binary image freely accessible for download at \url{https://www.bitbucket.io/momo13/ovas-pipeline.git}. The data that support the findings of this study are available from the authors upon request. The \app{} pipeline can either be directly installed locally on a pre-existing Linux OS, or it can be accessed in-situ by booting the live image.
 
 
 \section*{List of Abbreviations}
@@ -498,17 +498,13 @@ The annotation step is crucial, especially for whole-genome sequence data where 
 
 % https://bmcbioinformatics.biomedcentral.com/submission-guidelines/preparing-your-manuscript/software-article
 \section*{Ethics approval and consent to participate}
-<ROBERT>
-
-\section*{Acknowledgements}
-<ROBERT>
-
+Ethics approval and consent was provided by the ethics committee of Royal Free Hampstead NHS Trust (committee's reference number R\&D ID 7727).
 
 \section*{Competing interests}
 The authors declare that they have no competing interests.
 
 \section*{Author's contributions}
-MM designed and implemented the filtering, extended annotation, and disease model-specific scenario Python modules. MT wrote the core annotation C++ utilities, and reworked the pipeline into the live ISO bootable environment. The pipeline workflow was structured by MM and implemented by MT. The individual study of the genomic data sets donated by JAK and DB prompted the conception of the pipeline. HS was instrumental to the development process by providing method evaluation, feature recommendation, and overall technical supervision. RK provided quality control assessment and agreed to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved. All authors read and approved the final manuscript.
+MM designed and implemented the filtering, extended annotation, and disease model-specific scenario Python modules. MT wrote the core annotation C++ utilities, and reworked the pipeline into the live ISO bootable environment. The pipeline workflow was structured by MM and implemented by MT. The individual study of the genomic data sets given by JAK and DB prompted the conception of the pipeline. HS was instrumental to the development process by providing method evaluation, feature recommendation, and overall technical supervision. RK provided quality control assessment and agreed to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved. All authors read and approved the final manuscript.
 
 
 
@@ -532,7 +528,7 @@ This work was supported by St. Peter's Trust for Kidney, Bladder and Prostate Re
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % if your bibliography is in bibtex format, use those commands:
-\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
+\bibliographystyle{vancouver} % Style BST file (bmc-mathphys, vancouver, spbasic).
 \bibliography{bibliography}      % Bibliography file (usually '*.bib' )
 % for author-year bibliography (bmc-mathphys or spbasic)
 % a) write to bib file (bmc-mathphys only)
