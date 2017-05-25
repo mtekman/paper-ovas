@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/Arch Linux)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: bmc_article.aux
+The style file: vancouver.bst
+Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=8) to 20 items from 10.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Database file #1: bibliography.bib
+Warning--empty author and editor in lougher2008squashfs
+Warning--missing publisher in lougher2008squashfs
+Warning--there's a number but no volume in reed2010information
+You've used 15 entries,
+            3170 wiz_defined-function locations,
+            742 strings with 7906 characters,
+and the built_in function-call counts, 35329 in all, are:
+= -- 4397
+> -- 272
+< -- 1
++ -- 136
+- -- 68
+* -- 3079
+:= -- 3788
+add.period$ -- 57
+call.type$ -- 15
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 2642
+empty$ -- 3413
+format.name$ -- 81
+if$ -- 8229
+int.to.chr$ -- 0
+int.to.str$ -- 15
+missing$ -- 178
+newline$ -- 77
+num.names$ -- 15
+pop$ -- 288
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 318
+stack$ -- 0
+substring$ -- 7495
+swap$ -- 398
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 3
+while$ -- 163
+width$ -- 17
+write$ -- 164
+(There were 3 warnings)

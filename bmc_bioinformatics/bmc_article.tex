@@ -71,9 +71,9 @@
 %%                                             %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage{graphicx}  % added by mct
-%\def\includegraphic{}
-%\def\includegraphics{}
+%\RequirePackage{graphicx}  % added by mct
+\def\includegraphic{}
+\def\includegraphics{}
 
 
 
@@ -201,12 +201,12 @@ Faculty of Medicine, King Abdulaziz University},
 The advent of modern high-throughput genetics continually broadens the gap between the rising volume of sequencing data, and the tools required to process them. The need to pinpoint a small subset of functionally important variants has now shifted towards identifying the critical differences between normal variants and disease-causing ones. The ever-increasing reliance on cloud-based services for sequence analysis and the non-transparent methods they utilize has prompted the need for more in-situ services that can provide a safer and more accessible environment to process patient data, especially in circumstances where continuous internet usage is limited.
 
 \parttitle{Results}\
-To address these issues, we herein propose our standalone Open-source Variant Analysis Sequencing \emph{(\app{})} pipeline; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. Up to 12 filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed three case studies; 2 of autosomal recessive, and one of X-linked dominant inheritance. \app{} made effective use of different module configurations to identify singular rare causative variants from whole-exome sequenced input samples.
+To address these issues, we herein propose our standalone Open-source Variant Analysis Sequencing \emph{(\app{})} pipeline; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. Up to 12 filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed an autosomal recessive case study. \app{} made effective use of the filtering modules to recapitulate the results of the study by identifying a single novel promoter mutation from exome-capture sequence input samples.
 
 \parttitle{Conclusion}
 \app{} is an offline open-source modular-driven analysis environment, designed to annotate and extract useful variants from Variant Call Format (VCF) files, and process them under an inheritance context through a top-down filtering schema of swappable modules, run entirely off a live bootable medium and accessed locally through a web-browser.
 
-\parttitle{Supplementary information} Supplementary data is available from \textit{BMC-Bioinformatics} online.\\
+%\parttitle{Supplementary information} Supplementary data is available from \textit{BMC-Bioinformatics} online.\\
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -278,9 +278,9 @@ The VCF specification was designed for the 1000 Genomes project to produce a rob
 
 Variant analysis suites all work under the same principle; filtering all variants under a user-specified set of criteria against the various variant annotations present in the VCF in order to produce a subset informative to the phenotype. Optimistic filtering measures will produce a smaller set with the drawback of missing key causative variants, and conservative filtering measures will produce too many false positives. The effectiveness of an analysis rests primarily upon the accuracy of the variant annotations which can attribute to as much as 15\% of false negatives \cite{warden2014detailed}, as well as the frequency of false negatives that are discarded due to overly-stringent quality filtering. A common approach to addressing both issues is through learning algorithms that can be trained to favour individual variants over others with the caveat of producing results via 'black-box' methods that may create some disparity between the user and their data \cite{pabinger2014survey}. 
 
-A more transparent approach is to expand the scope of the filtering beyond the variant / gene-level and explore variants under a larger trait-penetrance context outlined in Figure~\ref{fig:inheritance}.
+A more transparent approach is to expand the scope of the filtering beyond the variant / gene-level and explore variants under a larger trait-penetrance context.% outlined in Figure~\ref{fig:inheritance}.
 
-Mendelian traits conform to the four classical modes on inheritance of autosomal / X-linked, dominant / recessive penetrance. Dominant disorders result from the inheritance of a single mutant allele which is manifested in each subsequent generation with a 50\% chance of likelihood in offspring from a single affected parent. Recessive traits require the inheritance of two mutant alleles on opposing strands in order to block any functioning copies of the causative gene. Parents are typically carriers with affected offspring. These disorders are at times a result of consanguineous marriages, where a single mutant allele manifests on both alleles due to the multiple paths of descent it can undertake \cite{kari2014consanguinity}. In the case of X-linked recessive inheritance, males with a single mutant copy are hemizygous and must express the phenotype as shown in Figure~\ref{fig:inheritancex}.
+Mendelian traits conform to the four classical modes on inheritance of autosomal / X-linked, dominant / recessive penetrance. Dominant disorders result from the inheritance of a single mutant allele which is manifested in each subsequent generation with a 50\% chance of likelihood in offspring from a single affected parent. Recessive traits require the inheritance of two mutant alleles on opposing strands in order to block any functioning copies of the causative gene. Parents are typically carriers with affected offspring. These disorders are at times a result of consanguineous marriages, where a single mutant allele manifests on both alleles due to the multiple paths of descent it can undertake \cite{kari2014consanguinity}. In the case of X-linked recessive inheritance, males with a single mutant copy are hemizygous and must express the phenotype. % as shown in Figure~\ref{fig:inheritancex}.
 
 For non-Mendelian disorders, we also consider the special case of \textit{mosaicism}; where de novo mutations produce two or more populations of cells that result in segregated sets of genotypes within the same individual. Mosaic genotypes can be revealed stochastically by measuring alternate allele frequencies against expected values \cite{biesecker2013genomic}.
 
@@ -295,7 +295,7 @@ Module ordering is flexible in this regard, with the exception of the primary an
 
 Though core operations are managed primarily through back-end shell scripts, the pipeline can be accessed and configured through a web-front interface in order to cater for simplicity and user-operability. Users can upload their data either through the web-interface or by manual file placement as preference dictates.
 
-\app{} consists of a series of inter-connecting Bash shell scripts which serve as necessary framework to accommodate wrappers for subsequent modules in order to chain (or "pipe") them together, as well as provide anchors for static and dynamic data management throughout general operation as shown in Figure~\ref{fig:structure}.
+\app{} consists of a series of inter-connecting Bash shell scripts which serve as necessary framework to accommodate wrappers for subsequent modules in order to chain (or "pipe") them together, as well as provide anchors for static and dynamic data management throughout general operation as shown in Figure~\ref{fig1}.
 
 
 \subsection{Application Suite and Interface}
@@ -307,11 +307,13 @@ The pipeline was originally developed in a headless Linux shell environment to b
 
 To necessitate the uptake of \app{}, a web interface was created to facilitate input validation and pipeline configuration process.
 
-The file upload procedure is streamlined by means of a pedigree file which pre-specifies cases (affecteds) and controls (unaffecteds) as well as their relation to one another. Pedigree data is automatically parsed into a file upload utility where the user can drag and drop their VCF files into the appropriate bins for processing. The interface extends to display configuration options for each annotation and filtering module whilst uploading occurs in the background. Modules are enabled by expanding check-boxes to display individual module parameters and thresholds that can be overridden by user criterion, examples of which can be shown in Figure~\ref{fig:webend}. 
+The file upload procedure is streamlined by means of a pedigree file which pre-specifies cases (affecteds) and controls (unaffecteds) as well as their relation to one another. Pedigree data is automatically parsed into a table of cases and controls for all detected families, with file upload slots being assigned for each individual. The user is then given the choice to select multiple VCF files which are then mapped programatically  to the appropriate individual slots, or separate files can be dragged and dropped if more manual assignment is desired.
 
-A drop-down box of available penetrance model provides mutually-exclusive model-dependent options to better refine the analysis, such as parent or unaffected sibling-specific filtering. Additional annotation requirements are set (or skipped upon preference) and then the pipeline is run in tandem to the existing input session. In the case of user-termination, re-upload is not necessary for the same analysis as the process will reuse the temporary files from the last session and will not repeat the same work twice, resuming from where it left off. Once complete, the pipeline self-terminates and produces an interactive report of the remaining variants primed for feature presentation/concealment to help pinpoint variants of interest such as those shown in Figure~\ref{fig:report}.
+The interface extends to display configuration options for each annotation and filtering module whilst uploading occurs in the background. Modules are enabled by expanding check-boxes to display individual module parameters and thresholds that can be overridden by user criterion, examples of which can be shown in Figure~\ref{fig2}.
 
-The pipeline is spawned in a GNU \textit{screen} session in order to enable process control and resumeablility, where snapshots of a session in-process are repeatedly retrieved from the shell process to the web front-end via \textit{PHP} scripts. UI elements are managed with CSS and minimal Javascript, with the exception of the interactive report which performs table operations primarily through the latter. The front-end itself is hosted via a minimal \textit{lighttpd} server, and ongoing \app{} processes can be managed both from the web-interface as well as from the shell provided in the live environment.
+A drop-down box of available penetrance model provides mutually-exclusive model-dependent options to better refine the analysis, such as parent or unaffected sibling-specific filtering. Additional annotation requirements are set (or skipped upon preference) and then the pipeline is run in tandem to the existing input session. In the case of user-termination, re-upload is not necessary for the same analysis as the process will reuse the temporary files from the last session and will not repeat the same work twice, resuming from where it left off. Once complete, the pipeline self-terminates and produces an interactive report of the remaining variants primed for feature presentation/concealment to help pinpoint variants of interest such as those shown in Figure~\ref{fig3}.
+
+The pipeline is spawned in a GNU \textit{screen} session in order to enable process control and resumeablility, where snapshots of a session in-process are repeatedly retrieved from the shell process to the web front-end via \textit{PHP} scripts. UI elements are managed with CSS and minimal JavaScript, with the exception of the interactive report which performs table operations primarily through the latter. The front-end itself is hosted via a minimal \textit{lighttpd} server, and ongoing \app{} processes can be managed both from the web-interface as well as from the shell provided in the live environment.
 
 
 \subsubsection{Self-Contained Environment}
@@ -410,31 +412,35 @@ The last stage of pipeline constitutes a small subset of variants which have suc
 %%%%%%%%
 \section*{Results}
 
-Here we display  the results of the pipeline for autosomal recessive and X-linked dominant disease models.
+\subsection*{Case Study}
 
-\subsection*{First Case}
+Three families presented with hyperinsulinemic hypoglycemia and congenital polycystic kidney disease (HIPKD), a rare heterogeneous pair of disorders following an autosomal recessive disease pattern. Exome-capture sequencing and whole-genome linkage analysis revealed a promoter mutation within a significant locus on chromosome 16 \cite{cabezas2017polycystic}.
 
-Three families presented with an autosomal recessive disease, with whole-exome sequencing being performed upon the affected members of each pedigree. From the 5 affected VCF input data acquired, 3 were siblings permitting the use of variant-level filtering. Each VCF file comprised of approximately 270,000 variants (SNPs and InDels) and were profiled against a gene map at the first annotation step (\textit{Adding Genes}) that comprised of exons, introns, 5' and 3' UTR, and essential splice sites (5bp).
+Of the 9 input VCF files, 4 were affected cases of which 2 were siblings. The remaining VCFs were controls consisting of 4 (2 pairs) of unaffected parents and 1 was unaffected sibling, permitting the use of variant-level filtering.
 
-As much as 90\% of variants were deemed wholly intergenic and filtered at the annotation stage, leaving a drastically reduced subset of approximately 30,000 potentially relevant variants. Following the VCF depicted in Figure~\ref{fig:result} (top), a further 4,544 variants are discarded as a result of the autosomal recessive filter which searched for homozygous or compound heterozygous variants alone, due to the lack of parental input data to further pre-screen for Mendelian variants. Sibling filtering at the common variant-level assisted in this regard, and the remaining genes were bisected between pedigrees through the use of the common gene filter.
+Each VCF file comprised of approximately 250,000 variants (SNPs and InDels) and were profiled against a gene map at the first annotation step (\textit{Adding Genes}) comprised of exons, introns, 5' and 3' UTR, and essential splice sites (5bp). Gene isoforms as well as regions deemed wholly intergenic were also retained.
 
-Prior linkage analysis hinted at regions of interest with significant LOD-scores ($>$3) and this vastly reduced the number to 104 unique variants shared across all affecteds. The rarity of the phenotype prompted a search for novel variants, resulting in just 3 potentially causative-variants, 1 of which was a missense mutation that was later confirmed to be the disease-originating variant.
+Core annotation normally accounts for a vast majority of non-coding variants being filtered out, but due to the regulatory nature of the analysis all intergenic variants were kept, resulting in no implicit filtering occurring during this initial stage.
 
+Prior linkage analysis hinted at a small locus of interest with a very significant LOD-score ($>$6) and this, in conjunction with the \textit{Call Quality Filter} ($\geq$20) resulted in 99.9\% of the variants being filtered out in all cases, bringing the number of variants in each to less than 100 as shown in Figure~\ref{fig4}. The rarity of the phenotype prompted a search for novel variants, resulting in under 10 potentially causative-variants.  
 
-\subsection*{Second Case}
-
-A single family displaying a phenotype under an X-Linked dominant inheritance model. Whole-exome sequencing was performed upon 8 individuals (7 affected, 1 unaffected) with almost 290,000 variants in each VCF file. 
-
-As before, the first annotation step filtered out the majority of variants, with an 89.3\% reduction due to variants being wholly intergenic/intronic. Significant linkage analysis outlined a narrow region of interest upon chromosome X, which coupled with the \textit{Physical Location Filter} reduced the initial set to just 351 variants (Figure~\ref{fig:result} (middle)). A cascade of filters targeting novel non-synonymous mutations under an X-linked dominant scenario (common across affecteds) resulted in a single causative missense variant.
+Applying the autosomal recessive inheritance module with same variant filtering further reduced the the total number of variants, and a final commonality filter set at the variant level identified a single causative intergenic variant within the promoter region of PMM2 that was confirmed as the disease-causing variant.
 
 
-\subsection*{Third Case}
+%\subsection*{Second Case}
 
-Four siblings were presented from a consanguineous marriage with a nephrotic syndrome segregating in an autosomal recessive fashion. Exome-sequencing was performed on each sibling with an initial targeted set of approximately 70,000 variants.
+%A single family displaying a phenotype under an X-Linked dominant inheritance model. Whole-exome sequencing was performed upon 8 individuals (7 affected, 1 unaffected) with almost 290,000 variants in each VCF file. 
 
-Core annotation accounted for a 65.9\% reduction in total variants, and a missense/nonsense \textit{Mutation Type Filter} reduced the initial set to under 11,000 variants (Figure~\ref{fig:result} (bottom)). Due to the rarity of phenotype, the \textit{Alternate Allele Frequency} module was utilized  to filter for any variants with a frequency less than 0.01 within dbSNP (version 142), vastly reducing the number to a cluster of 878 variants.
+%As before, the first annotation step filtered out the majority of variants, with an 89.3\% reduction due to variants being wholly intergenic/intronic. Significant linkage analysis outlined a narrow region of interest upon chromosome X, which coupled with the \textit{Physical Location Filter} reduced the initial set to just 351 variants (Figure~\ref{fig:result} (middle)). A cascade of filters targeting novel non-synonymous mutations under an X-linked dominant scenario (common across affecteds) resulted in a single causative missense variant.
 
-Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong organ specific expression.
+
+%\subsection*{Third Case}
+
+%Four siblings were presented from a consanguineous marriage with a nephrotic syndrome segregating in an autosomal recessive fashion. Exome-sequencing was performed on each sibling with an initial targeted set of approximately 70,000 variants.
+
+%Core annotation accounted for a 65.9\% reduction in total variants, and a missense/nonsense \textit{Mutation Type Filter} reduced the initial set to under 11,000 variants (Figure~\ref{fig:result} (bottom)). Due to the rarity of phenotype, the \textit{Alternate Allele Frequency} module was utilized  to filter for any variants with a frequency less than 0.01 within dbSNP (version 142), vastly reducing the number to a cluster of 878 variants.
+
+%Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong organ specific expression.
 
 
 %% DISCUSSION
@@ -484,7 +490,7 @@ The annotation step is crucial, especially for whole-genome sequence data where 
 \begin{backmatter}
 
 \section*{Availability of Data and Materials}
-\app{} was developed under C++, Python, and Bash shell scripts. It is free software licensed under GPLv3, with the source code and live ISO binary image freely accessible for download at \url{https://www.bitbucket.io/momo13/ovas-pipeline.git}. The data that support the findings of this study are available from the authors upon request. The \app{} pipeline can either be directly installed locally on a pre-existing Linux OS, or it can be accessed in-situ by booting the live image.
+\app{} was developed under C++, Python, and Bash shell scripts. It is free software licensed under GPLv3, with the source code and live ISO binary image freely accessible for download at \url{https://www.bitbucket.io/momo13/ovas-pipeline.git}. The data that support the findings of this study are available at the code repository and also within the live ISO environment. The \app{} pipeline can either be directly installed locally on a pre-existing Linux OS, or it can be accessed in-situ by booting the live image.
 
 
 \section*{List of Abbreviations}
@@ -493,7 +499,8 @@ The annotation step is crucial, especially for whole-genome sequence data where 
 \textbf{C-HET}: Compound-Heterozygous, \textbf{SNP}: Single Nucleotide Polymorphism\\
 \textbf{InDel}: Insertion-Deletion, \textbf{LOD}: Logarithm of the Odds\\
 \textbf{HTS}: High-Throughput Sequencing, \textbf{VCF}: Variant Call Format\\
-\textbf{BAM}: Binary Alignment Map
+\textbf{BAM}: Binary Alignment Map\\
+\textbf{HIPKD}: Hyperinsulinemic hypoglycemia and congenital polycystic kidney disease\\
 
 
 % https://bmcbioinformatics.biomedcentral.com/submission-guidelines/preparing-your-manuscript/software-article
@@ -504,7 +511,7 @@ Ethics approval and consent was provided by the ethics committee of Royal Free H
 The authors declare that they have no competing interests.
 
 \section*{Author's contributions}
-MM designed and implemented the filtering, extended annotation, and disease model-specific scenario Python modules. MT wrote the core annotation C++ utilities, and reworked the pipeline into the live ISO bootable environment. The pipeline workflow was structured by MM and implemented by MT. The individual study of the genomic data sets given by JAK and DB prompted the conception of the pipeline. HS was instrumental to the development process by providing method evaluation, feature recommendation, and overall technical supervision. RK provided quality control assessment and agreed to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved. All authors read and approved the final manuscript.
+MM designed and implemented the filtering, extended annotation, and disease model-specific scenario Python modules. MT wrote the core annotation C++ utilities, and reworked the pipeline into the live ISO bootable environment. The pipeline workflow was structured by MM and implemented by MT. The study of genomic data sets given by JAK and DB prompted the conception of the pipeline. HS was instrumental to the development process by providing method evaluation, feature recommendation, and overall technical supervision. RK provided quality control assessment and agreed to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved. All authors considered, discussed, read, and approved the final manuscript.
 
 
 
@@ -551,35 +558,23 @@ This work was supported by St. Peter's Trust for Kidney, Bladder and Prostate Re
 %%
 %% Do not use \listoffigures as most will included as separate files
 
-\section*{Figures}
-
+%\section*{Figures}
+%
 \begin{figure}[h!]
-  \centerline{\includegraphics[scale=1]{inh_autosomal.eps}}
-  \caption{\csentence{}Autosomal inheritance pattern with red disease allele.
-(A) Recessive inheritance, both parents as heterozygous carriers with an unaffected:carrier:affected ratio of 1:2:1.
-(B) Dominant inheritance, one parent affected with an unaffected:affected ratio of 1:1.\label{fig:inheritance}}
-\vspace{1em}
-  \centerline{\includegraphics[scale=1]{inh_xlinked.eps}}
-  \caption{\csentence{}X-linked inheritance pattern with a red disease allele. (A) Recessive inheritance, mother is a disease-carrier. A mother will pass her disease-allele to half of her offspring, resulting just sons to be affected. (B) Recessive inheritance, father is affected. A father will pass his disease-allele to all of his daughters resulting all of them to be a disease-carriers. (C) Dominant inheritance, father is affected. A father will pass his disease-allele to all his daughters resulting all of them to be affected. (D) Dominant inheritance, mother is affected. A mother will pass her disease-allele equally to daughters and sons, resulting half of them to be affected.\label{fig:inheritancex}}
-\end{figure}
-
-\begin{figure}[h!]
-  \centerline{\includegraphics[scale=0.5]{pipeline_overall.eps}}
-  \caption{\csentence{}Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline and are processed in turn by the core annotation, optional filtering, trait penetrance modelling, and additional annotation modules. \label{fig:structure}}
-\end{figure}
-
-\begin{figure}[h!]
-  \centerline{\includegraphics[scale=1]{pipe_3_final.eps}}
-\caption{\csentence{}Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab.\label{fig:webend}}
+  \centerline{\includegraphics[width=0.45\textwidth]{fig1.png}}
+  \caption{\csentence{}Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline and are processed in turn by the core annotation, optional filtering, trait penetrance modelling, and additional annotation modules. \label{fig1}}
 \end{figure}
 \begin{figure}[h!]
-  \centerline{\includegraphics[scale=1]{report_small.eps}}
-\caption{\csentence{}The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor).\label{fig:report}}
+  \centerline{\includegraphics[width=0.45\textwidth]{fig2.png}}
+\caption{\csentence{}Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab.\label{fig2}}
 \end{figure}
-
 \begin{figure}[h!]
-  \centerline{\includegraphics[scale=1]{control_result_total.eps}}
-\caption{\csentence{}The progression of output variants through core annotation and filtering stages for each of the three separate cases.\label{fig:result}}
+  \centerline{\includegraphics[width=0.45\textwidth]{fig3.png}}
+\caption{\csentence{}The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor). The promoter mutation for the case study is shown in the \textit{Intergenic chr16} row.\label{fig3}}
+\end{figure}
+\begin{figure}[h!]
+  \centerline{\includegraphics[width=0.45\textwidth]{fig4.png}}
+\caption{\csentence{}The progression of variants filtered at each subsequent annotation or filtering stage for each of the 4 case VCFs. Curved arrows display the average percentage reduction from the total number of variants.\label{fig4}}
 \end{figure}
 
 

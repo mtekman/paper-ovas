@@ -1,0 +1,84 @@
+\begin{thebibliography}{10}
+
+\bibitem{lander2001initial}
+Lander ES, Linton LM, Birren B, Nusbaum C, Zody MC, Baldwin J, et~al.
+\newblock Initial sequencing and analysis of the human genome.
+\newblock Nature. 2001;409(6822):860--921.
+
+\bibitem{sanger1977dna}
+Sanger F, Nicklen S, Coulson AR.
+\newblock {D}{N}{A} sequencing with chain-terminating inhibitors.
+\newblock Proceedings of the National Academy of Sciences.
+  1977;74(12):5463--5467.
+
+\bibitem{lengauer2007bioinformatics}
+Lengauer T.
+\newblock Bioinformatics-From Genomes to Therapies.
+\newblock Wiley Online Library; 2007.
+
+\bibitem{bockenhauer2012genetic}
+Bockenhauer D, Medlar AJ, Ashton E, Kleta R, Lench N.
+\newblock Genetic testing in renal disease.
+\newblock Pediatric Nephrology. 2012;27(6):873--883.
+
+\bibitem{li2009sequence}
+Li H, Handsaker B, Wysoker A, Fennell T, Ruan J, Homer N, et~al.
+\newblock The sequence alignment/map format and {S}{A}{M}tools.
+\newblock Bioinformatics. 2009;25(16):2078--2079.
+
+\bibitem{danecek2011variant}
+Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, et~al.
+\newblock The variant call format and {V}{C}{F}tools.
+\newblock Bioinformatics. 2011;27(15):2156--2158.
+
+\bibitem{warden2014detailed}
+Warden CD, Adamson AW, Neuhausen SL, Wu X.
+\newblock Detailed comparison of two popular variant calling packages for exome
+  and targeted exon studies.
+\newblock PeerJ. 2014;2:e600.
+
+\bibitem{pabinger2014survey}
+Pabinger S, Dander A, Fischer M, Snajder R, Sperk M, Efremova M, et~al.
+\newblock A survey of tools for variant analysis of next-generation genome
+  sequencing data.
+\newblock Briefings in bioinformatics. 2014;15(2):256--278.
+
+\bibitem{kari2014consanguinity}
+Kari JA, Bockenhauer D, Stanescu H, Gari M, Kleta R, Singh AK.
+\newblock Consanguinity in {S}audi {A}rabia: a unique opportunity for pediatric
+  kidney research.
+\newblock American Journal of Kidney Diseases. 2014;63(2):304--310.
+
+\bibitem{biesecker2013genomic}
+Biesecker LG, Spinner NB.
+\newblock A genomic view of mosaicism and human disease.
+\newblock Nature Reviews Genetics. 2013;14(5):307--320.
+
+\bibitem{karolchik2003ucsc}
+Karolchik D, Baertsch R, Diekhans M, Furey TS, Hinrichs A, Lu Y, et~al.
+\newblock The {U}{C}{S}{C} genome browser database.
+\newblock Nucleic acids research. 2003;31(1):51--54.
+
+\bibitem{scheifler1986x}
+Scheifler RW, Gettys J.
+\newblock The {X} window system.
+\newblock ACM Transactions on Graphics (TOG). 1986;5(2):79--109.
+
+\bibitem{lougher2008squashfs}
+Lougher P, Lougher R. {S}quash{F}{S}; 2008.
+\newblock \url{http://www.squashfs-lzma.org/}.
+
+\bibitem{cabezas2017polycystic}
+Cabezas OR, Flanagan SE, Stanescu H, Garc{\'\i}a-Mart{\'\i}nez E, Caswell R,
+  Lango-Allen H, et~al.
+\newblock Polycystic Kidney Disease with Hyperinsulinemic Hypoglycemia Caused
+  by a Promoter Mutation in Phosphomannomutase 2.
+\newblock Journal of the American Society of Nephrology. 2017;p.
+  ASN--2016121312.
+
+\bibitem{reed2010information}
+Reed C.
+\newblock Information 'Ownership' in the Cloud.
+\newblock Queen Mary School of Law Legal Studies Research Paper. 2010;(45).
+
+\end{thebibliography}

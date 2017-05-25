@@ -1,0 +1,1953 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="bmc_article.tex"> 
+<link rel="stylesheet" type="text/css" href="bmc_article.css"> 
+</head><body 
+>
+                                                                                            
+                                                                                            
+<div 
+class="colorbox" id="colorbox1"><span 
+class="cmssbx-10x-x-120">RESEARCH</span>                                                                              </div>
+<!--l. 102--><p class="noindent" ><span 
+class="cmss-17x-x-143">OVAS:</span>
+<span 
+class="cmss-17x-x-143">an</span>
+<span 
+class="cmss-17x-x-143">open-source</span>
+<span 
+class="cmss-17x-x-143">variant</span>
+<span 
+class="cmss-17x-x-143">analysis</span>
+<span 
+class="cmss-17x-x-143">suite</span>
+<span 
+class="cmss-17x-x-143">with</span>
+<span 
+class="cmss-17x-x-143">trait-penetrance</span>
+<span 
+class="cmss-17x-x-143">modelling</span>
+<!--l. 122--><p class="noindent" ><span 
+class="cmss-10x-x-109">Monika Mozere</span><sup class="textsuperscript"><a 
+href="#aff1"><span 
+class="cmbx-9">??</span></a></sup><sup class="textsuperscript"><a 
+href="#n1"><span 
+class="cmsy-9">&#8224;</span></a></sup><span 
+class="cmss-10x-x-109">, Mehmet Tekman</span><sup class="textsuperscript"><a 
+href="#aff1"><span 
+class="cmbx-9">??</span></a></sup><sup class="textsuperscript"><a 
+href="#n1"><span 
+class="cmsy-9">&#8224;</span></a></sup><span 
+class="cmss-10x-x-109">, Jameela Kari</span><sup class="textsuperscript"><a 
+href="#aff2"><span 
+class="cmbx-9">??</span></a></sup><span 
+class="cmss-10x-x-109">, Detlef Bockenhauer</span><sup class="textsuperscript"><a 
+href="#aff1"><span 
+class="cmbx-9">??</span></a></sup><span 
+class="cmss-10x-x-109">, Robert Kleta</span><sup class="textsuperscript"><a 
+href="#aff1"><span 
+class="cmbx-9">??</span></a></sup><sup class="textsuperscript"><a 
+href="#au5"><span 
+class="cmss-9">*</span></a></sup><span 
+class="cmss-10x-x-109">&#x00A0;and Horia</span>
+<span 
+class="cmss-10x-x-109">Stanescu</span><sup class="textsuperscript"><a 
+href="#aff1"><span 
+class="cmbx-9">??</span></a></sup>
+<div 
+class="colorbox" id="colorbox2"><div 
+class="abstract" 
+>
+<!--l. 198--><p class="indent" >
+<a 
+ id="likesection.1"></a><a 
+ id="Q1-1-1"></a><span 
+class="cmssbx-10">Abstract</span>
+<!--l. 198--><p class="noindent" >
+<!--l. 200--><p class="noindent" ><span 
+class="cmssbx-10">Background:</span><span 
+class="cmss-10">&#x00A0;The</span>
+<span 
+class="cmss-10">advent</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">modern</span>
+<span 
+class="cmss-10">high-throughput</span>
+<span 
+class="cmss-10">genetics</span>
+<span 
+class="cmss-10">continually</span>
+<span 
+class="cmss-10">broadens</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">gap</span>
+<span 
+class="cmss-10">between</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">rising</span>
+<span 
+class="cmss-10">volume</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">sequencing</span>
+<span 
+class="cmss-10">data,</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">tools</span>
+<span 
+class="cmss-10">required</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">process</span>
+<span 
+class="cmss-10">them.</span>
+<span 
+class="cmss-10">The</span>
+<span 
+class="cmss-10">need</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">pinpoint</span>
+<span 
+class="cmss-10">a</span>
+<span 
+class="cmss-10">small</span>
+<span 
+class="cmss-10">subset</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">functionally</span>
+<span 
+class="cmss-10">important</span>
+<span 
+class="cmss-10">variants</span>
+<span 
+class="cmss-10">has</span>
+<span 
+class="cmss-10">now</span>
+<span 
+class="cmss-10">shifted</span>
+<span 
+class="cmss-10">towards</span>
+<span 
+class="cmss-10">identifying</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">critical</span>
+<span 
+class="cmss-10">differences</span>
+<span 
+class="cmss-10">between</span>
+<span 
+class="cmss-10">normal</span>
+<span 
+class="cmss-10">variants</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">disease-causing</span>
+<span 
+class="cmss-10">ones.</span>
+<span 
+class="cmss-10">The</span>
+<span 
+class="cmss-10">ever-increasing</span>
+<span 
+class="cmss-10">reliance</span>
+<span 
+class="cmss-10">on</span>
+<span 
+class="cmss-10">cloud-based</span>
+<span 
+class="cmss-10">services</span>
+<span 
+class="cmss-10">for</span>
+<span 
+class="cmss-10">sequence</span>
+<span 
+class="cmss-10">analysis</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">non-transparent</span>
+<span 
+class="cmss-10">methods</span>
+<span 
+class="cmss-10">they</span>
+<span 
+class="cmss-10">utilize</span>
+<span 
+class="cmss-10">has</span>
+<span 
+class="cmss-10">prompted</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">need</span>
+<span 
+class="cmss-10">for</span>
+<span 
+class="cmss-10">more</span>
+<span 
+class="cmss-10">in-situ</span>
+<span 
+class="cmss-10">services</span>
+<span 
+class="cmss-10">that</span>
+<span 
+class="cmss-10">can</span>
+<span 
+class="cmss-10">provide</span>
+<span 
+class="cmss-10">a</span>
+<span 
+class="cmss-10">safer</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">more</span>
+<span 
+class="cmss-10">accessible</span>
+<span 
+class="cmss-10">environment</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">process</span>
+<span 
+class="cmss-10">patient</span>
+<span 
+class="cmss-10">data,</span>
+<span 
+class="cmss-10">especially</span>
+<span 
+class="cmss-10">in</span>
+<span 
+class="cmss-10">circumstances</span>
+<span 
+class="cmss-10">where</span>
+<span 
+class="cmss-10">continuous</span>
+<span 
+class="cmss-10">internet</span>
+<span 
+class="cmss-10">usage</span>
+<span 
+class="cmss-10">is</span>
+<span 
+class="cmss-10">limited.</span>
+<!--l. 203--><p class="noindent" ><span 
+class="cmssbx-10">Results:</span><span 
+class="cmss-10">&#x00A0;To</span>
+<span 
+class="cmss-10">address</span>
+<span 
+class="cmss-10">these</span>
+<span 
+class="cmss-10">issues,</span>
+<span 
+class="cmss-10">we</span>
+<span 
+class="cmss-10">herein</span>
+<span 
+class="cmss-10">propose</span>
+<span 
+class="cmss-10">our</span>
+<span 
+class="cmss-10">standalone</span>
+<span 
+class="cmss-10">sequence</span>
+<span 
+class="cmss-10">analysis</span>
+<span 
+class="cmss-10">pipeline</span>
+<span 
+class="cmssi-10">OVAS</span><span 
+class="cmss-10">;</span>
+<span 
+class="cmss-10">consisting</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">three</span>
+<span 
+class="cmss-10">key</span>
+<span 
+class="cmss-10">stages</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">processing</span>
+<span 
+class="cmss-10">that</span>
+<span 
+class="cmss-10">pertain</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">separate</span>
+<span 
+class="cmss-10">modes</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">annotation,</span>
+<span 
+class="cmss-10">filtering,</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">interpretation.</span>
+<span 
+class="cmss-10">Core</span>
+<span 
+class="cmss-10">annotation</span>
+<span 
+class="cmss-10">performs</span>
+<span 
+class="cmss-10">variant-mapping</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">gene-isoforms</span>
+<span 
+class="cmss-10">at</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">exon/intron</span>
+<span 
+class="cmss-10">level,</span>
+<span 
+class="cmss-10">append</span>
+<span 
+class="cmss-10">functional</span>
+<span 
+class="cmss-10">data</span>
+<span 
+class="cmss-10">pertaining</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">type</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">variant</span>
+<span 
+class="cmss-10">mutation,</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">determine</span>
+<span 
+class="cmss-10">hetero/homozygosity.</span>
+<span 
+class="cmss-10">Up</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">12</span>
+<span 
+class="cmss-10">filtering</span>
+<span 
+class="cmss-10">modules</span>
+<span 
+class="cmss-10">can</span>
+<span 
+class="cmss-10">be</span>
+<span 
+class="cmss-10">used</span>
+<span 
+class="cmss-10">in</span>
+<span 
+class="cmss-10">sequence</span>
+<span 
+class="cmss-10">ranging</span>
+<span 
+class="cmss-10">from</span>
+<span 
+class="cmss-10">single</span>
+<span 
+class="cmss-10">quality</span>
+<span 
+class="cmss-10">control</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">multi-file</span>
+<span 
+class="cmss-10">penetrance</span>
+<span 
+class="cmss-10">model</span>
+<span 
+class="cmss-10">specifics</span>
+<span 
+class="cmss-10">such</span>
+<span 
+class="cmss-10">as</span>
+<span 
+class="cmss-10">X-linked</span>
+<span 
+class="cmss-10">recessive</span>
+<span 
+class="cmss-10">or</span>
+<span 
+class="cmss-10">mosaicism.</span>
+<span 
+class="cmss-10">Depending</span>
+<span 
+class="cmss-10">on</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">type</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">interpretation</span>
+<span 
+class="cmss-10">required,</span>
+<span 
+class="cmss-10">additional</span>
+<span 
+class="cmss-10">annotation</span>
+<span 
+class="cmss-10">is</span>
+<span 
+class="cmss-10">performed</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">identify</span>
+<span 
+class="cmss-10">organ</span>
+<span 
+class="cmss-10">specificity</span>
+<span 
+class="cmss-10">through</span>
+<span 
+class="cmss-10">gene</span>
+<span 
+class="cmss-10">expression</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">protein</span>
+<span 
+class="cmss-10">domains.</span>
+<span 
+class="cmss-10">In</span>
+<span 
+class="cmss-10">the</span>
+<span 
+class="cmss-10">course</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">this</span>
+<span 
+class="cmss-10">paper</span>
+<span 
+class="cmss-10">we</span>
+<span 
+class="cmss-10">analysed</span>
+<span 
+class="cmss-10">three</span>
+<span 
+class="cmss-10">case</span>
+<span 
+class="cmss-10">studies;</span>
+<span 
+class="cmss-10">2</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">autosomal</span>
+<span 
+class="cmss-10">recessive,</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">one</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">X-linked</span>
+<span 
+class="cmss-10">dominant</span>
+<span 
+class="cmss-10">inheritance.</span>
+<span 
+class="cmss-10">OVAS</span>
+<span 
+class="cmss-10">made</span>
+<span 
+class="cmss-10">effective</span>
+<span 
+class="cmss-10">use</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">different</span>
+<span 
+class="cmss-10">module</span>
+<span 
+class="cmss-10">configurations</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">identify</span>
+<span 
+class="cmss-10">singular</span>
+<span 
+class="cmss-10">rare</span>
+<span 
+class="cmss-10">causative</span>
+<span 
+class="cmss-10">variants</span>
+<span 
+class="cmss-10">from</span>
+<span 
+class="cmss-10">whole-exome</span>
+<span 
+class="cmss-10">sequenced</span>
+<span 
+class="cmss-10">input</span>
+<span 
+class="cmss-10">samples.</span>
+<!--l. 206--><p class="noindent" ><span 
+class="cmssbx-10">Conclusion:</span>
+<span 
+class="cmss-10">OVAS</span>
+<span 
+class="cmss-10">is</span>
+<span 
+class="cmss-10">a</span>
+<span 
+class="cmss-10">offline</span>
+<span 
+class="cmss-10">open-source</span>
+<span 
+class="cmss-10">modular-driven</span>
+<span 
+class="cmss-10">analysis</span>
+<span 
+class="cmss-10">environment,</span>
+<span 
+class="cmss-10">designed</span>
+<span 
+class="cmss-10">to</span>
+<span 
+class="cmss-10">annotate</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">extract</span>
+<span 
+class="cmss-10">useful</span>
+<span 
+class="cmss-10">variants</span>
+<span 
+class="cmss-10">from</span>
+<span 
+class="cmss-10">Variant</span>
+<span 
+class="cmss-10">Call</span>
+<span 
+class="cmss-10">Format</span>
+<span 
+class="cmss-10">(VCF)</span>
+<span 
+class="cmss-10">files,</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">process</span>
+<span 
+class="cmss-10">them</span>
+<span 
+class="cmss-10">under</span>
+<span 
+class="cmss-10">an</span>
+<span 
+class="cmss-10">inheritance</span>
+<span 
+class="cmss-10">context</span>
+<span 
+class="cmss-10">through</span>
+<span 
+class="cmss-10">a</span>
+<span 
+class="cmss-10">top-down</span>
+<span 
+class="cmss-10">filtering</span>
+<span 
+class="cmss-10">schema</span>
+<span 
+class="cmss-10">of</span>
+<span 
+class="cmss-10">swappable</span>
+<span 
+class="cmss-10">modules,</span>
+<span 
+class="cmss-10">run</span>
+<span 
+class="cmss-10">entirely</span>
+<span 
+class="cmss-10">off</span>
+<span 
+class="cmss-10">a</span>
+<span 
+class="cmss-10">live</span>
+<span 
+class="cmss-10">bootable</span>
+<span 
+class="cmss-10">medium</span>
+<span 
+class="cmss-10">and</span>
+<span 
+class="cmss-10">accessed</span>
+<span 
+class="cmss-10">locally</span>
+<span 
+class="cmss-10">through</span>
+<span 
+class="cmss-10">a</span>
+<span 
+class="cmss-10">web-browser.</span>
+<!--l. 209--><p class="noindent" ><span 
+class="cmssbx-10">Supplementary</span>
+<span 
+class="cmssbx-10">information:</span>
+<span 
+class="cmss-10">Supplementary</span>
+<span 
+class="cmss-10">data</span>
+<span 
+class="cmss-10">is</span>
+<span 
+class="cmss-10">available</span>
+<span 
+class="cmss-10">from</span>
+<span 
+class="cmssi-10">BMC-Bioinformatics</span>
+<span 
+class="cmss-10">online.</span><br />
+</div>
+<!--l. 221--><p class="noindent" ><span 
+class="cmssbx-10">Keywords: </span><span 
+class="cmss-10">open</span>
+<span 
+class="cmss-10">source;</span>
+<span 
+class="cmss-10">variant</span>
+<span 
+class="cmss-10">analysis;</span>
+<span 
+class="cmss-10">disease</span>
+<span 
+class="cmss-10">model;</span>
+<span 
+class="cmss-10">mosaic;</span>
+<span 
+class="cmss-10">bootable;</span>
+<span 
+class="cmss-10">live</span>
+<span 
+class="cmss-10">environment</span>                                                                               </div>    
+                                                                                            
+  <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Background</h3>
+<!--l. 269--><p class="noindent" >The technological evolution of sequencing platforms has
+progressed rapidly since the completion of the Human
+Genome project via Sanger sequencing methods <span class="cite">[<span 
+class="cmbx-10">?</span>,&#x00A0;<span 
+class="cmbx-10">?</span>]</span>.
+Modern high-throughput sequencing (HTS) approaches
+post-Sanger era have superseded this standard, allowing
+for a greater number of variants to be sequenced
+across the whole genome by employing powerful mass
+fragmentation/amplification approaches upon a target
+sequence <span class="cite">[<span 
+class="cmbx-10">?</span>,&#x00A0;<span 
+class="cmbx-10">?</span>]</span>.
+<!--l. 273--><p class="indent" >  The raw sequence FASTQ reads produced by these
+HTS platforms are aligned to a specific version of the
+NCBI reference sequence and collated into a Binary
+Alignment Map (BAM) where variants of interest
+can then be individually &#8221;called&#8221; to form a Variant
+Call Format (VCF) file of novel or known variants
+conforming to a specific variant database (dbSNP)
+<span class="cite">[<span 
+class="cmbx-10">?</span>,&#x00A0;<span 
+class="cmbx-10">?</span>]</span>.
+<!--l. 275--><p class="indent" >  BAM and VCF data are orthogonally related, with
+the former storing horizontal stretches of FASTA
+sequence reads aligned unevenly on top of one another
+forming &#8221;pile ups&#8221;, and the latter taking vertical
+cross-sections of these pileups at specific loci to form a
+variant call.
+<!--l. 277--><p class="indent" >  The VCF specification was designed for the 1000
+Genomes project to produce a robust format that could
+house the many samples often sequenced under the same
+batch, but has since been adopted by other projects
+such as UK10K, dbSNP, NHLBI Exome Project,
+and others. The format is flexible with annotations,
+where additional fields can be outlined in the header
+and adhered to in the body of the data. Each line of
+_
+<a 
+ id="x1-2r1"></a><sup class="textsuperscript"><span 
+class="cmss-9">*</span><a 
+ id="au5"></a>
+  </sup><span 
+class="cmss-8x-x-87">Correspondence:</span>
+<a 
+href="mailto:r.kleta@ucl.ac.uk" ><span 
+class="cmss-8x-x-87">r.kleta@ucl.ac.uk</span></a>
+<!--l. 238--><p class="noindent" ><sup class="textsuperscript"><a 
+href="#aff1"><span 
+class="cmbx-9">??</span></a></sup><span 
+class="cmss-8x-x-87">Division</span>
+<span 
+class="cmss-8x-x-87">of</span>
+<span 
+class="cmss-8x-x-87">Medicine,</span>
+<span 
+class="cmss-8x-x-87">University</span>
+<span 
+class="cmss-8x-x-87">College</span>
+<span 
+class="cmss-8x-x-87">London,</span>
+<span 
+class="cmss-8x-x-87">NW3</span>
+<span 
+class="cmss-8x-x-87">2PF</span>
+<span 
+class="cmss-8x-x-87">London,</span>
+<span 
+class="cmss-8x-x-87">UK</span>
+<!--l. 238--><p class="noindent" ><span 
+class="cmss-8x-x-87">Full</span>
+<span 
+class="cmss-8x-x-87">list</span>
+<span 
+class="cmss-8x-x-87">of</span>
+<span 
+class="cmss-8x-x-87">author</span>
+<span 
+class="cmss-8x-x-87">information</span>
+<span 
+class="cmss-8x-x-87">is</span>
+<span 
+class="cmss-8x-x-87">available</span>
+<span 
+class="cmss-8x-x-87">at</span>
+<span 
+class="cmss-8x-x-87">the</span>
+<span 
+class="cmss-8x-x-87">end</span>
+<span 
+class="cmss-8x-x-87">of</span>
+<span 
+class="cmss-8x-x-87">the</span>
+<span 
+class="cmss-8x-x-87">article</span>
+<!--l. 238--><p class="noindent" ><a 
+ id="x1-3r2"></a><sup class="textsuperscript"><span 
+class="cmsy-9">&#8224;</span><a 
+ id="n1"></a>
+ </sup><span 
+class="cmss-8x-x-87">Equal</span>
+<span 
+class="cmss-8x-x-87">contributor</span>                                           the VCF body describes a single variant; physical
+  position paired with a reference allele (as ascribed
+  by a reference genome consistent across the entire
+  VCF file) and alternate alleles that appear within
+  samples. Major and minor alleles are specific only
+  to the sample population but their frequencies can
+  be pre-computed and appended to a variant line as
+  additional information to then be utilized in small
+  population analyses such as inheritance modelling
+  <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>.
+  <!--l. 279--><p class="indent" >  Variant analysis suites all work under the same
+  principle; filtering all variants under a user-specified set of
+  criteria against the various variant annotations present in
+  the VCF in order to produce a subset informative to
+  the phenotype. Optimistic filtering measures will
+  produce a smaller set with the drawback of missing key
+  causative variants, and conservative filtering measures will
+  produce too many false positives. The effectiveness of an
+  analysis rests primarily upon the accuracy of the variant
+  annotations which can attribute to as much as 15% of
+  false negatives <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>, as well as the frequency of false
+  negatives that are discarded due to overly-stringent
+  quality filtering. A common approach to addressing both
+  issues is through learning algorithms that can be trained
+  to favour individual variants over others with the caveat
+  of producing results via &#8217;black-box&#8217; methods that may
+  create some disparity between the user and their data
+  <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>.
+  <!--l. 281--><p class="indent" >  A more transparent approach is to expand the scope of
+  the filtering beyond the variant/gene-level and explore
+  variants under a larger trait-penetrance context outlined
+  in Figure&#x00A0;<a 
+href="#x1-180011">1<!--tex4ht:ref: fig:inheritance --></a>.
+  <!--l. 283--><p class="indent" >  Mendelian traits conform to the four classical modes on
+  inheritance of autosomal/X-linked dominant/recessive
+  penetrance. Dominant disorders result from the inheritance
+  of a single mutant allele which is manifested in each
+  subsequent generation with a 50% chance of likelihood
+  in offspring from a single affected parent. Recessive
+  traits require the inheritance of two mutant alleles
+  on opposing strands in order to completely block
+  any functioning copies of the causative gene. Parents
+  are typically carriers with affected offspring. These
+  disorders are at times a result of consanguineous
+  marriages, where a single mutant allele manifests on
+  both alleles due to the multiple paths of descent it
+  can undertake <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>. In the case of X-linked recessive
+  inheritance, males with a single mutant copy are
+  hemizygous and must express the phenotype as shown in
+  Figure&#x00A0;<a 
+href="#x1-180022">2<!--tex4ht:ref: fig:inheritancex --></a>.
+  <!--l. 285--><p class="indent" >  For non-Mendelian disorders, we also consider the
+  special case of <span 
+class="cmti-10">mosaicism</span>; where embryonic de novo
+  mutations produce two or more populations of cells
+  that result in segregated sets of genotypes within the
+  same individual. Mosaic genotypes can be revealed  
+                                                                                            
+stochastically by measuring alternate allele frequencies
+against expected values <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>.
+<!--l. 287--><p class="indent" >  Here we outline our Open-source Variant Analysis Suite
+(OVAS) that makes use of these inheritance modelling
+scenarios with the aim to vastly reduce the number of
+false positives.
+<!--l. 289--><p class="noindent" >
+  <h3 class="likesectionHead"><a 
+ id="x1-2000"></a>Implementation</h3>
+<!--l. 290--><p class="noindent" >The core ideology behind OVAS was to preserve the VCF
+specification at each step of the analysis, and this is
+catered to extensively within the pipeline where each
+module inputs and outputs VCF file(s) in order to
+facilitate the chaining of subsequent pipeline modules
+downstream. This allows for full analysis transparency,
+where results can be extracted at any stage of an ongoing
+analysis.
+<!--l. 292--><p class="indent" >  Module ordering is flexible in this regard, with the
+exception of the primary annotation modules which
+are required to run prior to any filtering in order to
+produce an effective analysis of the variants. Pre-existing
+gene and function annotations within input data are
+ignored unless generated by a previous run of the OVAS
+pipeline, supplanting foreign annotations with the
+pipeline&#8217;s own if required. This is to ensure unambiguous
+results stemming from external annotations using
+unknown sources that may result in erroneous output
+variants.
+<!--l. 294--><p class="indent" >  OVAS is rooted firmly in trusted public domain
+databases such as RefGene, dbSNP, UniProt, and many
+others accessed through the widely-used UCSC Genome
+Browser <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>, ensuring a beneficial accordance between the
+variants described in both the Genome Browser and
+OVAS. The explicitly open nature of pipeline also
+prompts a predilection towards open-source or scripted
+languages and frameworks, which further serve to
+uphold the confidence between the end-user and their
+data.
+<!--l. 296--><p class="indent" >  Though core operations are managed primarily through
+back-end shell scripts, the pipeline can be accessed and
+configured through a web-front interface in order to cater
+for simplicity and user-operability. Users can upload their
+data either through the web-interface or by manual file
+placement as preference dictates.
+<!--l. 298--><p class="indent" >  OVAS consists of a series of inter-connecting Bash
+shell scripts which serve as necessary framework to
+accommodate wrappers for subsequent modules in order
+to chain (or &#8221;pipe&#8221;) them together, as well as provide
+anchors for static and dynamic data management
+throughout general operation as shown in Figure&#x00A0;<a 
+href="#x1-180033">3<!--tex4ht:ref: fig:structure --></a>.
+                                                <!--l. 301--><p class="noindent" >
+    <h4 class="subsectionHead"><span class="titlemark">0.1 </span> <a 
+ id="x1-30000.1"></a>Application Suite and Interface</h4>
+  <!--l. 303--><p class="noindent" >The pipeline was originally developed in a headless Linux
+  shell environment to be deployed on any Unix-like system
+  that supports Bash, appealing to experienced technicians
+  who can perform their own input validation. However,
+  significant effort was made to include researchers
+  from non-computing backgrounds who could benefit
+  from the rich processing without the cost additional
+  groundwork.
+  <!--l. 306--><p class="noindent" >
+    <h5 class="subsubsectionHead"><span class="titlemark">0.1.1 </span> <a 
+ id="x1-40000.1.1"></a>Web-front</h5>
+  <!--l. 308--><p class="noindent" >To necessitate the uptake of OVAS, a web interface was
+  created to facilitate input validation and pipeline
+  configuration process.
+  <!--l. 310--><p class="indent" >  The file upload procedure is streamlined by means of a
+  pedigree file which pre-specifies cases (affecteds) and
+  controls (unaffecteds) as well as their relation to one
+  another. Pedigree data is automatically parsed into a file
+  upload utility where the user can drag and drop their
+  VCF files into the appropriate bins for processing. The
+  interface extends to display configuration options for each
+  annotation and filtering module whilst uploading
+  occurs in the background. Modules are enabled by
+  expanding check-boxes to display individual module
+  parameters and thresholds that can be overridden by
+  user criterion, examples of which can be shown in
+  Figure&#x00A0;<a 
+href="#x1-180044">4<!--tex4ht:ref: fig:webend --></a>.
+  <!--l. 312--><p class="indent" >  A drop-down box of available penetrance model
+  provides mutually-exclusive model-dependent options to
+  better refine the analysis, such as parent or unaffected
+  sibling-specific filtering. Additional annotation requirements
+  are set (or skipped upon preference) and then the pipeline
+  is run in tandem to the existing input session. In the
+  case of user-termination, re-upload is not necessary
+  for the same analysis as the process will reuse the
+  temporary files from the last session and will not repeat
+  the same work twice, resuming from where it left
+  off. Once complete, the pipeline self-terminates and
+  produces an interactive report of the remaining variants
+  primed for feature presentation/concealment to help
+  pinpoint variants of interest such as those shown in
+  Figure&#x00A0;<a 
+href="#x1-180055">5<!--tex4ht:ref: fig:report --></a>.
+  <!--l. 314--><p class="indent" >  The pipeline is spawned in a GNU <span 
+class="cmti-10">screen </span>session in
+  order to enable process control and resumeablility, where
+  snapshots of a session in-process are repeatedly retrieved
+  from the shell process to the web front-end via <span 
+class="cmti-10">PHP</span>
+  scripts. UI elements are managed with CSS and minimal
+  Javascript, with the exception of the interactive report
+  which performs table operations primarily through the
+                                                                                            
+latter. The front-end itself is hosted via a minimal <span 
+class="cmti-10">lighttpd</span>
+server, and ongoing OVAS processes can be managed both
+from the web-interface as well as from the shell provided
+in the live environment.
+<!--l. 317--><p class="noindent" >
+  <h5 class="subsubsectionHead"><span class="titlemark">0.1.2 </span> <a 
+ id="x1-50000.1.2"></a>Self-Contained Environment</h5>
+<!--l. 319--><p class="noindent" >The full OVAS suite comprises of the core pipeline
+processing back-end encapsulated by the web-interface to
+handle input validation, which is encapsulated once
+more by a live operating system that handles and
+provides general file utilities as well as overall startup.
+Each of these three components exist as separable
+peripherals, but are optimal in the above configuration
+by facilitating and abstracting the installation of
+each through the use of symbolic links and providing
+constant anchors for static data bundled with the
+environment.
+<!--l. 321--><p class="indent" >  Arch Linux was chosen as the environment backbone
+due to it being a lightweight &#8221;no-frills&#8221; operating system
+that does not come pre-packaged with desktop sessions
+(and their associated bloatware). OVAS runs straight off
+the X desktop server with the OVAS interface autostarted
+along with a minimal dock for spawning additional
+applications <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>.
+<!--l. 323--><p class="indent" >  The static data primarily encompasses a variety of gene
+map configurations from human genome reference version
+hg18 through to hg38, as well as the raw nucleotide
+FASTA files for each chromosome specific to the versions,
+amounting to 15GB of genomic data. Due to the packing
+process, as well as compression algorithm used in
+the Squash Filesystem creation process <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>, OVAS
+mounts up to no more 2.7GB. This makes it ideal for
+bootable mediums such as DVDs and USB sticks,
+where the latter can preserve data across subsequent
+sessions.
+<!--l. 327--><p class="noindent" >
+  <h4 class="subsectionHead"><span class="titlemark">0.2 </span> <a 
+ id="x1-60000.2"></a>Pipeline Modules</h4>
+<!--l. 329--><p class="noindent" >Each module is tasked with the function of separating
+variants from an input file into two distinct output VCF
+groups of &#8221;filtered&#8221; and &#8221;discarded&#8221;; with the former
+group being passed into the next module, and the
+latter being halted at the current point of processing
+to be stored for potential debugging purposes. The
+discard process at each module lends a progressive
+performance increase in the processing speed of each
+subsequent module due to the input being only a
+subset of the input that came before it, whilst still
+retaining the aggregate total of discarded variants at each
+step.
+                                                <!--l. 331--><p class="noindent" >
+    <h5 class="subsubsectionHead"><span class="titlemark">0.2.1 </span> <a 
+ id="x1-70000.2.1"></a>Pre-processing</h5>
+  <!--l. 333--><p class="noindent" >All VCF files immediately undergo initial preparation upon
+  file upload from the web interface, where a background
+  shell script renames the files to better emulate their
+  pedigree counterparts, and asserts that all variants are in
+  correct order following a chromosome:position sorting
+  key.
+  <!--l. 336--><p class="noindent" >
+    <h5 class="subsubsectionHead"><span class="titlemark">0.2.2 </span> <a 
+ id="x1-80000.2.2"></a>Core Annotation</h5>
+  <!--l. 338--><p class="noindent" >The annotation stages of the pipeline then prime the
+  variants with relevant metadata that will then be filtered
+  against user-criterion throughout the rest of the pipeline.
+  The annotation stage is the only mandatory stage of the
+  pipeline, and a great portion of filtering occurs at these
+  stages too, with up to 90% of true negatives being
+  discarded. As a result of the large demand placed upon
+  the modules at this stage, they were written in the C++
+  in order to reduce time and memory constraints on
+  low-end platforms. The stage is split into three modules
+  (in order of processing):<br 
+class="newline" />
+  <!--l. 341--><p class="noindent" ><span 
+class="cmsl-10">Adding Genes</span><br 
+class="newline" />Appends a gene-context to the variants under a
+  user-configured level of detail at the gene/intergenic
+  junction or the exon/intron/splice/UTR sub-divisions,
+  including isoforms. Regulatory variants further up or
+  downstream of UTR can be specified by defining custom
+  margins of enclosement, and wholly intergenic regions are
+  discarded by default (though can be kept upon user
+  preference).<br 
+class="newline" />
+  <!--l. 344--><p class="noindent" ><span 
+class="cmsl-10">Adding Function</span><br 
+class="newline" />Applies functional annotation upon the variants processed
+  in the previous step; performing a cDNA lookup of where
+  a variant falls within the coding portions of the gene
+  in order to predict the type of mutation (missense,
+  synonymous, or non-synonymous) at the codon and
+  subsequent amino-acid level. Anti-sense encoded genes
+  are handled accordingly, and for insertion/deletion
+  (indels) variants the module performs the required
+  addition/subtractions across a consistent reading frame to
+  discern the mutation.<br 
+class="newline" />
+  <!--l. 347--><p class="noindent" ><span 
+class="cmsl-10">Adding Zygosity</span><br 
+class="newline" />Addresses a confidence issue in with pre-processed
+  variants, where heterozygosity and homozygosity would
+  be assigned based on post-quality filtering metrics. This
+  module sets zygosity by nucleotide base-count alone, and
+  determines HET/HOM assignments based upon a user-set
+                                                                                            
+frequency threshold (default <span 
+class="cmmi-10">&#x003C; </span>0<span 
+class="cmmi-10">.</span>65).<br 
+class="newline" />
+<!--l. 349--><p class="indent" >  Once fully annotated, the resultant output VCFs are
+ready to be processed by the filtering modules.
+<!--l. 353--><p class="noindent" >
+  <h5 class="subsubsectionHead"><span class="titlemark">0.2.3 </span> <a 
+ id="x1-90000.2.3"></a>Filtering Modules</h5>
+<!--l. 355--><p class="noindent" >The filtering modules consist of a series of Python (v2.7)
+scripts designed to parse these fields with the aim of
+minimizing the need for any mapping or additional
+pass-throughs. A variant line in a VCF file describes the
+eight mandatory fields grouped into three distinct
+categories (in order of filtering complexity):<br 
+class="newline" />
+<!--l. 358--><p class="noindent" ><span 
+class="cmsl-10">Variant Properties</span><br 
+class="newline" />The first five mandatory columns (chromosome, physical
+position (base-pairs), variant-marker identifier, reference
+allele, and alternate alleles) are processed by two main
+modules: <span 
+class="cmbx-10">Physical Location Filter</span>, which parses
+chromosome and physical position to keep variants
+inclusive to user-set loci ranges; and <span 
+class="cmbx-10">Novel Variant</span>
+<span 
+class="cmbx-10">Filter </span>which discards all variants with pre-existing
+identifiers (i.e., not &#8220;.&#8221;).<br 
+class="newline" />
+<!--l. 361--><p class="noindent" ><span 
+class="cmsl-10">Variant Metadata</span><br 
+class="newline" />Here, the variant call information field (INFO) is
+processed, which consists of variant-calling properties
+summarizing the FASTA strand pileup bisected by the
+variant. The INFO field alludes to the quality of the
+sample data, but not to the sample data itself, enabling
+for fast single-pass processing by the following four
+modules: <span 
+class="cmbx-10">Read Depth Filter </span>and <span 
+class="cmbx-10">Call Quality Filter</span>,
+which both discard variants falling below a user-set limit,
+the former upon the number of FASTA reads aligned at
+that position, and the latter upon the variant calling score
+value; <span 
+class="cmbx-10">Mutation Type Filter</span>, which makes use of
+functional annotations in order to filter single variants
+based upon user-set requirements of including any
+(multiple) of missense, nonsense, and synonymous
+mutation types; and finally <span 
+class="cmbx-10">Same Gene Filter </span>and
+<span 
+class="cmbx-10">Same Variant Filter</span>, that act upon multiple VCFs and
+produce a common output set of variants that reside in
+either the same gene(s) or share identical variants
+respectively.<br 
+class="newline" />
+<!--l. 364--><p class="noindent" ><span 
+class="cmsl-10">Sample Data</span><br 
+class="newline" />The sample format field (FORMAT) structures the
+presentation that all subsequent sample data conform to,
+and must be parsed before handling of the actual data.
+The <span 
+class="cmbx-10">Alternate Allele Frequency </span>module scans the
+sample data in order ascertain the absolute frequencies
+of the alternate allele(s) in the population whilst       removing variants with frequencies exceeding user-defined
+  upper/lower-bound thresholds.<br 
+class="newline" />
+  <!--l. 367--><p class="noindent" >
+    <h5 class="subsubsectionHead"><span class="titlemark">0.2.4 </span> <a 
+ id="x1-100000.2.4"></a>Inheritance Filtering</h5>
+  <!--l. 369--><p class="noindent" >This section performs trait penetrance modelling for
+  differently affected individuals following sibling-sibling, and
+  sibling-parent relations. For all detected parent-offspring
+  trios, variants undergo context-based filtering depending
+  on the penetrance-model specified:<br 
+class="newline" />
+  <!--l. 371--><p class="noindent" ><span 
+class="cmsl-10">Autosomal Dominant</span><br 
+class="newline" />The phenotype is caused by a single mutant autosomal
+  allele, and affected individuals must have affected parents,
+  mapping any <span 
+class="cmsy-10">{</span>HOM,HET<span 
+class="cmsy-10">}</span><img 
+src="bmc_article0x.png" alt="&#x21A6;&#x2192;"  class="mapsto" ><span 
+class="cmsy-10">{</span>HET,HOM<span 
+class="cmsy-10">} </span>under
+  complete penetrance. Under a <span 
+class="cmti-10">de novo </span>context all
+  common affected variants are filtered against unaffected
+  controls, otherwise variant commonality is kept within
+  sibling groups.<br 
+class="newline" />
+  <!--l. 383--><p class="noindent" ><span 
+class="cmsl-10">Autosomal Recessive</span><br 
+class="newline" />The phenotype is caused by a loss of function stemming
+  from both copies of an autosomal gene, at times from
+  the result of consanguineous breeding. Two paths of
+  transmission are considered from parent<img 
+src="bmc_article1x.png" alt="&#x21A6;&#x2192;"  class="mapsto" >offspring
+  depending on whether the affected offspring variant is
+  compound-heterozygous (C-HET) or homozygous
+  (HOM):<br 
+class="newline" />
+  <!--l. 383--><p class="indent" >
+        <ol  class="enumerate1" >
+        <li 
+  class="enumerate" id="x1-10002x1"><span 
+class="cmbx-10">HOM</span>, At least one parent maps HOM<img 
+src="bmc_article2x.png" alt="&#x21A6;&#x2192;"  class="mapsto" >HOM,
+        or  <span 
+class="cmsy-10">{</span>HET/HET<span 
+class="cmsy-10">}</span><img 
+src="bmc_article3x.png" alt="&#x21A6;&#x2192;"  class="mapsto" >HOM  if  both  parents  are
+        carriers.
+        </li>
+        <li 
+  class="enumerate" id="x1-10004x2"><span 
+class="cmbx-10">C-HET</span>, Parents are assumed to be carriers for
+        different  singular  HET  variants  across  common
+        genes, which compound in offspring as multiple
+        HET variants within the same gene. Under a gene
+        context, this is resolved via <span 
+class="cmsy-10">{</span>HET1/HET2<span 
+class="cmsy-10">}</span> <img 
+src="bmc_article4x.png" alt="&#x21A6;&#x2192;"  class="mapsto" >
+    <span 
+class="cmsy-10">{</span>HET1+HET2<span 
+class="cmsy-10">} </span>mapping  to  produce  a  C-HET
+        gene.</li></ol>
+  <!--l. 383--><p class="indent" >  Siblings are then filtered for common variants existing
+  within affecteds siblings only, discarding those that are
+  homozygous in unaffected controls. <br 
+class="newline" />
+  <!--l. 385--><p class="noindent" ><span 
+class="cmsl-10">X-linked Dominant</span><br 
+class="newline" />As with autosomal dominant but with the mutant allele
+  on the X-chromosome.<br 
+class="newline" />                                             
+                                                                                            
+<!--l. 388--><p class="noindent" ><span 
+class="cmsl-10">X-linked Recessive</span><br 
+class="newline" />As with autosomal recessive but with mutations occurring
+on the X-chromosome. Males with a single mutant
+copy are hemizygous and are treated as homozygous,
+exempting them from compound heterozygosity checking.<br 
+class="newline" />
+<!--l. 391--><p class="noindent" ><span 
+class="cmsl-10">Mosaicism</span><br 
+class="newline" />Mosaic inheritance is treated as a special case, where
+allele frequencies are pre-calculated for each variant and
+then filtered against user-set thresholds conforming to
+expected mosaic frequency ranges (typically between
+10-35%).<br 
+class="newline" />
+<!--l. 398--><p class="noindent" >
+  <h5 class="subsubsectionHead"><span class="titlemark">0.2.5 </span> <a 
+ id="x1-110000.2.5"></a>Extended Annotation</h5>
+<!--l. 400--><p class="noindent" >The last stage of pipeline constitutes a small subset of
+variants which have successfully passed through the main
+filtering stages and require finer analysis which is enabled
+by providing an even greater context to compare the
+variants. Additional annotation relates to the downstream
+effects of said variants such as structure, function, and
+expression.<br 
+class="newline" />
+<!--l. 403--><p class="noindent" ><span 
+class="cmsl-10">Isoform Context</span><br 
+class="newline" />Translates gene isoforms into their RefSeq nomenclature
+counterparts.<br 
+class="newline" />
+<!--l. 405--><p class="noindent" ><span 
+class="cmsl-10">Protein Context</span><br 
+class="newline" />Assigns protein annotation information from UniProt
+sources to assign information related protein domain.<br 
+class="newline" />
+<!--l. 407--><p class="noindent" ><span 
+class="cmsl-10">Gene Expression</span><br 
+class="newline" />Organ and tissue-specific data from the Encode GNF
+Atlas2 database is provided along with expression ratios
+which can be further filtered against user-specified
+limits.<br 
+class="newline" />
+<!--l. 411--><p class="noindent" >
+  <h3 class="likesectionHead"><a 
+ id="x1-120000.2.5"></a>Results</h3>
+<!--l. 413--><p class="noindent" >Here we display the results of the pipeline for autosomal
+recessive and X-linked dominant disease models.
+<!--l. 415--><p class="noindent" >
+  <h4 class="likesubsectionHead"><a 
+ id="x1-130000.2.5"></a>First Case</h4>                                      <!--l. 417--><p class="noindent" >Three families presented with an autosomal recessive
+  disease, with whole-exome sequencing being performed
+  upon the affected members of each pedigree. From the 5
+  affected VCF input data acquired, 3 were siblings
+  permitting the use of variant-level filtering. Each VCF file
+  comprised of approximately 270,000 variants (SNPs and
+  InDels) and were profiled against a gene map at the first
+  annotation step (<span 
+class="cmti-10">Adding Genes</span>) that comprised of
+  exons, introns, 5&#8217; and 3&#8217; UTR, and essential splice sites
+  (5bp).
+  <!--l. 419--><p class="indent" >  As much as 90% of variants were deemed wholly
+  intergenic and filtered at the annotation stage, leaving a
+  drastically reduced subset of approximately 30,000
+  potentially relevant variants. Following the VCF depicted
+  in Figure&#x00A0;<a 
+href="#x1-180066">6<!--tex4ht:ref: fig:result --></a> (top), a further 4,544 variants are discarded
+  as a result of the autosomal recessive filter which searched
+  for homozygous or compound heterozygous variants
+  alone, due to the lack of parental input data to further
+  pre-screen for Mendelian variants. Sibling filtering at the
+  common variant-level assisted in this regard, and the
+  remaining genes were bisected between pedigrees through
+  the use of the common gene filter.
+  <!--l. 421--><p class="indent" >  Prior linkage analysis hinted at regions of interest with
+  significant LOD-scores (<span 
+class="cmmi-10">&#x003E;</span>3) and this vastly reduced
+  the number to 104 unique variants shared across all
+  affecteds. The rarity of the phenotype prompted a
+  search for novel variants, resulting in just 3 potentially
+  causative-variants, 1 of which was a missense mutation
+  that was later confirmed to be the disease-originating
+  variant.
+  <!--l. 424--><p class="noindent" >
+    <h4 class="likesubsectionHead"><a 
+ id="x1-140000.2.5"></a>Second Case</h4>
+  <!--l. 426--><p class="noindent" >A single family displaying a phenotype under an X-Linked
+  dominant inheritance model. Whole-exome sequencing
+  was performed upon 8 individuals (7 affected, 1
+  unaffected) with almost 290,000 variants in each VCF
+  file.
+  <!--l. 428--><p class="indent" >  As before, the first annotation step filtered out the
+  majority of variants, with an 89.3% reduction due to
+  variants being wholly intergenic/intronic. Significant
+  linkage analysis outlined a narrow region of interest
+  upon chromosome X, which coupled with the <span 
+class="cmti-10">Physical</span>
+  <span 
+class="cmti-10">Location Filter </span>reduced the initial set to just 351 variants
+  (Figure&#x00A0;<a 
+href="#x1-180066">6<!--tex4ht:ref: fig:result --></a> (middle)). A cascade of filters targeting novel
+  non-synonymous mutations under an X-linked dominant
+  scenario (common across affecteds) resulted in a single
+  causative missense variant.
+  <!--l. 431--><p class="noindent" >                                             
+                                                                                            
+  <h4 class="likesubsectionHead"><a 
+ id="x1-150000.2.5"></a>Third Case</h4>
+<!--l. 433--><p class="noindent" >Four siblings were presented from a consanguineous
+marriage with a nephrotic syndrome segregating in an
+autosomal recessive fashion. Exome-sequencing was
+performed on each sibling with an initial targeted set of
+approximately 70,000 variants.
+<!--l. 435--><p class="indent" >  Core annotation accounted for a 65.9% reduction in
+total variants, and a missense/nonsense <span 
+class="cmti-10">Mutation Type</span>
+<span 
+class="cmti-10">Filter </span>reduced the initial set to under 11,000 variants
+(Figure&#x00A0;<a 
+href="#x1-180066">6<!--tex4ht:ref: fig:result --></a> (bottom)). Due to the rarity of phenotype, the
+<span 
+class="cmti-10">Alternate Allele Frequency </span>module was utilized to filter
+for any variants with a frequency less than 0.01 within
+dbSNP (version 142), vastly reducing the number to a
+cluster of 878 variants.
+<!--l. 437--><p class="indent" >  Applying the autosomal recessive inheritance
+module with same variant filtering resulted in just 15
+variants common across affecteds only, of which 2 were
+homozygous in different genes. Additional gene expression
+annotation was prioritized; with one variant conforming
+to a standard house-keeping gene expression profile,
+and the other being the more likely disease-causing
+variant due to it displaying a strong expression in the
+kidney.
+<!--l. 441--><p class="noindent" >
+  <h3 class="sectionHead"><span class="titlemark">1 </span> <a 
+ id="x1-160001"></a>Discussion</h3>
+<!--l. 443--><p class="noindent" >Depending upon the total input variants as well as the
+number and ordering of modules used, an average initial
+analysis using any number of modules (excluding
+alternate allele filtering) for VCF files containing 300,000
+variants each, will attribute a total of 2 minutes per
+VCF.
+<!--l. 445--><p class="indent" >  There are several limiting steps however, with the
+largest bottleneck occurring at initial gene annotation
+stage, which must prime all input variants for downstream
+filtering through the use of a gene (or exon) map that is
+dependent upon user parameters. Gene maps for a variety
+of user parameters already exist as static files in the live
+environment, but not all use-cases are covered and a new
+gene map must be generated for custom configurations
+which can take up to 1 hour to retrieve depending on
+internet speed and proximity to the closest UCSC MySQL
+mirror.
+<!--l. 447--><p class="indent" >  In the case of general gene map use-cases, the <span 
+class="cmti-10">Adding</span>
+<span 
+class="cmti-10">Genes </span>annotation step still requires 200 times more
+processing time than most other modules, and was the
+sole reason that all annotation modules were re-written
+in C++ to benefit from a significant performance
+increase that reduced the module&#8217;s processing time
+from an initial time of 10 minutes to under 3 minutes
+(Table&#x00A0;<a 
+href="#x1-180071">1<!--tex4ht:ref: table:results --></a>).                                        <!--l. 449--><p class="indent" >  The rest of the annotation modules are comparatively
+  much faster, with the functional annotations experiencing
+  mild latency related to disk read speeds when performing
+  repeated byte-offset lookup upon FASTA files. The initial
+  sorting of the variants upon file upload is valuable in
+  this regard due to the higher tendency of adjacent
+  variants to share the same disk cluster and reap paging
+  benefits.
+  <!--l. 451--><p class="indent" >  The last noticeable slowdown occurs within the
+  Javascript-powered interactive report and is dependent
+  upon the number of final variants it has to tabulate,
+  where the difference between 1,000 and 10,000 final
+  variants maps to a range of 1 to 15 seconds. Across
+  subsequent pipeline runs, processing is not repeated for
+  the same data; each module checks whether an input VCF
+  file has already been processed by the current pipeline
+  configuration, and repeatedly iterates through the module
+  ordering until the last processed input set is reached
+  where it can resume processing.
+  <!--l. 456--><p class="noindent" >
+    <h4 class="subsectionHead"><span class="titlemark">1.1 </span> <a 
+ id="x1-170001.1"></a>Transparency and Deployment</h4>
+  <!--l. 458--><p class="noindent" >The portability of OVAS grants a significant advantage
+  over present-day web-based pipelines by keeping all
+  analyses securely <span 
+class="cmti-10">in situ</span>, which is greatly beneficial to
+  regions of the world without consistent or active internet
+  in addition to researchers handling personal or private
+  data.
+  <!--l. 460--><p class="indent" >  Cloud-based analyses require input data to be uploaded
+  to an external server in order to perform processing, and
+  data ownership after upload is not always retained
+  especially in the case where the work was performed
+  within the cloud <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>. Further, many cloud-services employ
+  non-transparent proprietary methods to reduce the
+  number of false-positives and false-negatives. A common
+  approach is to make use of an internal database or
+  learning algorithm that favours some variants over others
+  based on previous analyses (or a similar training set)
+  <span class="cite">[<span 
+class="cmbx-10">?</span>]</span>, resulting in informative variants produced by
+  unquantifiable &#8221;black-box&#8221; means, creating disparity
+  between the end-user and their analysis.
+  <!--l. 462--><p class="indent" >  Transparent filtering methods are likelier to instil
+  greater confidence in the data with the added benefit of
+  customization to better tailor a filter to an analysis in the
+  case of open-source implementations, as with the case of
+  OVAS.
+  <!--l. 467--><p class="noindent" >
+    <h3 class="sectionHead"><span class="titlemark">2 </span> <a 
+ id="x1-180002"></a>Conclusions</h3>                               
+                                                                                            
+<!--l. 469--><p class="noindent" >The self-contained environment provided by OVAS allows
+researchers to tailor all aspects of their analysis and retain
+control of their data sets at any phase of processing by
+means of the transparent open-source modules that
+comprise the pipeline.
+<!--l. 471--><p class="indent" >  The live environment, paired with the web front-end,
+provides the additional advantage of abstracting the
+end-user from the underlying platform specifics by
+streamlining the input and configuration process, as well
+as logging active progress descriptions for the current
+stage of processing, and lastly providing a malleable final
+report upon all remaining variants discovered complete
+with dynamic filtering capabilities. The entirety of
+all uploaded variants are processed first at the gene
+annotation stage, placing significant strain at the initial
+stage of the pipeline that is only managed through the use
+of employing C++ binaries to overcome the performance
+bottleneck that would otherwise exist with Python/Bash
+scripts.
+<!--l. 473--><p class="indent" >  The annotation step is crucial, especially for whole-genome
+sequence data where the vast majority of the variants
+would be deemed wholly intergenic and would be filtered
+out as uninformative to the analysis. More common
+exome-sequencing data typically observe less of a
+reduction at a much faster processing rate due to the
+smaller number of total variants, but at the impediment
+of missing regulatory elements due to lack of coverage.
+Modules downstream of the annotation stage run trivially,
+and due to the pipeline&#8217;s resume feature which prevents
+OVAS from processing the same data twice, many
+subsequent analyses with different module configurations
+can be run in quick succession after the initial annotation
+step is complete.
+<!--l. 475--><p class="indent" >  OVAS is future-secure due to the inclusion of the
+background scripts that generated the static data being
+packaged with the live environment. Updates to the
+human genome reference, variant databases, and FASTA
+sequences can be retrieved on demand for platforms with
+active internet connections. Changes will preserve across
+successive boots for non-volatile storage mediums such as
+USB sticks, ideal in deployment scenarios with infrequent
+or absent internet access.
+<!--l. 486--><p class="noindent" >
+<!--l. 486--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">Availability</span>
+<span 
+class="cmssbx-10x-x-70">of</span>
+<span 
+class="cmssbx-10x-x-70">Data</span>
+<span 
+class="cmssbx-10x-x-70">and</span>
+<span 
+class="cmssbx-10x-x-70">Materials</span>
+<!--l. 487--><p class="noindent" ><span 
+class="cmss-8x-x-87">OVAS was developed under C++, Python, and Bash shell scripts. It is free software</span>
+<span 
+class="cmss-8x-x-87">licensed under GPLv3, with the source code and live ISO binary image freely accessible</span>
+<span 
+class="cmss-8x-x-87">for download at </span><a 
+href="https://www.bitbucket.io/momo13/ovas-pipeline.git" class="url" ><span 
+class="cmtt-8x-x-87">https://www.bitbucket.io/momo13/ovas-pipeline.git</span></a><span 
+class="cmss-8x-x-87">. The</span>
+<span 
+class="cmss-8x-x-87">data that support the findings of this study are included as example sets within</span>
+<span 
+class="cmss-8x-x-87">the live ISO image. The OVAS pipeline can either be directly installed locally on a</span>
+<span 
+class="cmss-8x-x-87">pre-existing Linux OS, or it can be accessed in-situ by booting the live</span>
+<span 
+class="cmss-8x-x-87">image.</span>
+<!--l. 490--><p class="noindent" >                                                 <!--l. 490--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">List</span>
+   <span 
+class="cmssbx-10x-x-70">of</span>
+   <span 
+class="cmssbx-10x-x-70">Abbreviations</span>
+   <!--l. 491--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">UTR</span><span 
+class="cmss-8x-x-87">: Untranslateable Region, </span><span 
+class="cmssbx-10x-x-70">cDNA</span><span 
+class="cmss-8x-x-87">: Complementary DNA</span><br />
+   <span 
+class="cmssbx-10x-x-70">HET</span><span 
+class="cmss-8x-x-87">: Heterozygous, </span><span 
+class="cmssbx-10x-x-70">HOM</span><span 
+class="cmss-8x-x-87">: Homozygous</span><br />
+   <span 
+class="cmssbx-10x-x-70">C-HET</span><span 
+class="cmss-8x-x-87">: Compound-Heterozygous, </span><span 
+class="cmssbx-10x-x-70">SNP</span><span 
+class="cmss-8x-x-87">: Single Nucleotide Polymorphism</span><br />
+   <span 
+class="cmssbx-10x-x-70">InDel</span><span 
+class="cmss-8x-x-87">: Insertion-Deletion, </span><span 
+class="cmssbx-10x-x-70">LOD</span><span 
+class="cmss-8x-x-87">: Logarithm of the Odds</span><br />
+   <span 
+class="cmssbx-10x-x-70">HTS</span><span 
+class="cmss-8x-x-87">: High-Throughput Sequencing, </span><span 
+class="cmssbx-10x-x-70">VCF</span><span 
+class="cmss-8x-x-87">: Variant Call Format</span><br />
+   <span 
+class="cmssbx-10x-x-70">BAM</span><span 
+class="cmss-8x-x-87">: Binary Alignment Map</span>
+   <!--l. 500--><p class="noindent" >
+   <!--l. 500--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">Ethics</span>
+   <span 
+class="cmssbx-10x-x-70">approval</span>
+   <span 
+class="cmssbx-10x-x-70">and</span>
+   <span 
+class="cmssbx-10x-x-70">consent</span>
+   <span 
+class="cmssbx-10x-x-70">to</span>
+   <span 
+class="cmssbx-10x-x-70">participate</span>
+   <!--l. 501--><p class="noindent" ><span 
+class="cmss-8x-x-87">¡ROBERT¿</span>
+   <!--l. 503--><p class="noindent" >
+   <!--l. 503--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">Acknowledgements</span>
+   <!--l. 504--><p class="noindent" ><span 
+class="cmss-8x-x-87">¡ROBERT¿</span>
+   <!--l. 507--><p class="noindent" >
+   <!--l. 507--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">Competing</span>
+   <span 
+class="cmssbx-10x-x-70">interests</span>
+   <!--l. 508--><p class="noindent" ><span 
+class="cmss-8x-x-87">The authors declare that they have no competing interests.</span>
+   <!--l. 510--><p class="noindent" >
+   <!--l. 510--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">Author&#8217;s</span>
+   <span 
+class="cmssbx-10x-x-70">contributions</span>
+   <!--l. 511--><p class="noindent" ><span 
+class="cmss-8x-x-87">MM designed and implemented the filtering, extended annotation, and disease</span>
+   <span 
+class="cmss-8x-x-87">model-specific scenario Python modules. MT wrote the core annotation C++</span>
+   <span 
+class="cmss-8x-x-87">utilities, and reworked the pipeline into the live ISO bootable environment. The</span>
+   <span 
+class="cmss-8x-x-87">pipeline workflow was structured by MM and implemented by MT. The</span>
+   <span 
+class="cmss-8x-x-87">individual study of the genomic data sets donated by JAK and DB prompted</span>
+   <span 
+class="cmss-8x-x-87">the conception of the pipeline. HS was instrumental to the development</span>
+   <span 
+class="cmss-8x-x-87">process by providing method evaluation, feature recommendation, and</span>
+   <span 
+class="cmss-8x-x-87">overall technical supervision. RK provided quality control assessment and</span>
+   <span 
+class="cmss-8x-x-87">agreed to be accountable for all aspects of the work in ensuring that</span>
+   <span 
+class="cmss-8x-x-87">questions related to the accuracy or integrity of any part of the work are</span>
+   <span 
+class="cmss-8x-x-87">appropriately investigated and resolved. All authors read and approved the final</span>
+   <span 
+class="cmss-8x-x-87">manuscript.</span>
+   <!--l. 515--><p class="noindent" >
+   <!--l. 515--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">Funding</span>
+   <!--l. 516--><p class="noindent" ><span 
+class="cmss-8x-x-87">This work was supported by St. Peter&#8217;s Trust for Kidney, Bladder and</span>
+   <span 
+class="cmss-8x-x-87">Prostate Research, the David and Elaine Potter Charitable Foundation, Kids</span>
+   <span 
+class="cmss-8x-x-87">Kidney Research, Garfield Weston Foundation, Kidney Research UK, the</span>
+   <span 
+class="cmss-8x-x-87">Lowe Syndrome Trust, the Mitchell Charitable Trust, and the European</span>
+   <span 
+class="cmss-8x-x-87">Union, FP7 (grant agreement 2012-305608 &#8220;European Consortium for</span>
+   <span 
+class="cmss-8x-x-87">High-Throughput Research in Rare Kidney Diseases (EURenOmics)&#8221;). Part of this</span>
+   <span 
+class="cmss-8x-x-87">work was also supported by the Deanship of Scientific Research, King</span>
+   <span 
+class="cmss-8x-x-87">Abdulaziz University, Jeddah, grant number 432/003/d to JAK, DB and</span>
+   <span 
+class="cmss-8x-x-87">RK.</span>
+   <!--l. 558--><p class="noindent" >
+   <!--l. 558--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">Figures</span>
+   <!--l. 560--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                            
+                                                                                            
+<a 
+ id="x1-180033"></a>
+                                                                                            
+                                                                                            
+<div 
+class="colorbox" id="colorbox3"><div  
+class="centerline"> <img 
+src="bmc_article5x.png" alt="PIC" class="graphics" width="191.71625pt" height="85.31874pt" ><!--tex4ht:graphics  
+name="bmc_article5x.png" src="inh_autosomal.eps"  
+--> </div>
+<br /> <div class="caption" 
+><span class="id"><span 
+class="cmss-10">Figure</span><span 
+class="cmss-10">&#x00A0;1:  </span></span><span  
+class="content"><span 
+class="cmss-10">Autosomal  inheritance  pattern  with  red</span>
+<span 
+class="cmss-10">disease allele. (A) Recessive inheritance, both parents</span>
+<span 
+class="cmss-10">as                   heterozygous                   carriers</span>
+<span 
+class="cmss-10">with an unaffected:carrier:affected ratio of 1:2:1. (B)</span>
+<span 
+class="cmss-10">Dominant  inheritance,  one  parent  affected  with  an</span>
+<span 
+class="cmss-10">unaffected:affected ratio of 1:1.</span><a 
+ id="x1-180011"></a></span></div><!--tex4ht:label?: x1-180011 -->
+<div  
+class="centerline">   <img 
+src="bmc_article6x.png" alt="PIC" class="graphics" width="175.65625pt" height="141.52875pt" ><!--tex4ht:graphics  
+name="bmc_article6x.png" src="inh_xlinked.eps"  
+-->   </div>
+<br /> <div class="caption" 
+><span class="id"><span 
+class="cmss-10">Figure</span><span 
+class="cmss-10">&#x00A0;2:  </span></span><span  
+class="content"><span 
+class="cmss-10">X-linked  inheritance  pattern  with  a  red</span>
+<span 
+class="cmss-10">disease allele. (A) Recessive inheritance, mother is a</span>
+<span 
+class="cmss-10">disease-carrier. A mother will pass her disease-allele</span>
+<span 
+class="cmss-10">to  half  of  her  offspring,  resulting  just  sons  to  be</span>
+<span 
+class="cmss-10">affected. (B) Recessive inheritance, father is affected.</span>
+<span 
+class="cmss-10">A  father  will  pass  his  disease-allele  to  all  of  his</span>
+<span 
+class="cmss-10">daughters resulting all of them to be a disease-carriers.</span>
+<span 
+class="cmss-10">(C)  Dominant  inheritance,  father  is  affected.  A</span>
+<span 
+class="cmss-10">father will pass his disease-allele to all his daughters</span>
+<span 
+class="cmss-10">resulting all of them to be affected. (D) Dominant</span>
+<span 
+class="cmss-10">inheritance, mother is affected. A mother will pass her</span>
+<span 
+class="cmss-10">disease-allele equally to daughters and sons, resulting</span>
+<span 
+class="cmss-10">half of them to be affected.</span><a 
+ id="x1-180022"></a></span></div><!--tex4ht:label?: x1-180022 -->                    </div>
+                                                                                            
+                                                                                            
+<!--l. 568--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 570--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                            
+                                                                                            
+<a 
+ id="x1-180044"></a>
+                                                                                            
+                                                                                            
+<div 
+class="colorbox" id="colorbox4"><div  
+class="centerline">    <img 
+src="bmc_article7x.png" alt="PIC" class="graphics" width="159.09436pt" height="386.94562pt" ><!--tex4ht:graphics  
+name="bmc_article7x.png" src="pipeline_overall.eps"  
+-->    </div>
+<br /> <div class="caption" 
+><span class="id"><span 
+class="cmss-10">Figure</span><span 
+class="cmss-10">&#x00A0;3:  </span></span><span  
+class="content"><span 
+class="cmss-10">Overall  structure  of  the  OVAS  pipeline:</span>
+<span 
+class="cmss-10">VCF  files  as  referenced  by  a  pedigree  file  are  fed</span>
+<span 
+class="cmss-10">into  the  pipeline  and  are  processed  in  turn  by  the</span>
+<span 
+class="cmss-10">core  annotation,  optional  filtering,  trait  penetrance</span>
+<span 
+class="cmss-10">modelling, and additional annotation modules. </span></span></div><!--tex4ht:label?: x1-180033 -->     </div>
+                                                                                            
+                                                                                            
+<!--l. 573--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 575--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                            
+                                                                                            
+<a 
+ id="x1-180055"></a>
+                                                                                            
+                                                                                            
+<div 
+class="colorbox" id="colorbox5"><div  
+class="centerline"> <img 
+src="bmc_article8x.png" alt="PIC" class="graphics" width="200.75pt" height="249.93375pt" ><!--tex4ht:graphics  
+name="bmc_article8x.png" src="pipe_3_final.eps"  
+--> </div>
+<br />  <div class="caption" 
+><span class="id"><span 
+class="cmss-10">Figure</span><span 
+class="cmss-10">&#x00A0;4:   </span></span><span  
+class="content"><span 
+class="cmss-10">Web-interface   displaying   an   ongoing</span>
+<span 
+class="cmss-10">analysis.   The   left   sidebar   shows   the   user-set</span>
+<span 
+class="cmss-10">configurations,  and  the  central-right  box  displays</span>
+<span 
+class="cmss-10">the pedigrees used in the analysis stacked above a</span>
+<span 
+class="cmss-10">real-time progress box. Once complete, a summary will</span>
+<span 
+class="cmss-10">automatically open in a new browser tab.</span></span></div><!--tex4ht:label?: x1-180044 -->         </div>
+                                                                                            
+                                                                                            
+<!--l. 578--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 579--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                            
+                                                                                            
+<a 
+ id="x1-180066"></a>
+                                                                                            
+                                                                                            
+<div 
+class="colorbox" id="colorbox6"><div  
+class="centerline"><img 
+src="bmc_article9x.png" alt="PIC" class="graphics" width="210.78749pt" height="174.6525pt" ><!--tex4ht:graphics  
+name="bmc_article9x.png" src="report_small.eps"  
+--></div>
+<br /> <div class="caption" 
+><span class="id"><span 
+class="cmss-10">Figure</span><span 
+class="cmss-10">&#x00A0;5:  </span></span><span  
+class="content"><span 
+class="cmss-10">The  summary  tab  which  contains  a</span>
+<span 
+class="cmss-10">comprehensive report of potential causative variants</span>
+<span 
+class="cmss-10">discovered in the analysis. The report is interactive and</span>
+<span 
+class="cmss-10">can perform dynamic filtering of discovered variants by</span>
+<span 
+class="cmss-10">toggling variants identified as synonymous, missense,</span>
+<span 
+class="cmss-10">nonsense,  UTR  (optionally  3&#8217;  or  5&#8217;),  and  splice</span>
+<span 
+class="cmss-10">(optionally Donor or Acceptor).</span></span></div><!--tex4ht:label?: x1-180055 -->                 </div>
+                                                                                            
+                                                                                            
+<!--l. 582--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 584--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                            
+                                                                                            
+                                                                                            
+                                                                                            
+<div 
+class="colorbox" id="colorbox7"><div  
+class="centerline">         <img 
+src="bmc_article10x.png" alt="PIC" class="graphics" width="113.42374pt" height="226.84749pt" ><!--tex4ht:graphics  
+name="bmc_article10x.png" src="control_result_total.eps"  
+-->         </div>
+<br /> <div class="caption" 
+><span class="id"><span 
+class="cmss-10">Figure</span><span 
+class="cmss-10">&#x00A0;6: </span></span><span  
+class="content"><span 
+class="cmss-10">The progression of output variants through</span>
+<span 
+class="cmss-10">core annotation and filtering stages for each of the</span>
+<span 
+class="cmss-10">three separate cases.</span></span></div><!--tex4ht:label?: x1-180066 -->                          </div>
+                                                                                            
+                                                                                            
+<!--l. 587--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 598--><p class="noindent" ><span 
+class="cmssbx-10x-x-70">Tables</span>
+<div class="table">
+                                                                                            
+                                                                                            
+<!--l. 601--><p class="noindent" ><a 
+ id="x1-180071"></a><hr class="float"><div class="float" 
+>
+                                                                                            
+                                                                                            
+<div class="tabular"> <table id="TBL-1" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-1-1g"><col 
+id="TBL-1-1"></colgroup><colgroup id="TBL-1-2g"><col 
+id="TBL-1-2"><col 
+id="TBL-1-3"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-1"  
+class="td11"><span 
+class="cmti-10">Pipeline Stage</span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-2"  
+class="td11">    <span 
+class="cmti-10">Module Name      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-1-3"  
+class="td11"><span 
+class="cmti-10">Runtime (seconds)</span></td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-2"  
+class="td11">    Adding Genes       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-2-3"  
+class="td11">      125          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-3-1"  
+class="td11">  Annotation  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-3-2"  
+class="td11">   Adding Function     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-3-3"  
+class="td11">      28.7          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-4-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-4-2"  
+class="td11">   Adding Zygosity     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-4-3"  
+class="td11">      0.81          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-5-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-5-2"  
+class="td11">Physical Location Filter</td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-5-3"  
+class="td11">      1.02          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-6-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-6-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-6-2"  
+class="td11">  Read Depth Filter    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-6-3"  
+class="td11">      1.26          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-7-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-7-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-7-2"  
+class="td11">  Call Quality Filter    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-7-3"  
+class="td11">      0.93          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-8-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-8-1"  
+class="td11">   Filtering    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-8-2"  
+class="td11">     AAF Filter        </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-8-3"  
+class="td11">      432          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-9-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-9-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-9-2"  
+class="td11"> Mutation Type Filter  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-9-3"  
+class="td11">      1.08          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-10-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-10-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-10-2"  
+class="td11">  Novel Variant Filter   </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-10-3"  
+class="td11">      1.12          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-11-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-11-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-11-2"  
+class="td11">   Same Gene Filter    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-11-3"  
+class="td11">      22.5          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-12-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-12-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-12-2"  
+class="td11">  Same Variant Filter   </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-12-3"  
+class="td11">      26.1          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-13-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-13-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-13-2"  
+class="td11">    AD Inheritance      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-13-3"  
+class="td11">      0.83          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-14-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-14-1"  
+class="td11">    Trait       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-14-2"  
+class="td11">    AR Inheritance      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-14-3"  
+class="td11">      1.22          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-15-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-15-1"  
+class="td11">  Penetrance   </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-15-2"  
+class="td11">    XD Inheritance      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-15-3"  
+class="td11">      0.74          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-16-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-16-1"  
+class="td11">    Model      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-16-2"  
+class="td11">    XR Inheritance      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-16-3"  
+class="td11">      1.39          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-17-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-17-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-17-2"  
+class="td11">      Mosaicism         </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-17-3"  
+class="td11">      0.94          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-18-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-18-1"  
+class="td11">             </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-18-2"  
+class="td11">   Isoform Context     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-18-3"  
+class="td11">      2.28          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-19-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-19-1"  
+class="td11">  Extended    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-19-2"  
+class="td11">   Protein Context     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-19-3"  
+class="td11">      4.10          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-20-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-20-1"  
+class="td11">  Annotation  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-20-2"  
+class="td11">   Gene Expression     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-1-20-3"  
+class="td11">      145          </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-21-"><td  style="white-space:nowrap; text-align:center;" id="TBL-1-21-1"  
+class="td11">             </td></tr></table></div>
+<br />  <div class="caption" 
+><span class="id">Table&#x00A0;1:  </span><span  
+class="content">Average  single-core  runtimes  of  VCF
+files  containing  50,000  variants  passing  individually
+through all filters with timings for each Annotation,
+Filtering,  and  Extended  Annotation  modules.  Trait
+Penetrance module timings are based on three VCFs
+consisting of a parent-offspring trio. Tests were run on
+a 2GHz dual-core processor with 4GB RAM.</span></div><!--tex4ht:label?: x1-180071 -->
+                                                                                            
+                                                                                            
+</div><hr class="endfloat" />
+</div>
+                                                                                            
+                                                                                            
+   
+</body></html> 
+
+                                                                                            
+
+
