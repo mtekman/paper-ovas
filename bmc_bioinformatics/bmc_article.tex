@@ -71,9 +71,10 @@
 %%                                             %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\RequirePackage{graphicx}  % added by mct
-\def\includegraphic{}
-\def\includegraphics{}
+%% -- switch these when needed
+\RequirePackage{graphicx}  % added by mct
+%\def\includegraphic{}
+%\def\includegraphics{}
 
 
 
@@ -201,7 +202,7 @@ Faculty of Medicine, King Abdulaziz University},
 The advent of modern high-throughput genetics continually broadens the gap between the rising volume of sequencing data, and the tools required to process them. The need to pinpoint a small subset of functionally important variants has now shifted towards identifying the critical differences between normal variants and disease-causing ones. The ever-increasing reliance on cloud-based services for sequence analysis and the non-transparent methods they utilize has prompted the need for more in-situ services that can provide a safer and more accessible environment to process patient data, especially in circumstances where continuous internet usage is limited.
 
 \parttitle{Results}\
-To address these issues, we herein propose our standalone Open-source Variant Analysis Sequencing \emph{(\app{})} pipeline; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. Up to 12 filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed an autosomal recessive case study. \app{} made effective use of the filtering modules to recapitulate the results of the study by identifying a single novel promoter mutation from exome-capture sequence input samples.
+To address these issues, we herein propose our standalone Open-source Variant Analysis Sequencing \emph{(\app{})} pipeline; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. Up to 12 filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed an autosomal recessive case study. \app{} made effective use of the filtering modules to recapitulate the results of the study by identifying a compound-heterozygous disease pattern from exome-capture sequence input samples illustrated via single promoter, missense, and splice site mutations.
 
 \parttitle{Conclusion}
 \app{} is an offline open-source modular-driven analysis environment, designed to annotate and extract useful variants from Variant Call Format (VCF) files, and process them under an inheritance context through a top-down filtering schema of swappable modules, run entirely off a live bootable medium and accessed locally through a web-browser.
@@ -412,35 +413,22 @@ The last stage of pipeline constitutes a small subset of variants which have suc
 %%%%%%%%
 \section*{Results}
 
-\subsection*{Case Study}
+%\subsection*{Case Study}
 
 Three families presented with hyperinsulinemic hypoglycemia and congenital polycystic kidney disease (HIPKD), a rare heterogeneous pair of disorders following an autosomal recessive disease pattern. Exome-capture sequencing and whole-genome linkage analysis revealed a promoter mutation within a significant locus on chromosome 16 \cite{cabezas2017polycystic}.
 
 Of the 9 input VCF files, 4 were affected cases of which 2 were siblings. The remaining VCFs were controls consisting of 4 (2 pairs) of unaffected parents and 1 was unaffected sibling, permitting the use of variant-level filtering.
 
-Each VCF file comprised of approximately 250,000 variants (SNPs and InDels) and were profiled against a gene map at the first annotation step (\textit{Adding Genes}) comprised of exons, introns, 5' and 3' UTR, and essential splice sites (5bp). Gene isoforms as well as regions deemed wholly intergenic were also retained.
+Each VCF file comprised of approximately 250,000 variants (SNPs and InDels) and were profiled against a gene map at the first annotation step (\textit{Adding Genes}) comprised of exons, 5'/3' UTR, donor/acceptor essential splice sites (5bp), and upstream/downstream promoter regions (500bp). Reference genes as well as their isoforms were also retained in the analysis.
 
-Core annotation normally accounts for a vast majority of non-coding variants being filtered out, but due to the regulatory nature of the analysis all intergenic variants were kept, resulting in no implicit filtering occurring during this initial stage.
+The prior linkage analysis hinted at a small region of interest (16p13.3-16p13.2 spanning 2.93 Mbp) populated by 11 genes and 40 isoforms, and applying this locus via the \textit{Physical Location Filter} resulted in 99.9\% of variants being filtered out. To address the effectiveness of the \app{} without the bias implicit by the results of the genetic linkage analysis, two types of run configurations were explored; the first that applied the linkage-derived locus immediately following the mandatory \textit{Core Annotation} stage, and the second that applied the locus as the last step in the pipeline.
 
-Prior linkage analysis hinted at a small locus of interest with a very significant LOD-score ($>$6) and this, in conjunction with the \textit{Call Quality Filter} ($\geq$20) resulted in 99.9\% of the variants being filtered out in all cases, bringing the number of variants in each to less than 100 as shown in Figure~\ref{fig4}. The rarity of the phenotype prompted a search for novel variants, resulting in under 10 potentially causative-variants.  
+The \textit{Core Annotation} stage accounted for the vast majority ($ > 80\% $) of the exome-sequenced variants being filtered out in both scenarios, intersecting variants against the gene map (declared previously) in order to remove those that were entirely intergenic or (non-regulatory) intronic. This resulted in approximately 43,000 annotated variants ready for the subsequent filtering modules.
 
-Applying the autosomal recessive inheritance module with same variant filtering further reduced the the total number of variants, and a final commonality filter set at the variant level identified a single causative intergenic variant within the promoter region of PMM2 that was confirmed as the disease-causing variant.
+Under the first scenario (Figure~\ref{fig4} (top)), the \textit{Physical Linkage Filter} reduced the number of variants to less than 35 in each case file. The \textit{Call Quality Filter} with a threshold of $>20$ was applied in accordance to the supplemental material provided by the paper, resulting in a 28.2\% reduction. The rarity of the phenotype prompted a search for variants not very prevalent in the population, thus the \textit{Alternate Allele Frequency Filter} was applied with a threshold of $< 1\%$, leaving no more than 10 variants in each case file. The \textit{Autosomal Recessive Inheritance Filter} then enforced Mendelian inheritance by utilizing the parent controls where suitable. Identical variant level matching occurred between the two affected siblings, and compound-heterozygous checking was performed between the one affected and one unaffected siblings in the same family. This resulted in just 4 variants in each case file except one with 8 variants, with one 1 shared promoter variant in all cases, as well as a missense in three of the cases and a splice site mutation present in one case, successfully outlining the compound heterozygous motif (Figure~\ref{fig3}). 
 
+The second scenario (Figure~\ref{fig4} (bottom)) performed the annotation as with the first scenario, but this time only reduced an average of 15.9\% of variants in the \textit{Call Quality Filter} step to approximately 37,000 variants. The \textit{Alternate Allele Frequency Filter} reduced this to under 21,000 rare variants, and the \textit{Autosomal Recessive Inheritance Filter} further trimmed this to approximately 10,000 variants, and upon applying the final \textit{Physical Linkage Filter}, this outlined less than 11 variants in each case file.
 
-%\subsection*{Second Case}
-
-%A single family displaying a phenotype under an X-Linked dominant inheritance model. Whole-exome sequencing was performed upon 8 individuals (7 affected, 1 unaffected) with almost 290,000 variants in each VCF file. 
-
-%As before, the first annotation step filtered out the majority of variants, with an 89.3\% reduction due to variants being wholly intergenic/intronic. Significant linkage analysis outlined a narrow region of interest upon chromosome X, which coupled with the \textit{Physical Location Filter} reduced the initial set to just 351 variants (Figure~\ref{fig:result} (middle)). A cascade of filters targeting novel non-synonymous mutations under an X-linked dominant scenario (common across affecteds) resulted in a single causative missense variant.
-
-
-%\subsection*{Third Case}
-
-%Four siblings were presented from a consanguineous marriage with a nephrotic syndrome segregating in an autosomal recessive fashion. Exome-sequencing was performed on each sibling with an initial targeted set of approximately 70,000 variants.
-
-%Core annotation accounted for a 65.9\% reduction in total variants, and a missense/nonsense \textit{Mutation Type Filter} reduced the initial set to under 11,000 variants (Figure~\ref{fig:result} (bottom)). Due to the rarity of phenotype, the \textit{Alternate Allele Frequency} module was utilized  to filter for any variants with a frequency less than 0.01 within dbSNP (version 142), vastly reducing the number to a cluster of 878 variants.
-
-%Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression profile, and the other being the more likely disease-causing variant due to it displaying a strong organ specific expression.
 
 
 %% DISCUSSION
@@ -454,8 +442,18 @@ In the case of general gene map use-cases, the \textit{Adding Genes} annotation 
 
 The rest of the annotation modules are comparatively much faster, with the functional annotations experiencing mild latency related to disk read speeds when performing repeated byte-offset lookup upon FASTA files. The initial sorting of the variants upon file upload is valuable in this regard due to the higher tendency of adjacent variants to share the same disk cluster and reap paging benefits.
 
-The last noticeable slowdown occurs within the Javascript-powered interactive report and is dependent upon the number of final variants it has to tabulate, where the difference between 1,000 and 10,000 final variants maps to a range of 1 to 15 seconds. Across subsequent pipeline runs, processing is not repeated for the same data; each module checks whether an input VCF file has already been processed by the current pipeline configuration, and repeatedly iterates through the module ordering until the last processed input set is reached where it can resume processing.
+Across subsequent pipeline runs, processing is not repeated for the same data; each module checks whether an input VCF file has already been processed by the current pipeline configuration, and repeatedly iterates through the module ordering until the last processed input set is reached where it can resume processing.
 
+
+\subsection{Case Performance}
+
+In the case of the two scenarios analysed, the first scenario completed its run in 10.2 minutes, with subsequent re-runs of the filtration modules on pre-annotated data in under a minute. 
+
+As expected, the second scenario was slower than the first, but only due to the \textit{Alternate Allele Module} which increased the 7.27 second processing time to 209 seconds. The module is subject to some delay in loading pre-computed dbSNP allele frequencies into memory, and due to memory and processing constraints, it must incur this cost for each new chromosome encountered which can create considerable latency in the earlier (larger) chromosomes. The first scenario escaped this penalty somewhat by only having to load a single relatively small chromosome into memory.
+
+The second scenario also produced slightly more variants despite using the exact same filters as the first with a single ordering modification. The cause of the discrepancy between these results is due to the method in which the \textit{Autosomal Recessive Inheritance Filter} processes compound-heterozygosity, where by the module casts a conservative net over all genes that are intersected at least twice by variants. Given the number of overlapping regions (gene, gene isoforms, promoters, UTRs, and Splice Sites) that can be bisected by any variant, the number of potential compound-heterozygous genes increases substantially with the pool of available variants.
+
+This ultimately asserts that the order of filtering modules is indeed important to the analysis and that the \textit{Physical Location Filter} should occur further upstream (as is by default) in the processing pipeline in order to yield better (and faster) results.
 
 
 
@@ -570,11 +568,12 @@ This work was supported by St. Peter's Trust for Kidney, Bladder and Prostate Re
 \end{figure}
 \begin{figure}[h!]
   \centerline{\includegraphics[width=0.45\textwidth]{fig3.png}}
-\caption{\csentence{}The summary tab which contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering of discovered variants by toggling variants identified as synonymous, missense, nonsense, UTR (optionally 3' or 5'), and splice (optionally Donor or Acceptor). The promoter mutation for the case study is shown in the \textit{Intergenic chr16} row.\label{fig3}}
+\caption{\csentence{}The summary tab contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering and sorting upon any data field. Columns containing adjacent data in the rows above or below are merged for conciseness. Toggling the column headers sorts the data in that field in ascending/descending order, and the search bar can be used to isolate variants of interest such as those which cause missense mutations, or variants existing in promoter regions. Gene isoforms can be filtered in or out by using the ``ISO'' or ``REF'' keyword, respectively. Pedigrees can be quickly viewed by hovering over the \textit{Show Pedigrees} button above the \textit{Cases} and \textit{Controls} column headers, each of which display the presence and zygosity of the variant in sample individuals, with striped colouring for heterozygous and solid colouring for homozygous.
+\label{fig3}}
 \end{figure}
 \begin{figure}[h!]
   \centerline{\includegraphics[width=0.45\textwidth]{fig4.png}}
-\caption{\csentence{}The progression of variants filtered at each subsequent annotation or filtering stage for each of the 4 case VCFs. Curved arrows display the average percentage reduction from the total number of variants.\label{fig4}}
+\caption{\csentence{}The progression of variants filtered at each subsequent annotation or filtering stage for each of the 4 case VCFs under two scenarios of (top) applying positional filtering as the first optional module, and (bottom) applying positional filtering as the last optional module. Input and Core Annotation are mandatory steps. Average variant reduction percentages in-between stages are displayed, and average module runtimes are displayed in seconds (3 s.f).\label{fig4}}
 \end{figure}
 
 
@@ -602,7 +601,7 @@ Annotation   & Adding Function & 28.7\\
              & Physical Location Filter & 1.02 \\
              & Read Depth Filter        & 1.26 \\
              & Call Quality Filter      & 0.93\\
-Filtering    & AAF Filter               & 432\\
+Filtering    & AAF Filter               & 143\\
              & Mutation Type Filter     & 1.08\\
              & Novel Variant Filter     & 1.12\\
              & Same Gene Filter       & 22.5\\
