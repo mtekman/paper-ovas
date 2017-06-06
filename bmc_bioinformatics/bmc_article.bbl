@@ -8,8 +8,7 @@ Lander ES, Linton LM, Birren B, Nusbaum C, Zody MC, Baldwin J, et~al.
 \bibitem{sanger1977dna}
 Sanger F, Nicklen S, Coulson AR.
 \newblock {D}{N}{A} sequencing with chain-terminating inhibitors.
-\newblock Proceedings of the National Academy of Sciences.
-  1977;74(12):5463--5467.
+\newblock PNAS. 1977;74(12):5463--5467.
 
 \bibitem{lengauer2007bioinformatics}
 Lengauer T.
@@ -19,7 +18,7 @@ Lengauer T.
 \bibitem{bockenhauer2012genetic}
 Bockenhauer D, Medlar AJ, Ashton E, Kleta R, Lench N.
 \newblock Genetic testing in renal disease.
-\newblock Pediatric Nephrology. 2012;27(6):873--883.
+\newblock Pediatr Nephrol. 2012;27(6):873--883.
 
 \bibitem{li2009sequence}
 Li H, Handsaker B, Wysoker A, Fennell T, Ruan J, Homer N, et~al.
@@ -41,28 +40,28 @@ Warden CD, Adamson AW, Neuhausen SL, Wu X.
 Pabinger S, Dander A, Fischer M, Snajder R, Sperk M, Efremova M, et~al.
 \newblock A survey of tools for variant analysis of next-generation genome
   sequencing data.
-\newblock Briefings in bioinformatics. 2014;15(2):256--278.
+\newblock Brief Bioinform. 2014;15(2):256--278.
 
 \bibitem{kari2014consanguinity}
 Kari JA, Bockenhauer D, Stanescu H, Gari M, Kleta R, Singh AK.
 \newblock Consanguinity in {S}audi {A}rabia: a unique opportunity for pediatric
   kidney research.
-\newblock American Journal of Kidney Diseases. 2014;63(2):304--310.
+\newblock Am J Kidney Dis. 2014;63(2):304--310.
 
 \bibitem{biesecker2013genomic}
 Biesecker LG, Spinner NB.
 \newblock A genomic view of mosaicism and human disease.
-\newblock Nature Reviews Genetics. 2013;14(5):307--320.
+\newblock Nat Rev Genet. 2013;14(5):307--320.
 
 \bibitem{karolchik2003ucsc}
 Karolchik D, Baertsch R, Diekhans M, Furey TS, Hinrichs A, Lu Y, et~al.
 \newblock The {U}{C}{S}{C} genome browser database.
-\newblock Nucleic acids research. 2003;31(1):51--54.
+\newblock Nucleic Acids Res. 2003;31(1):51--54.
 
 \bibitem{scheifler1986x}
 Scheifler RW, Gettys J.
 \newblock The {X} window system.
-\newblock ACM Transactions on Graphics (TOG). 1986;5(2):79--109.
+\newblock ACM Trans Graph. 1986;5(2):79--109.
 
 \bibitem{lougher2008squashfs}
 Lougher P, Lougher R. {S}quash{F}{S}; 2008.
@@ -73,12 +72,18 @@ Cabezas OR, Flanagan SE, Stanescu H, Garc{\'\i}a-Mart{\'\i}nez E, Caswell R,
   Lango-Allen H, et~al.
 \newblock Polycystic Kidney Disease with Hyperinsulinemic Hypoglycemia Caused
   by a Promoter Mutation in Phosphomannomutase 2.
-\newblock Journal of the American Society of Nephrology. 2017;p.
-  ASN--2016121312.
+\newblock JASN. 2017;p. ASN--2016121312.
 
 \bibitem{reed2010information}
 Reed C.
 \newblock Information 'Ownership' in the Cloud.
 \newblock Queen Mary School of Law Legal Studies Research Paper. 2010;(45).
+
+\bibitem{kalia2016recommendations}
+Kalia SS, Adelman K, Bale SJ, Chung WK, Eng C, Evans JP, et~al.
+\newblock Recommendations for reporting of secondary findings in clinical exome
+  and genome sequencing, 2016 update (ACMG SF v2. 0): a policy statement of the
+  American College of Medical Genetics and Genomics.
+\newblock Genet Med. 2016;.
 
 \end{thebibliography}
