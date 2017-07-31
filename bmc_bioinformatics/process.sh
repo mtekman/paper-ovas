@@ -1,8 +1,8 @@
 #!/bin/bash
 
-zip bmcbio_ovas_paper_2017_05_15.zip\
+zip bmcbio_ovas_paper_2017_06_09.ver3.zip\
     bmc_article.tex\
-    fig*.png\
+    fig{1,2,3,4}.png\
     bibliography.bib\
     vancouver.bst\
     bmcart.cls\

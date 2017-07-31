@@ -1,0 +1,18 @@
+Editor:
+ - Comparison of new existing tools.
+ 
+Rev1: 
+ - Move software into supplemental
+ - Set up a webserver
+ - More than one case study, and a study showing how inheritance filter is applied
+
+
+Rev2:
+ - Explain what novel features are compared to existing
+ - Explain that large data over the internet is hard, slow transfer speeds, genomewide, streamlined
+ - Explain how public domain databases are used
+ - 90% TN filtered out discarded on what measure?
+ - Explain the functional meaning of each module
+ - Explain how the web-interface abstracts the user, a local web server.
+ - Justify not using docker, snakemake, cite Leipzig
+ - "conservative" -> "relaxed", words.

@@ -1,0 +1,25 @@
+\subsection{Application Suite and Interface}
+
+The pipeline was originally developed in a headless Linux shell environment to be deployed on any Unix-like system that supports Bash, appealing to experienced technicians who can perform their own input validation. However, significant effort was made to include researchers from non-computing backgrounds who could benefit from the rich processing without the cost additional groundwork.
+
+
+\subsubsection{Web-front}
+
+To necessitate the uptake of \app{}, a web interface was created to facilitate input validation and pipeline configuration process.
+
+The file upload procedure is streamlined by means of a pedigree file which pre-specifies cases (affecteds) and controls (unaffecteds) as well as their relation to one another. Pedigree data is automatically parsed into a table of cases and controls for all detected families, with file upload slots being assigned for each individual. The user is then given the choice to select multiple VCF files which are then mapped programatically  to the appropriate individual slots, or separate files can be dragged and dropped if more manual assignment is desired.
+
+The interface extends to display configuration options for each annotation and filtering module whilst uploading occurs in the background. Modules are enabled by expanding check-boxes to display individual module parameters and thresholds that can be overridden by user criterion, examples of which can be shown in Figure~\ref{fig2}.
+
+A drop-down box of available penetrance model provides mutually-exclusive model-dependent options to better refine the analysis, such as parent or unaffected sibling-specific filtering. Additional annotation requirements are set (or skipped upon preference) and then the pipeline is run in tandem to the existing input session. In the case of user-termination, re-upload is not necessary for the same analysis as the process will reuse the temporary files from the last session and will not repeat the same work twice, resuming from where it left off. Once complete, the pipeline self-terminates and produces an interactive report of the remaining variants primed for feature presentation/concealment to help pinpoint variants of interest such as those shown in Figure~\ref{fig3}.
+
+The pipeline is spawned in a GNU \textit{screen} session in order to enable process control and resumeablility, where snapshots of a session in-process are repeatedly retrieved from the shell process to the web front-end via \textit{PHP} scripts. UI elements are managed with CSS and minimal JavaScript, with the exception of the interactive report which performs table operations primarily through the latter. The front-end itself is hosted via a minimal \textit{lighttpd} server, and ongoing \app{} processes can be managed both from the web-interface as well as from the shell provided in the live environment.
+
+
+\subsubsection{Self-Contained Environment}
+
+The full \app{} suite comprises of the core pipeline processing back-end encapsulated by the web-interface to handle input validation, which is encapsulated once more by a live operating system that handles and provides general file utilities as well as overall startup. Each of these three components exist as separable peripherals, but are optimal in the above configuration by facilitating and abstracting the installation of each through the use of symbolic links and providing constant anchors for static data bundled with the environment.
+
+Arch Linux was chosen as the environment backbone due to it being a lightweight "no-frills" operating system that does not come pre-packaged with desktop sessions (and their associated bloatware). \app{} runs straight off the X desktop server with the \app{} interface autostarted along with a minimal dock for spawning additional applications \cite{scheifler1986x}.
+
+The static data primarily encompasses a variety of gene map configurations from human genome reference version hg18 through to hg38, as well as the raw nucleotide FASTA files for each chromosome specific to the versions, amounting to 15GB of genomic data. Due to the packing process, as well as compression algorithm used in the Squash Filesystem creation process \cite{lougher2008squashfs}, \app{} mounts up to no more 2.7GB. This makes it ideal for bootable mediums such as DVDs and USB sticks, where the latter can preserve data across subsequent sessions.

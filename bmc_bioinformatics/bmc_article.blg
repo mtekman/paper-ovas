@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2016/Arch Linux)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2017/Arch Linux)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: bmc_article.aux
 The style file: vancouver.bst
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
@@ -12,43 +12,43 @@ Warning--missing publisher in lougher2008squashfs
 Warning--there's a number but no volume in reed2010information
 You've used 16 entries,
             3170 wiz_defined-function locations,
-            748 strings with 8213 characters,
-and the built_in function-call counts, 36718 in all, are:
-= -- 4481
+            748 strings with 8225 characters,
+and the built_in function-call counts, 36776 in all, are:
+= -- 4499
 > -- 300
-< -- 1
+< -- 0
 + -- 150
 - -- 75
-* -- 3207
-:= -- 3981
+* -- 3213
+:= -- 3987
 add.period$ -- 61
 call.type$ -- 16
-change.case$ -- 0
+change.case$ -- 1
 chr.to.int$ -- 0
 cite$ -- 19
-duplicate$ -- 2535
-empty$ -- 3577
+duplicate$ -- 2559
+empty$ -- 3581
 format.name$ -- 89
-if$ -- 8514
+if$ -- 8526
 int.to.chr$ -- 0
 int.to.str$ -- 16
-missing$ -- 191
+missing$ -- 193
 newline$ -- 82
 num.names$ -- 16
-pop$ -- 325
+pop$ -- 326
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 345
+skip$ -- 332
 stack$ -- 0
-substring$ -- 7944
-swap$ -- 421
-text.length$ -- 1
+substring$ -- 7948
+swap$ -- 416
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 175
+while$ -- 174
 width$ -- 18
-write$ -- 174
+write$ -- 175
 (There were 3 warnings)
