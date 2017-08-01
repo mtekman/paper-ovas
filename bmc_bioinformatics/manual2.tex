@@ -1,0 +1,82 @@
+
+\subsection{Pipeline Modules}
+
+Each module is tasked with the function of separating variants from an input file into two distinct output VCF groups of "filtered" and "discarded"; with the former group being passed into the next module, and the latter being halted at the current point of processing to be stored for potential debugging purposes. The discard process at each module lends a progressive performance increase in the processing speed of each subsequent module due to the input being only a subset of the input that came before it, whilst still retaining the aggregate total of discarded variants at each step.
+
+\subsubsection{Pre-processing}
+
+All VCF files immediately undergo initial preparation upon file upload from the web interface, where a background shell script renames the files to better emulate their pedigree counterparts, and asserts that all variants are in correct order following a chromosome:position sorting key.
+
+
+\subsubsection{Core Annotation}
+
+The annotation stages of the pipeline then prime the variants with relevant metadata that will then be filtered against user-criterion throughout the rest of the pipeline. The annotation stage is the only mandatory stage of the pipeline, and a great portion of filtering occurs at these stages too, with up to 90\% of true negatives being discarded. As a result of the large demand placed upon the modules at this stage, they were written in the C++ in order to reduce time and memory constraints on low-end platforms. The stage is split into three modules (in order of processing):\\
+
+\triplesub{Adding Genes}{
+Appends a gene-context to the variants under a user-configured level of detail at the gene/intergenic junction or the exon/intron/splice/UTR sub-divisions, including isoforms. Regulatory variants further up or downstream of UTR can be specified by defining custom margins of enclosement, and wholly intergenic regions are discarded by default (though can be kept upon user preference).}
+
+\triplesub{Adding Function}{
+Applies functional annotation upon the variants processed in the previous step; performing a cDNA lookup of where a variant falls within the coding portions of the gene in order to predict the type of mutation (missense, synonymous, or non-synonymous) at the codon and subsequent amino-acid level. Anti-sense encoded genes are handled accordingly, and for insertion/deletion (indels) variants the module performs the required addition/subtractions across a consistent reading frame to discern the mutation.}
+
+\triplesub{Adding Zygosity}{
+Addresses a confidence issue in with pre-processed variants, where heterozygosity and homozygosity would be assigned based on post-quality filtering metrics. This module sets zygosity by nucleotide base-count alone, and determines HET/HOM assignments based upon a user-set frequency threshold (default $<0.65$).}
+
+Once fully annotated, the resultant output VCFs are ready to be processed by the filtering modules.
+
+
+
+\subsubsection{Filtering Modules}
+
+The filtering modules consist of a series of Python (v2.7) scripts designed to parse these fields with the aim of minimizing the need for any mapping or additional pass-throughs. A variant line in a VCF file describes the eight mandatory fields grouped into three distinct categories (in order of filtering complexity):\\
+
+\triplesub{Variant Properties}{
+The first five mandatory columns (chromosome, physical position (base-pairs), variant-marker identifier, reference allele, and alternate alleles) are processed by two main modules: \textbf{Physical Location Filter}, which parses chromosome and physical position to keep variants inclusive to user-set loci ranges; and \textbf{Novel Variant Filter} which discards all variants with pre-existing identifiers (i.e., not ``.'').}
+
+\triplesub{Variant Metadata}{
+Here, the variant call information field (INFO) is processed, which consists of variant-calling properties summarizing the FASTA strand pileup bisected by the variant. The INFO field alludes to the quality of the sample data, but not to the sample data itself, enabling for fast single-pass processing by the following four modules: \textbf{Read Depth Filter} and \textbf{Call Quality Filter}, which both discard variants falling below a user-set limit, the former upon the number of FASTA reads aligned at that position, and the latter upon the variant calling score value; \textbf{Mutation Type Filter}, which makes use of functional annotations in order to filter single variants based upon user-set requirements of including any (multiple) of missense, nonsense, and synonymous mutation types; and finally \textbf{Same Gene Filter} and \textbf{Same Variant Filter}, that act upon multiple VCFs and produce a common output set of variants that reside in either the same gene(s) or share identical variants respectively.}
+
+\triplesub{Sample Data}{
+The sample format field (FORMAT) structures the presentation that all subsequent sample data conform to, and must be parsed before handling of the actual data. The \textbf{Alternate Allele Frequency} module scans the sample data in order ascertain the absolute frequencies of the alternate allele(s) in the population whilst removing variants with frequencies exceeding user-defined upper/lower-bound thresholds.}
+
+
+\subsubsection{Inheritance Filtering}
+
+This section performs trait penetrance modelling for differently affected individuals following sibling-sibling, and sibling-parent relations. For all detected parent-offspring trios, variants undergo context-based filtering depending on the penetrance-model specified:\\
+
+\triplesub{Autosomal Dominant}{The phenotype is caused by a single mutant autosomal allele, and affected individuals must have affected parents, mapping any \{HOM,HET\}$\mapsto$\{HET,HOM\} under complete penetrance. Under a \textit{de novo} context all common affected variants are filtered against unaffected controls, otherwise variant commonality is kept within sibling groups.}
+
+\triplesub{Autosomal Recessive}{
+The phenotype is caused by a loss of function stemming from both copies of an autosomal gene, at times from the result of consanguineous breeding. Two paths of transmission are considered from parent$\mapsto$offspring depending on whether the affected offspring variant is compound-heterozygous (C-HET) or homozygous (HOM). Under the assumption that parents are carriers:\\
+
+\begin{enumerate}
+	\item{\bf HOM}{, Both parents transmit a single HET variant which manifests as a single HOM variant in the offspring, i.e. \{HET/HET\}$\mapsto$HOM.}
+	\item{\bf C-HET}{, Parents are carriers for different HET variants across a common gene, which compound in offspring as multiple HET variants within said gene. If HET1 and HET2 are distinct variants within the same gene from different parents, then this can be represented under a gene context as \{HET1/HET2\} $\mapsto$ \{HET1+HET2\} mapping to produce a C-HET gene.}
+\end{enumerate}
+
+\vspace{5pt}
+Siblings are then filtered for common variants existing within affecteds siblings only, discarding those that are homozygous in unaffected controls.
+}
+
+\triplesub{X-linked Dominant}{As with autosomal dominant but with the mutant allele on the X-chromosome.}
+
+\triplesub{X-linked Recessive}{
+As with autosomal recessive but with mutations occurring on the X-chromosome. Males with a single mutant copy are hemizygous and are treated as homozygous, exempting them from compound heterozygosity checking.}
+
+
+\triplesub{Mosaicism}{Mosaic inheritance is treated as a special case, where allele frequencies are pre-calculated for each variant and then filtered against user-set thresholds conforming to expected mosaic frequency ranges (typically between 10-35\%).}
+
+
+% P 37, 85, 107
+% file:///home/tetris/Downloads/HSAP-122.pdf
+
+
+\subsubsection{Extended Annotation}
+
+The last stage of pipeline constitutes a small subset of variants which have successfully passed through the main filtering stages and require finer analysis which is enabled by providing an even greater context to compare the variants. Additional annotation relates to the downstream effects of said variants such as structure, function, and expression.\\
+
+
+\triplesub{Isoform Context}{Translates gene isoforms into their RefSeq nomenclature counterparts.}
+
+\triplesub{Protein Context}{Assigns protein annotation information from UniProt sources to assign information related protein domain.}
+
+\triplesub{Gene Expression}{Organ and tissue-specific data from the Encode GNF Atlas2 database is provided along with expression ratios which can be further filtered against user-specified limits.}
