@@ -93,7 +93,6 @@ TODO:
  X- Squash pipeline modules
  X   -> move detailed data to manual or README
  X - Fix specific remarks
-  - Discussion:
-   - Defend offline standalone -- cite africa
-   - Defend Arch over docker
+ X - Defend offline standalone -- cite africa
+ X - Defend Arch over docker
    - Compare with other pipelines
