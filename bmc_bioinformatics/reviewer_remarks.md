@@ -6,7 +6,7 @@
 ## Rev1
  * Move software into supplemental
  * Set up a webserver
- * More than one case study, and a study showing how inheritance filter is applied
+x * More than one case study, and a study showing how inheritance filter is applied
 
 
 ## Rev2
@@ -96,3 +96,40 @@ TODO:
  X - Defend offline standalone -- cite africa
  X - Defend Arch over docker
    - Compare with other pipelines
+
+
+
+Comparison to other pipelines:
+
+Galaxy highly cited:
+  - Very large all-encompassing pipeline, can be run on server (slow) but ultimately should be run locally.
+     - Can be hosted as a standalone webserver, or packaged along with docker image. (usual docker counterarguments)
+     
+  - Hosts a wide range of modules
+  - Server must first be obtained as a docker image, then run off an existing system though there do exist tools to boot straight into a docker environment.
+  - Once the docker image is obtained additional modules can be downloaded for customization, or a standalone workflow can be downloaded tailored towards a certain type of bioinformatic analysis
+  - Does everything from VCF, BAM, FASTA, ChipSeq and much more.
+  - In terms of VCF:
+       VCF Manipulation -- General single utility tools to cater to specific VCF jobs such as concatenation, frequency extraction, genotype conversion. Can be chained together, but the galaxy UI 
+       - building workflows somewhat convoluted, and need to explicitly know the benefit of a tool before using it 
+       - [No inheritance modelling]
+
+       
+  - docker images are based upon ubuntu 14.04 which is very package heavy in comparison to Arch
+  - 
+
+Taverna next-cited:
+  - local server
+  - Drag and drop input/output modules
+  - Web reliant for additional tools
+  - Relies on ports
+  - Workflow validation is good for dependency checks, but OVAS is a VCF-only pipeline and dependencies only rely on annotation step.
+  - Live status
+  - IDE-heavy, not easy to use for less computer-oriented researchers.
+  - Copy someone elses workflow, handy.
+
+LONI
+
+TREAT
+SIMPLEX
+HugeSeq
