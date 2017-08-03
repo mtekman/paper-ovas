@@ -358,7 +358,9 @@ Siblings are then filtered for common variants existing within affecteds sibling
 %%%%%%%%
 \section*{Results}
 
-%\subsection*{Case Study}
+Here we describe the case study results for two autosomal recessive and one X-linked dominant disease models.
+
+\subsection*{First Case Study}
 
 Three families presented with hyperinsulinemic hypoglycemia and congenital polycystic kidney disease (HIPKD), a rare newly discovered disorder following an autosomal recessive model. Whole-genome linkage analysis in conjunction with haplotype reconstruction hinted towards a compound-heterozygous disease pattern in all cases within a significant locus on chromosome 16 \cite{cabezas2017polycystic}.
 
@@ -379,6 +381,24 @@ The subsequent application of the the \textit{Physical Linkage Filter} reduced t
 Truncating under this provided just 4 variants in each file (5 unique in total), and applying the final \textit{Mutation Type Filter} to remove any synonymous mutations resulted in just 2 variants in each file (3 unique in total) that successfully produced a characteristic compound-heterozygous AR inheritance pattern in \textit{PMM2}; \textit{c.-167G}$>$\textit{T} promoter variant in all, \textit{c.422G}$>$\textit{A} missense mutation in three of the cases, and a \textit{c.255+1G}$>$\textit{A} splice site mutation present in one case (Figure~\ref{fig3}).
 
 %The second scenario (Figure~\ref{fig4} (bottom)) performed the annotation as with the first scenario, but this time only reduced an average of 15.9\% of variants in the \textit{Call Quality Filter} step to approximately 37,000 variants. The \textit{Alternate Allele Frequency Filter} reduced this to under 21,000 rare variants, and the \textit{Autosomal Recessive Inheritance Filter} further trimmed this to approximately 10,000 variants, whereupon applying the final \textit{Physical Linkage Filter}, outlined less than 9 output variants in each case.
+
+\changes{
+\subsection*{Second Case Study}
+
+A  single  family  displaying  a  phenotype  under  an  X-linked dominant inheritance model. Whole-exome sequencing was performed upon 8 individuals (7 affected, 1 unaffected) with almost 290,000  variants in each VCF file. 
+
+As before, the first annotation step filtered out the majority of variants, with an 89.3\% reduction due to variants being wholly intergenic/intronic. Significant linkage  analysis  outlined  a  narrow  region  of  interest upon chromosome X, which coupled with the \textit{Physical Location Filter} reduced the initial set to just 351 variants (Figure S1 (top)). A cascade of filters targeting novel  non-synonymous  mutations  under  an  X-linked dominant scenario (common across affecteds) resulted in a single causative missense variant.
+
+
+\subsection*{Third Case Study}
+
+Four siblings were presented from a consanguineous marriage with a nephrotic syndrome segregating in an autosomal recessive fashion. Exome-sequencing was
+performed on each sibling with an initial targeted set of approximately 70,000 variants. Core annotation accounted for a 65.9\% reduction in total variants, and a missense/nonsense \textit{Mutation Type Filter} reduced the initial set to under 11,000 variants (Figure S2 (bottom)). Due to the rarity of phenotype, the AAF module was utilized to filter for any variants with a frequency less than 0.01 within dbSNP (version 142), vastly reducing the number to a cluster of 878 variants.
+
+Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were
+homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression
+profile, and the other being the more likely disease-causing variant due to it displaying a strong organ specific expression.
+}
 
 
 
@@ -418,19 +438,18 @@ Transparent filtering methods are likelier to instil greater confidence in the d
 
 
 \changes{
-\app{} is bundled within a lightweight Arch Linux environment that contains the pipeline and the web server, static files, and a minimal desktop environment that is spawned directly off the X desktop server as opposed to the more bloated desktop environments that arrive pre-packaged with modern operating systems. 
-This is in direct contrast to the more familiar virtualization container platforms such as Docker or Vagrant which provide snapshots of an existing OS, which must then be run off a virtualization layer, using more hardware resources during input/output operations than if the OS was run natively \cite{virtualcomparison}. Where virtualization strategies have more avenues of deployment, \app{} is specialized to be deployed on bootable mediums and is heavily optimized in this respect for storage and runtime efficiencies which allow it to run more readily upon more limited hardware.
+\app{} is bundled within a lightweight Arch Linux environment that contains the pipeline and the web server, static files, and a minimal desktop environment. 
+This is in direct contrast to the more familiar virtualization container platforms such as Docker or Vagrant which provide snapshots of an existing OS, and then must then be run off a virtualization layer that uses more hardware resources during input/output operations than if the OS was run natively \cite{virtualcomparison}. Where virtualization strategies permit wider avenues of deployment, \app{} is specialized to be deployed on bootable mediums and is heavily optimized in this respect in terms of storage and runtime efficiencies which allow it to be run more readily upon more limited hardware by culling any resource-consuming middleware.
 }
 
-%difference of philospophy
+%difference of philosophy
 
-\changes{The pipeline also uses an over-arching shell-script framework to manage file dependencies between adjacent modules, as well as re-entrancy across pre-existing or similar workflows by checking that a VCF file has not already been processed/annotated. That is, a VCF file will not undergo the same module twice if the inputs and outputs of the module are the same as a previous run.
-
-We also use file descriptors a lot, which are limited on docker.}
+\changes{Initial development considered the use of pre-existing implicit convention frameworks such as \textit{Snakemake} \cite{koster2012snakemake}, but a predilection towards coding-flexibility and processing efficiency (especially with respect to extensive use of standard system input/ouput streams) meant that a more unix-driven pipeline framework was required. \app{} uses an over-arching shell-script framework that adheres to good-practice dependency and re-entrancy concepts \cite{leipzigreview}, by managing file dependencies between adjacent modules and by permitting resumeable workflows such that a VCF file will not undergo the same annotation module twice if it has already been processed under the same inputs.}
 
 
-% https://academic.oup.com/bib/article/18/3/530/2562749/A-review-of-bioinformatic-pipeline-frameworks
+\subsection{Comparison to Other Bioinformatic Pipelines}
 
+YARRRR
 
 
 %% CONCLUSIONS
@@ -459,13 +478,14 @@ The annotation step is crucial, especially for whole-genome sequence data where 
 
 
 \section*{List of Abbreviations}
-\textbf{UTR}:  Untranslateable Region, \textbf{cDNA}: Complementary DNA\\
-\textbf{HET}: Heterozygous, \textbf{HOM}: Homozygous\\
-\textbf{C-HET}: Compound-Heterozygous, \textbf{SNP}: Single Nucleotide Polymorphism\\
-\textbf{InDel}: Insertion-Deletion, \textbf{LOD}: Logarithm of the Odds\\
-\textbf{HTS}: High-Throughput Sequencing, \textbf{VCF}: Variant Call Format\\
-\textbf{BAM}: Binary Alignment Map\\
-\textbf{HIPKD}: Hyperinsulinemic hypoglycemia and polycystic kidney disease\\
+\textbf{UTR}:  Untranslateable Region, \textbf{cDNA}: Complementary DNA,\\
+\textbf{HET}: Heterozygous, \textbf{HOM}: Homozygous,\\
+\textbf{C-HET}: Compound-Heterozygous, \textbf{SNP}: Single Nucleotide Polymorphism,\\
+\textbf{InDel}: Insertion-Deletion, \textbf{LOD}: Logarithm of the Odds,\\
+\textbf{HTS}: High-Throughput Sequencing, \textbf{VCF}: Variant Call Format,\\
+\textbf{BAM}: Binary Alignment Map, \textbf{OS}: Operating System,\\
+\textbf{HIPKD}: Hyperinsulinemic hypoglycemia and polycystic kidney disease
+
 
 
 % https://bmcbioinformatics.biomedcentral.com/submission-guidelines/preparing-your-manuscript/software-article
