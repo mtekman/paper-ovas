@@ -48,7 +48,7 @@
 
 %%% Load packages
 \usepackage{amsthm,amsmath}
-%\RequirePackage{natbib}
+\RequirePackage{natbib}
 %\RequirePackage[authoryear]{natbib}% uncomment this for author-year bibliography
 \RequirePackage{hyperref}
 \usepackage[utf8]{inputenc} %unicode support
@@ -82,7 +82,17 @@
 \startlocaldefs
 \def\app{OVAS}
 \newcommand{\triplesub}[2]{\noindent\textsl{#1}\\#2\\}  % think of it as a \subsubsubsection{}
-\newcommand{\changes}[1]{{\color{red} #1}}
+
+%\newcommand\changes
+\newcounter{changeCount}
+\newcommand{\changes}[1]{
+	\stepcounter{changeCount}
+	{\tiny\bf\color{violet}\arabic{changeCount}}
+	{\color{red} #1}
+}
+
+
+
 \endlocaldefs
 
 
@@ -294,17 +304,16 @@ Module ordering is flexible in this regard, with the exception of the primary an
 
 \changes{\app{} annotates variants using data pulled from trusted public domain databases such as RefGene, dbSNP, UniProt, and many others through the UCSC Genome Browser's MySQL back-end portal \cite{karolchik2003ucsc}}. The explicitly open nature of pipeline also prompts a predilection towards open-source or scripted languages and frameworks, which further serve to uphold the confidence between the end-user and their data.
 
-\changes{Core pipeline functionality is managed through back-end shell scripts which serve to chain subsequent pipeline modules as shown in Figure~\ref{fig1}. The modular-centric design and development enables each pipeline module to be run as a standalone script without the need for an overarching framework. It also allows for the pipeline to be initiated manually for the more commandline-oriented users, where input VCF files can be placed into a new folder on the desktop along with a pedigree file and an appropriate configuration file (see manual in Supplemental Data), and executed via the starting script.} 
+\changes{Core pipeline functionality is managed through back-end shell scripts which serve to chain subsequent pipeline modules as shown in Figure~\ref{fig1}. The modular-centric design and development enables each pipeline module to be run as a standalone script without the need for an overarching framework. It also allows for the pipeline to be initiated manually for the more commandline-oriented users, where input VCF files can be placed into a new folder on the desktop along with a pedigree file and an appropriate configuration file (see manual in Supplemental Data), and executed via the starting script. 
 
-\changes{However, \app{} was designed to cater towards all users, and is accessed primarily through a graphical user-interface within a web browser which facilitates in the VCF file placement and configuration process through file selection dialogues and configurable forms to generate run profiles, as well a means to manage and view ongoing analyses as shown in Figure~\ref{fig2}}.
+However, \app{} was designed to cater towards all users, and is accessed primarily through a graphical user-interface within a web browser which facilitates in the VCF file placement and configuration process through file selection dialogues and configurable forms to generate run profiles, as well a means to manage and view ongoing analyses as shown in Figure~\ref{fig2}.
 
-\changes{\app{} is split into three separable parts, with each component encapsulated by the next; the processing back-end, the web-interface front-end, and the live operating system. Instructions to acquire and set up each as distinct items are provided in the software repository, but \app{} is bundled principally as an all-encompassing standalone bootable ISO image that can be deployed onto a DVD or USB.}
+\app{} is split into three separable parts, with each component encapsulated by the next; the processing back-end, the web-interface front-end, and the live operating system. Instructions to acquire and set up each as distinct items are provided in the software repository, but \app{} is bundled principally as an all-encompassing standalone bootable ISO image that can be deployed onto a DVD or USB.}
 
 
 \subsection{Pipeline Overview}
 
-\changes{
-\app{} is split into five main stages of processing followed by a generated report detailing the findings of the analysis.\\
+\changes{\app{} is split into five main stages of processing followed by a generated report detailing the findings of the analysis.\\
 
 \triplesub{\bf Pre-processing}{All VCF files immediately undergo initial preparation upon file submission from the web interface, where a background shell script renames the files to better emulate their pedigree counterparts, and asserts that all variants are in correct order following a chromosome:position sorting scheme.}
 
@@ -384,7 +393,6 @@ Truncating under this provided just 4 variants in each file (5 unique in total),
 
 \changes{
 \subsection*{Second Case Study}
-
 A  single  family  displaying  a  phenotype  under  an  X-linked dominant inheritance model. Whole-exome sequencing was performed upon 8 individuals (7 affected, 1 unaffected) with almost 290,000  variants in each VCF file. 
 
 As before, the first annotation step filtered out the majority of variants, with an 89.3\% reduction due to variants being wholly intergenic/intronic. Significant linkage  analysis  outlined  a  narrow  region  of  interest upon chromosome X, which coupled with the \textit{Physical Location Filter} reduced the initial set to just 351 variants (Figure S1 (top)). A cascade of filters targeting novel  non-synonymous  mutations  under  an  X-linked dominant scenario (common across affecteds) resulted in a single causative missense variant.
@@ -430,9 +438,9 @@ The AAF module created an noticeable lag of an average of 7.27 seconds per file 
 
 The portability of \app{} grants a significant advantage over present-day web-based pipelines by keeping all analyses securely \textit{in situ}, which is greatly beneficial to regions of the world without consistent or active internet in addition to researchers handling personal or private data. 
 
-\changes{The need for accessible offline tools is most present in Africa, where bioinformatical infrastructure and resources are limited, often requiring international collaborations to advance the study of their own data \cite{h3africa2014enabling}.}
+\changes{The need for accessible offline tools is most present in Africa, where bioinformatical infrastructure and resources are limited, often requiring international collaborations to advance the study of their own data \cite{h3africa2014enabling}.
 
-\changes{Cloud-based pipelines provide processing power without incurring the hardware cost, but the progression of large whole-genome sequencing data coupled with restricted internet speeds hinder the uptake of these services somewhat as slow transfer speeds ultimately dictate service viability; a factor that is further confounded by the net neutrality debate \cite{netneutrality}.} Cloud-based analyses also require input data to be uploaded to an external server in order to perform processing, and data ownership after upload is not always retained especially in the case where the work was performed within the cloud \cite{reed2010information}. Further, many cloud-services employ non-transparent proprietary methods to reduce the number of false-positives and false-negatives. A common approach is to make use of an internal database or learning algorithm that favours some variants over others based on previous analyses (or a similar training set) \cite{pabinger2014survey}, resulting in informative variants produced by unquantifiable "black-box" means, creating disparity between the end-user and their analysis.
+Cloud-based pipelines provide processing power without incurring the hardware cost, but the progression of large whole-genome sequencing data coupled with restricted internet speeds hinder the uptake of these services somewhat as slow transfer speeds ultimately dictate service viability; a factor that is further confounded by the net neutrality debate \cite{netneutrality}.} Cloud-based analyses also require input data to be uploaded to an external server in order to perform processing, and data ownership after upload is not always retained especially in the case where the work was performed within the cloud \cite{reed2010information}. Further, many cloud-services employ non-transparent proprietary methods to reduce the number of false-positives and false-negatives. A common approach is to make use of an internal database or learning algorithm that favours some variants over others based on previous analyses (or a similar training set) \cite{pabinger2014survey}, resulting in informative variants produced by unquantifiable "black-box" means, creating disparity between the end-user and their analysis.
 
 Transparent filtering methods are likelier to instil greater confidence in the data with the added benefit of customization to better tailor a filter to an analysis in the case of open-source implementations, as with the case of \app{}.
 
@@ -447,9 +455,67 @@ This is in direct contrast to the more familiar virtualization container platfor
 \changes{Initial development considered the use of pre-existing implicit convention frameworks such as \textit{Snakemake} \cite{koster2012snakemake}, but a predilection towards coding-flexibility and processing efficiency (especially with respect to extensive use of standard system input/ouput streams) meant that a more unix-driven pipeline framework was required. \app{} uses an over-arching shell-script framework that adheres to good-practice dependency and re-entrancy concepts \cite{leipzigreview}, by managing file dependencies between adjacent modules and by permitting resumeable workflows such that a VCF file will not undergo the same annotation module twice if it has already been processed under the same inputs.}
 
 
-\subsection{Comparison to Other Bioinformatic Pipelines}
+\changes{
+\subsection{Comparison to Other Bioinformatic Utilities}
+
+\citeauthor{pabinger2014survey} surveys 205 bioinformatic tools, of which 12 are open-source workflows comparable to \app{} live environment, and 13 are standalone open-source pipelines similar to \app{}'s web-server and shell pipeline combination.
+
+% UCSC Variant Annotator
+A further 32 variant annotation utilities are also compared; 10 which can take VCF files as input but only 4 of which output annotated VCF files (ANNOVAR, AnnTools, NGS-SNP, SeattleSeq,). Other annotators either focus more on upstream genomic formats (FASTA / BAM) or they produce report summaries of the variants; most likely to escape the potential pitfall of the same  variant intersecting multiple sites. \app{} overcomes this limitation by enclosing multiple sites and their related annotations as sideways associative arrays, and treating each site as a single entity when performing filtering later on in the pipeline. 
+
+In
 
 
+
+\app{} also appears to be the only variant annotator that covers a full range of variant types (SNP / Indel / CNV), appends functional annotations on downstream changes to protein structure, and can be used both via the commandline and web interface (see Table S1).
+
+A total of 25 free and open-source (FOSS) pipelines and workflows are also compared; 5 pipelines able to handle VCF files and 2 able to perform annotation (GATK, HugeSeq). HugeSeq uses ANNOVAR for annotation, 
+GATK hosts a wide range of VCF annotation modules, but are focused mostly on quality control and allele metrics, but does not perform functional annotations. 
+
+
+is commandline-oriented but does plan to host a cloud-server that provides a user-interface
+
+
+
+
+\subsubsection{Variant Annotation}
+Pabinger compares 32 variant annotators, of which only 9 take VCF files as input and which a staggering 4 produce VCF output (AnnTools, AnnoVar, NGS-SNP, SeattleSeq Annotation).
+
+Chasm, SNVbox, and F-SNP perform functional annotations but none of them apply the annotations to the VCFs.
+
+AnnTools and Annovar cover a full range of variants (SNP / Indel/ CNV) whereas the other two handle only either SNPs or SNPs with indels. In terms of access, AnnTools Annovar and NGS-SNP are strictly commandline, whereas SeattleSeq is strictly Web-based; none provide access to both. 
+
+
+\subsubsection{Pipelines}
+
+13 pipelines, of which 5 handle VCF (Bcbio-nextgen, GATK, HugeSeq, Ngs-backbone, RTG). All handle Illumina with some Solid data. All have commandlines and are not cloud based. All cater linux, with 2 (Bcbio,RTG) catering to all mac and windows too, of which BcBio has a GUI. Only two perform annotation (GATK, HugeSeq) with HugeSeq using Annovar for annotation.
+
+\subsubsection{Workflows}
+
+12 workflows, with coverage for illumina and solid, and Linux requirements. All GUI, 5 which offer CLI access (KNIME, LONI, Moa, Taverna, Yabi).
+How many accessible to bioinformaticians and not programmers?
+  - Programmers: 
+        Ergatis
+        Genboree - but cannot be deployed locally.
+        GeneProf
+        Taverna - IDE heavy
+  - BioInfs: 
+        Galaxy
+        GenePattern
+        Kepler
+        KNIME (VCF oriented)
+        LONI
+  - Other:
+        Moa used mostly for alignment
+        Yavi is not accesible.
+        
+        
+
+Over 200 bioinformatic pipelines are in existence, with the majority being online. The most highly cited is the Galaxy web server.
+
+
+
+}
 
 
 %% CONCLUSIONS
@@ -484,7 +550,9 @@ The annotation step is crucial, especially for whole-genome sequence data where 
 \textbf{InDel}: Insertion-Deletion, \textbf{LOD}: Logarithm of the Odds,\\
 \textbf{HTS}: High-Throughput Sequencing, \textbf{VCF}: Variant Call Format,\\
 \textbf{BAM}: Binary Alignment Map, \textbf{OS}: Operating System,\\
-\textbf{HIPKD}: Hyperinsulinemic hypoglycemia and polycystic kidney disease
+\textbf{CNV} : Copy Number Variant, \textbf{FOSS} : Free and Open Source,\\
+\textbf{HIPKD}: Hyperinsulinemic hypoglycemia and polycystic kidney disease,\\
+
 
 
 
@@ -520,7 +588,7 @@ This work was supported by St. Peter's Trust for Kidney, Bladder and Prostate Re
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % if your bibliography is in bibtex format, use those commands:
-\bibliographystyle{vancouver} % Style BST file (bmc-mathphys, vancouver, spbasic).
+\bibliographystyle{spbasic} % Style BST file (bmc-mathphys, vancouver, spbasic).
 \bibliography{bibliography}      % Bibliography file (usually '*.bib' )
 % for author-year bibliography (bmc-mathphys or spbasic)
 % a) write to bib file (bmc-mathphys only)

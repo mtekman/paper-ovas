@@ -1,0 +1,76 @@
+Name,Input Format,Output Format,SNP,INDEL,CNV,GUI,CLI,Web,Notes
+ABSOLUTE [91],"HAPSEG output, sample level variance, precomputed models of cancer types, sigma values","Plot showing the Purity/Ploidy, R data file",yes,no,yes,no,yes,no,Comes bundles with HAPSEG;
+Align-GVGD [92],"FASTA, substitutions list",Web report,yes,no,no,no,no,yes,Estimates SNP risk;
+ANNOVAR [93],"VCF4, Complete Genomics, GFF3-SOLiD, CSV in Annovar format; ",Gene-based annotation; Region-based annotations; Filter-based annotation. For all categories ,yes,yes,yes,no,yes,no,"Integrated tool providing gene annotation, db ids and various scores;"
+AnnTools [94],"VCF, pileup, CSV ",VCF,yes,yes,yes,no,yes,no,Provides a set of helper tools for custom annotation;
+Auto-mute [95],"PDB ID, Chain, Mutation",Web report,yes,no,no,no,no,yes,The tool performs stability and disease potential predictions.
+CandiSNPer [96],"dbSNP ID, population",Web report,yes,no,no,no,no,yes,
+CHASM and SNVBox [97],"Passenger mutation rates, AA changes","CSV including CHASM score, p-value, and FDR",yes,no,no,no,yes,no,Predicts the functional significance of somatic missense mutations observed in the genomes of cancer cells and features prioritization of mutations;
+CUPSAT [98],PDB ID; PDB file format,Web report,yes,no,no,no,no,yes,Performs protein stability prediction;
+dbNSFP [99],,,yes,no,no,no,yes,no,Integrated SNP database; provides a simple JAVA CLI tool for searching;
+VEP (Ensembl - Variant Effect Predictor) [100],"CSV, VCF, Pileup, HGVS, Variant Identifiers",Web report,yes,no,no,no,yes,yes,
+ESEfinder [101],FASTA,"Web report, CSV",-,-,-,no,no,yes,Analyzes sequences for the presence of ESE motifs;
+ESRSearch [102],plain sequence; FASTA,Web report,-,-,-,no,no,yes,Finds ESR sequences;
+FANS [103],FASTA format; or variation information via web interface,"Web report, CSV",yes,no,no,no,no,yes,"Prioritized variations based on risk levels; divided into: Genome View, Gene View, Transcript View, Variation View;"
+FastSNP [104],"Gene Symbol, dbSNP ID",Web report,yes,no,no,no,no,yes,Outputs prioritized list of SNPs with risk assessment;
+FESD [105],Gene name,Web report,yes,no,no,no,no,yes,"Output includes regions: promoter, CpG, islands, translation start, splice site, translation stop, poly(A) signal, transcript;"
+FOLD-X [106],,,yes,no,no,no,yes,yes,It performs protein stability analysis.
+F-SNP [107],SNP ID; disease; gene; chromosomal region,,yes,no,no,,,,The software integrates information obtained from 16 bioinformatics tools and databases about the functional effects of SNPs.
+GERP++ [108],,Web report,yes,no,no,no,yes,yes,It produces evolutionary conservation scores.
+GSITIC [109],"Segmentation File, Markers File, FASTA, (Array List File, CNV File)","Lesions, Amplification Genes, Deletion Genes, Gistic Scores, Plots",no,no,yes,no,yes,no,Identifies regions of the genome that are significantly amplified or deleted across a set of samples;
+HOPE [110],"FASTA, accession code for protein ",Web report on structural differences between wild type and mutations,yes,no,no,no,no,yes,The web-based tool offers a simple web interface for entering protein sequence and amino acid mutation. 
+Human Splicing Finder (HSF) [111],"Ensembl / RefSeq ID,
+plain text sequences",,yes,no,no,no,no,yes,
+I-Mutant2.0 [112],"One letter residue code, sequence residue number",Web report,yes,no,no,no,yes,yes,The tool is based on support vector machines.
+LS-SNP [113],"SwissProt ID, dbSNP ID, Kegg Pathway ID, HUGO Gene ID",Web report,yes,no,no,no,no,yes,The tool offers prediction of disease association and confidence of prediction and is based on support vector machines (SVM).
+MAPP [114],FASTA,CSV in MAPP format,yes,no,no,no,yes,no,
+MuD [115],,Web report,yes,no,no,no,no,yes,
+MutaGeneSys [116],,Web report / CSV,yes,no,no,no,yes,yes,The query Interface is not working.
+MutationAssessor [117],"CSV in MutationAssessor format, Uniprot ID, Refseq ID",CSV in MutationAssessor format,yes,no,no,no,no,yes,
+MutationTaster [118],"ORF, cDNA sequence, genomic sequence, alteration",Web report,yes,yes,no,no,yes,yes,
+MutPred [119],"FASTA sequence, CSV file of mutations",Web report,yes,no,no,no,no,yes,Calculates the impact of mutation on different protein properties; is based on SIFT and offers precomputed dbSNP results;
+MutSig [120],"List of mutations, regions to investigate",CSV,yes,yes,no,no,yes,no,Still in beta testing – available upon request
+NGS-SNP [121],"VCF, pileup, CSV",VCF,yes,no,no,no,yes,no,
+nsSNPAnalyzer [122],"FASTA, substitutions list",Web report,yes,no,no,no,no,yes,The tool outputs various SNP features and predicts the phenotypic class.
+Oncotator [123],Oncotator format,CSV,yes,yes,no,no,no,yes,"Annotations with data relevant to cancer researcher; collects Genomic Annotations, Protein Annotations, Cancer Annotations"
+PANTHER [124],Protein sequence and Substitution,subPSEC score,yes,no,no,no,yes,yes,Uses subPSEC score;
+Parepro [125],Protein sequence and Substitution,-,yes,no,no,no,yes,no,It is based on support vector machines (SVM).
+PESX [126],plain sequence; FASTA,Web report,-,-,-,no,no,yes,Finds ESE sequences;
+pfSNP [127],SNP ID; chromosome region; Gene ID;,Web report,yes,no,no,no,no,yes,
+PHAST [128],"FASTA, PHYLIP, MPM, MAF, SS",Conservation score,-,-,-,no,yes,no,"Phylogenetic analysis toolbox, including phastCons and phyloP;"
+PhD-SNP [129],"One letter residue code, Swiss-Prot protein code, Sequence file",Effect preditction,yes,no,no,no,yes,no,
+PMUT [130],FASTA sequence/file SWISSProt code,Web report,yes,no,no,no,no,yes,Offers different prediction modes and is able to output detailed mutation analysis reports;
+PolyDoms [131],"Gene/protein symbol(s), RefSeqID dbSNP ID",Web report,yes,no,no,no,no,yes,
+PolyMAPr [132],-,-,-,-,-,no,yes,no,No longer available;
+PolyPhen-2 [133],"UniProt ID, FASTA, dbSNP ID",CSV in PolyPhen format,yes,no,no,no,yes,yes,
+PupaSNP Finder [134],"dbSNP ID, Gene/Transcript ID; PED format",Web report,yes,no,no,no,no,yes,
+QuickSNP [135],genomic position; HUGO gene symbol,Web report,yes,no,no,no,no,yes,
+RescueESE [136],plain text; multi-FASTA,predicts sequences with ESE activity,-,-,-,no,no,yes,
+SAPRED [137],FASTA and mutation file,,yes,no,no,,,,The website is offline.
+SCAN [138],,Web report,yes,no,yes,no,no,yes,
+SCONE [139],MAF,Conservation score,-,-,-,no,yes,no,
+SeattleSeq Annotation [140],"Maq, GFFm CASAVA, VCF, GATK bed","VCF, own format",yes,yes,no,no,no,yes,
+SeqAnt [141],FASTA sequence file,Web report,yes,yes,no,no,no,yes,
+SeqProfCod [142],-,-,yes,no,no,-,-,-,Not available online;
+SVA (Sequence Variant Analyser) [143],"VCF of variants, project file (for command line version)",--potential biological function --dbSNP/Kegg/GO/1000Genomes/DGV annotation --identifies protein-truncating variants --filtering by function,yes,yes,no,yes,yes,no,
+SIFT [144],"Multiple proteins, dbSNP ID, NCBI GI number, protein sequence, protein sequence alignment, Pileup, VCF4, maq, soap, gff3, casava, cg",XXX in SIFT format,yes,no,no,no,yes,yes,
+SIFT Indel [145],,,no,yes,no,no,no,yes,
+SiPhy [146],"FASTA, MAF, PHYLIP",,-,-,-,no,yes ,no,
+SNAP [147],"AA in FASTA, substitutions format",Web report,yes,no,no,no,no,yes,This tool offers a user friendly web interface.
+SNP Function Portal [148],"RefSNP Ids, OMIM Ids",Web report,yes,no,no,no,no,yes,
+SNP@Domain [149],,,yes,no,no,-,-,-,Not available anymore;
+SNPdbe [150],"Gene/protein symbol, FASTA",Web report,yes,no,no,no,no,yes,The protein function is predicted using SNAP and SIFT and entries are augmented with experimental information from public databases. 
+SNPeffect 4.0 [151],"FASTA, PDB file, PDB ID, UniProt ID",Web report ,yes,no,no,no,no,yes,This tool mainly uses protein structure information.
+SNPHunter [152],Gene symbol; dbSNP ID; ,Web report,yes,no,no,yes,no,no,
+SNPnexus [153],CSV in SNPnexus input format,CSV in SNPnexus output format,yes,yes,yes,no,no,yes,"Outputs CNV, INDELs, inversions;"
+SNPper [154],"dbSNP ID, TSC ID, position",Web report,yes,no,no,no,no,yes,
+SNPs&GO [155],One letter residue code; Swiss-Prot protein code; Sequence file; GO terms; CSV ,Web report,yes,no,no,no,no,yes,Predicts neutral/deleterious; calculates reliability index and disease probability;
+SNPs3D [156],"Gene symbol, SNP ID",Web report,yes,no,no,no,no,yes,
+SNPseek [157],-,-,-,-,-,-,-,-,Tool that performs neural network based protein stability prediction which is not available anymore;
+SNPselector [158],-,-,-,-,-,no,no,yes,No longer available;
+SnpSIFT + snpEff [159],"VCF, SNPs, insertions, deletions, and MNPs ",CSV,yes,yes,no,no,yes,no,A collection of tools to manipulate VCF files;
+SPOT [160],"SNPs and p-values,",Web report,yes,no,no,no,no,yes,Outputs various DB ids and scores;
+StSNP [161],protein sequence; protein name; dbSNP ID; gene symbol,Web report,yes,no,no,no,no,yes,
+TAMAL [162],-,-,-,-,-,-,-,-,No longer available;
+TopoSNP [163],"Protein ID, protein sequence",Web report,yes,no,no,no,no,yes,Predicts whether substitution is on surface of the protein structure;  conservation score based on Pfam protein alignments;
+VARIANT [164],VCF,"Web report, text",yes,no,no,no,yes,yes,

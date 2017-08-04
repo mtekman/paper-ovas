@@ -1,0 +1,7 @@
+"
+Name",Input Format,Output Format,Illumina,Solid,Requirements,GUI,CLI,Cloud,Anno,Notes
+Bcbio-nextgen [203],fastq,"fatsq, sam, BAM, bed, VCF,  pdf",yes,?,"Linux, MaC OS X, Windows",yes,yes,no,no,"Fully automated pipeline which includes alignment, SNP calling, summary collection, and integration into Galaxy;"
+GATK [37],"BAM, FASTA(ref),  dbSNP(rod files),  refSeq table","CSV, VCF, txt",yes,yes,Linux,no,yes,no,yes,Performs no alignment;
+HugeSeq [206],"fastq, FASTA","VCF, gff, Annovar output",yes,-,Linux,no,yes,no,yes,"Combines tools for alignment, variant calling, and annotation. Also identifies CNVs and SVs;"
+Ngs-backbone [209],"fastq, FASTA","VCF, gff,text files",yes,no,Linux,no,yes,no,no (not functional),"Pipeline which includes read cleaning, mapping, transcriptome assembly, annotation and SNV calling;"
+RTG [210],"fastq, FASTA, Complete  Genomics format","SAM, BAM, BED, VCF, snp files",yes,no,"Linux, MAC OS X, Windows",no,yes,no,no,"This tool performs alignment, variant detection, and calculation of various summary statistics."
