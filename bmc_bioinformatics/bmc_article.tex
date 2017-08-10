@@ -83,14 +83,27 @@
 \def\app{OVAS}
 \newcommand{\triplesub}[2]{\noindent\textsl{#1}\\#2\\}  % think of it as a \subsubsubsection{}
 
-\newcommand{\changes}[1]{#1}
-%\newcounter{changeCount}
-%\newcommand{\changes}[1]{
-%	\stepcounter{changeCount}
-%	{\tiny\bf\color{violet}\arabic{changeCount}}
-%	{\color{red} #1}
-%}
 
+%% Changes
+\newif\ifshowchanges
+%\showchangestrue
+
+\ifshowchanges
+	\newcommand{\horia}[1]{{\color{magenta} #1}}
+	\usepackage{soul}
+	\newcommand{\horiaremove}[1]{{\color{magenta}\st{#1}}}
+
+	\newcounter{changeCount}
+	\newcommand{\changes}[1]{
+		\stepcounter{changeCount}
+		{\tiny\bf\color{violet}\arabic{changeCount}}
+		{\color{red} #1}
+	}
+\else
+	\newcommand{\horia}[1]{#1}
+	\newcommand{\horiaremove}[1]{}  % remove
+	\newcommand{\changes}[1]{#1}
+\fi
 
 
 \endlocaldefs
@@ -111,7 +124,7 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{\app{}: an open-source variant analysis suite}
+\title{\app{}: an open-source variant analysis suite with inheritance modelling}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -214,7 +227,7 @@ To address these issues, we herein propose our standalone Open-source Variant An
 \begin{keyword}
 \kwd{open source}
 \kwd{variant analysis}
-\kwd{disease model}
+\kwd{inheritance model}
 \kwd{mosaic}
 \kwd{bootable}
 \kwd{live environment}
@@ -283,9 +296,9 @@ The annotation stages of the pipeline then affix the variants with the relevant 
 
 First, a gene context is appended to the variants specific to a level of detail preferred by the user. This includes, but is not limited to; exons, introns, (donor/acceptor) splice sites, (5'/3') UTR, and (default 500bp) upstream/downstream promoters. Wholly intergenic regions are discarded by default, which often results in a vast majority of initial variants being filtered out (approximately 90\% for whole-genome sequence data).
 
-Ensuing functional changes and the resulting mutation types (synonymous, missense, nonsense, etc) are also annotated to the variant by performing cDNA lookups of the variant against reference genome FASTA data and determining the subsequent changes at the codon and amino-acid level for all sense and anti-sense gene transcripts, as well as frameshifts caused by indels.
+Ensuing functional changes and the resulting mutation types (synonymous, missense, nonsense, etc) are also annotated to the variant by performing cDNA lookups of the variant against reference genome FASTA data and determining the subsequent changes at the codon and amino-acid level for all sense and anti-sense gene transcripts\horia{.} \horiaremove{, as well as frameshifts caused by indels.}
 
-The VCF specification generally denotes a single variant per line and OVAS vehemently upholds this policy when a variant bisects multiple gene transcripts. This is notably different from UCSC's Variant Annotator, which despite taking in VCF input, does not preserve the format and reports multiple bisecting sites upon adjacent lines. For a given variant, OVAS ensures that each gene context and correlating functional change are stored in-line as separate associative arrays that are indexed to the same gene transcript.
+The VCF specification generally denotes a single variant per line and OVAS vehemently upholds this policy when a variant bisects multiple gene transcripts. This is notably different from UCSC's Variant Annotator \cite{hinrichs2016ucsc}, which despite taking in VCF input, does not preserve the format and reports multiple bisecting sites upon adjacent lines. For a given variant, OVAS ensures that each gene context and correlating functional change are stored in-line as separate associative arrays that are indexed to the same gene transcript.
 
 Finally, heterozygosity and homozygosity are assigned to the variant based on nucleotide base count alone, addressing a confidence issue in the zygosity assignment provided by pre-processed variants.
 }
@@ -397,9 +410,7 @@ The AAF module created an noticeable lag of an average of 7.27 seconds per file 
 
 \subsection{Transparency and Deployment}
 
-The portability of \app{} grants a significant advantage over present-day web-based pipelines by keeping all analyses securely \textit{in situ}, which is greatly beneficial to regions of the world without consistent or active internet in addition to researchers handling personal or private data. 
-
-\changes{The need for accessible offline tools is most present in Africa, where bioinformatical infrastructure and resources are limited, often requiring international collaborations to advance the study of their own data \cite{h3africa2014enabling}.
+The portability of \app{} grants a significant advantage over present-day web-based pipelines by keeping all analyses securely \textit{in situ}, which is greatly beneficial to regions of the world without consistent or active internet in addition to researchers handling personal or private data. \changes{The need for accessible offline tools is most present in Africa, where bioinformatical infrastructure and resources are limited\horia{.}\horiaremove{, often requiring international collaborations to advance the study of their own data}\cite{h3africa2014enabling}.
 
 Cloud-based pipelines provide processing power without incurring the hardware cost, but the progression of large whole-genome sequencing data coupled with restricted internet speeds hinder the uptake of these services somewhat as slow transfer speeds ultimately dictate service viability; a factor that is further confounded by the net neutrality debate \cite{netneutrality}.} Cloud-based analyses also require input data to be uploaded to an external server in order to perform processing, and data ownership after upload is not always retained especially in the case where the work was performed within the cloud \cite{reed2010information}. Further, many cloud-services employ non-transparent proprietary methods to reduce the number of false-positives and false-negatives. A common approach is to make use of an internal database or learning algorithm that favours some variants over others based on previous analyses (or a similar training set) \cite{pabinger2014survey}, resulting in informative variants produced by unquantifiable "black-box" means, creating disparity between the end-user and their analysis.
 
@@ -419,11 +430,11 @@ This is in direct contrast to the more familiar virtualization container platfor
 \changes{
 \subsection{Comparison to Other Bioinformatic Utilities}
 
-\citeauthor{pabinger2014survey} surveys over 200 bioinformatic tools, workflows, pipelines, and annotation modules. Workflows and pipelines are similar in function, with the former being a more general-processing framework to aid in the construction of custom pipelines for different data types.
+\citeauthor{pabinger2014survey} surveys over 200 \horia{open-source} bioinformatic tools, workflows, pipelines, and annotation modules. Workflows and pipelines are similar in function, with the former being a more general-processing framework to aid in the construction of custom pipelines for different data types.
 
 13 pipelines and 9 workflows are compared, of which only 5 cater for VCF files. Most offer commandline access, and most perform variant annotation either by using ANNOVAR \cite{wang2010annovar} for providing a gene and functional context, or annotating metrics based on SNP or sequence analysis (see Table S1). However, \app{} is the only open-source pipeline that caters for inheritance contexts, and is also the only pipeline with both a commandline and web-interface that is aimed more are bioinformaticians than programmers.
 
-A further 32 distinct variant annotation modules are also compared; 10 which can take VCF files as input but only 4 of which output annotated VCF files (see Table S2). Other annotators either focus more on upstream genomic formats (FASTA / BAM) or they produce report summaries of the variants; most likely to escape the potential pitfall of the same  variant intersecting multiple sites. \app{} overcomes this limitation by enclosing multiple sites and their related annotations as sideways associative arrays, and treating each site as a single entity when performing filtering later on in the pipeline. 
+A further 32 distinct variant annotation modules are also compared; 10 which can take VCF files as input but only 4 of which output annotated VCF files (see Table S2). Other annotators either focus more on upstream genomic formats (FASTA / BAM) or they produce report summaries of the variants; most likely to escape the potential pitfall of the same  variant intersecting multiple sites \horia{(such as isoforms)}. \app{} overcomes this limitation by enclosing multiple sites and their related annotations as sideways associative arrays, and treating each site as a single entity when performing filtering later on in the pipeline. 
 }
 
 
@@ -499,7 +510,7 @@ This work was supported by St. Peter's Trust for Kidney, Bladder and Prostate Re
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % if your bibliography is in bibtex format, use those commands:
-\bibliographystyle{spbasic} % Style BST file (bmc-mathphys, vancouver, spbasic).
+\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
 \bibliography{bibliography}      % Bibliography file (usually '*.bib' )
 % for author-year bibliography (bmc-mathphys or spbasic)
 % a) write to bib file (bmc-mathphys only)
