@@ -1,54 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2017/Arch Linux)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: bmc_article.aux
-The style file: vancouver.bst
-Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=8) to 20 items from 10.
-Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+The style file: spbasic.bst
 Database file #1: bibliography.bib
-Warning--empty author and editor in lougher2008squashfs
-Warning--missing publisher in lougher2008squashfs
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
 Warning--there's a number but no volume in reed2010information
-You've used 16 entries,
-            3170 wiz_defined-function locations,
-            748 strings with 8225 characters,
-and the built_in function-call counts, 36776 in all, are:
-= -- 4499
-> -- 300
-< -- 0
-+ -- 150
-- -- 75
-* -- 3213
-:= -- 3987
-add.period$ -- 61
-call.type$ -- 16
-change.case$ -- 1
-chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 2559
-empty$ -- 3581
-format.name$ -- 89
-if$ -- 8526
-int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 193
-newline$ -- 82
-num.names$ -- 16
-pop$ -- 326
+You've used 21 entries,
+            3270 wiz_defined-function locations,
+            812 strings with 9900 characters,
+and the built_in function-call counts, 39848 in all, are:
+= -- 4413
+> -- 1130
+< -- 7
++ -- 519
+- -- 369
+* -- 2971
+:= -- 4513
+add.period$ -- 21
+call.type$ -- 21
+change.case$ -- 223
+chr.to.int$ -- 21
+cite$ -- 22
+duplicate$ -- 3961
+empty$ -- 2873
+format.name$ -- 431
+if$ -- 8260
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 286
+newline$ -- 73
+num.names$ -- 84
+pop$ -- 1065
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 199
 quote$ -- 0
-skip$ -- 332
+skip$ -- 1514
 stack$ -- 0
-substring$ -- 7948
-swap$ -- 416
-text.length$ -- 0
+substring$ -- 4027
+swap$ -- 2154
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 3
-while$ -- 174
-width$ -- 18
-write$ -- 175
-(There were 3 warnings)
+type$ -- 186
+warning$ -- 1
+while$ -- 257
+width$ -- 0
+write$ -- 243
+(There was 1 warning)

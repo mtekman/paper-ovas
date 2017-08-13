@@ -1,89 +1,131 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{21}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI~\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
 
-\bibitem{lander2001initial}
-Lander ES, Linton LM, Birren B, Nusbaum C, Zody MC, Baldwin J, et~al.
-\newblock Initial sequencing and analysis of the human genome.
-\newblock Nature. 2001;409(6822):860--921.
+\bibitem[{Biesecker and Spinner(2013)}]{biesecker2013genomic}
+Biesecker LG, Spinner NB (2013) A genomic view of mosaicism and human disease.
+  Nat Rev Genet 14(5):307--320
 
-\bibitem{sanger1977dna}
-Sanger F, Nicklen S, Coulson AR.
-\newblock {D}{N}{A} sequencing with chain-terminating inhibitors.
-\newblock PNAS. 1977;74(12):5463--5467.
+\bibitem[{Bockenhauer et~al(2012)Bockenhauer, Medlar, Ashton, Kleta, and
+  Lench}]{bockenhauer2012genetic}
+Bockenhauer D, Medlar AJ, Ashton E, Kleta R, Lench N (2012) Genetic testing in
+  renal disease. Pediatr Nephrol 27(6):873--883
 
-\bibitem{lengauer2007bioinformatics}
-Lengauer T.
-\newblock Bioinformatics-From Genomes to Therapies.
-\newblock Wiley Online Library; 2007.
-
-\bibitem{bockenhauer2012genetic}
-Bockenhauer D, Medlar AJ, Ashton E, Kleta R, Lench N.
-\newblock Genetic testing in renal disease.
-\newblock Pediatr Nephrol. 2012;27(6):873--883.
-
-\bibitem{li2009sequence}
-Li H, Handsaker B, Wysoker A, Fennell T, Ruan J, Homer N, et~al.
-\newblock The sequence alignment/map format and {S}{A}{M}tools.
-\newblock Bioinformatics. 2009;25(16):2078--2079.
-
-\bibitem{danecek2011variant}
-Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, et~al.
-\newblock The variant call format and {V}{C}{F}tools.
-\newblock Bioinformatics. 2011;27(15):2156--2158.
-
-\bibitem{warden2014detailed}
-Warden CD, Adamson AW, Neuhausen SL, Wu X.
-\newblock Detailed comparison of two popular variant calling packages for exome
-  and targeted exon studies.
-\newblock PeerJ. 2014;2:e600.
-
-\bibitem{pabinger2014survey}
-Pabinger S, Dander A, Fischer M, Snajder R, Sperk M, Efremova M, et~al.
-\newblock A survey of tools for variant analysis of next-generation genome
-  sequencing data.
-\newblock Brief Bioinform. 2014;15(2):256--278.
-
-\bibitem{kari2014consanguinity}
-Kari JA, Bockenhauer D, Stanescu H, Gari M, Kleta R, Singh AK.
-\newblock Consanguinity in {S}audi {A}rabia: a unique opportunity for pediatric
-  kidney research.
-\newblock Am J Kidney Dis. 2014;63(2):304--310.
-
-\bibitem{biesecker2013genomic}
-Biesecker LG, Spinner NB.
-\newblock A genomic view of mosaicism and human disease.
-\newblock Nat Rev Genet. 2013;14(5):307--320.
-
-\bibitem{karolchik2003ucsc}
-Karolchik D, Baertsch R, Diekhans M, Furey TS, Hinrichs A, Lu Y, et~al.
-\newblock The {U}{C}{S}{C} genome browser database.
-\newblock Nucleic Acids Res. 2003;31(1):51--54.
-
-\bibitem{scheifler1986x}
-Scheifler RW, Gettys J.
-\newblock The {X} window system.
-\newblock ACM Trans Graph. 1986;5(2):79--109.
-
-\bibitem{lougher2008squashfs}
-Lougher P, Lougher R. {S}quash{F}{S}; 2008.
-\newblock \url{http://www.squashfs-lzma.org/}.
-
-\bibitem{cabezas2017polycystic}
+\bibitem[{Cabezas et~al(2017)Cabezas, Flanagan, Stanescu,
+  Garc{\'\i}a-Mart{\'\i}nez, Caswell, Lango-Allen, Ant{\'o}n-Gamero, Argente,
+  Bussell, Brandli et~al}]{cabezas2017polycystic}
 Cabezas OR, Flanagan SE, Stanescu H, Garc{\'\i}a-Mart{\'\i}nez E, Caswell R,
-  Lango-Allen H, et~al.
-\newblock Polycystic Kidney Disease with Hyperinsulinemic Hypoglycemia Caused
-  by a Promoter Mutation in Phosphomannomutase 2.
-\newblock J Am Soc Nephrol. 2017;[Epub ahead of print].
+  Lango-Allen H, Ant{\'o}n-Gamero M, Argente J, Bussell AM, Brandli A, et~al
+  (2017) Polycystic kidney disease with hyperinsulinemic hypoglycemia caused by
+  a promoter mutation in phosphomannomutase 2. J Am Soc Nephrol [Epub ahead of
+  print]
 
-\bibitem{reed2010information}
-Reed C.
-\newblock Information 'Ownership' in the Cloud.
-\newblock Queen Mary School of Law Legal Studies Research Paper. 2010;(45).
+\bibitem[{Consortium et~al(2014)}]{h3africa2014enabling}
+Consortium H, et~al (2014) Enabling the genomic revolution in africa. Science
+  344(6190):1346--1348
 
-\bibitem{kalia2016recommendations}
-Kalia SS, Adelman K, Bale SJ, Chung WK, Eng C, Evans JP, et~al.
-\newblock Recommendations for reporting of secondary findings in clinical exome
-  and genome sequencing, 2016 update (ACMG SF v2. 0): a policy statement of the
-  American College of Medical Genetics and Genomics.
-\newblock Genet Med. 2017;19:249--255.
+\bibitem[{Danecek et~al(2011)Danecek, Auton, Abecasis, Albers, Banks, DePristo,
+  Handsaker, Lunter, Marth, Sherry et~al}]{danecek2011variant}
+Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE,
+  Lunter G, Marth GT, Sherry ST, et~al (2011) The variant call format and
+  {V}{C}{F}tools. Bioinformatics 27(15):2156--2158
+
+\bibitem[{Felter et~al(2015)Felter, Ferreira, Rajamony, and
+  Rubio}]{virtualcomparison}
+Felter W, Ferreira A, Rajamony R, Rubio J (2015) An updated performance
+  comparison of virtual machines and linux containers. In: Performance Analysis
+  of Systems and Software (ISPASS), 2015 IEEE International Symposium On, IEEE,
+  pp 171--172
+
+\bibitem[{Hinrichs et~al(2016)Hinrichs, Raney, Speir, Rhead, Casper, Karolchik,
+  Kuhn, Rosenbloom, Zweig, Haussler et~al}]{hinrichs2016ucsc}
+Hinrichs AS, Raney BJ, Speir ML, Rhead B, Casper J, Karolchik D, Kuhn RM,
+  Rosenbloom KR, Zweig AS, Haussler D, et~al (2016) Ucsc data integrator and
+  variant annotation integrator. Bioinformatics 32(9):1430--1432
+
+\bibitem[{Kalia et~al(2017)Kalia, Adelman, Bale, Chung, Eng, Evans, Herman,
+  Hufnagel, Klein, Korf et~al}]{kalia2016recommendations}
+Kalia SS, Adelman K, Bale SJ, Chung WK, Eng C, Evans JP, Herman GE, Hufnagel
+  SB, Klein TE, Korf BR, et~al (2017) Recommendations for reporting of
+  secondary findings in clinical exome and genome sequencing, 2016 update (acmg
+  sf v2. 0): a policy statement of the american college of medical genetics and
+  genomics. Genet Med 19:249--255
+
+\bibitem[{Kari et~al(2014)Kari, Bockenhauer, Stanescu, Gari, Kleta, and
+  Singh}]{kari2014consanguinity}
+Kari JA, Bockenhauer D, Stanescu H, Gari M, Kleta R, Singh AK (2014)
+  Consanguinity in {S}audi {A}rabia: a unique opportunity for pediatric kidney
+  research. Am J Kidney Dis 63(2):304--310
+
+\bibitem[{Karolchik et~al(2003)Karolchik, Baertsch, Diekhans, Furey, Hinrichs,
+  Lu, Roskin, Schwartz, Sugnet, Thomas et~al}]{karolchik2003ucsc}
+Karolchik D, Baertsch R, Diekhans M, Furey TS, Hinrichs A, Lu Y, Roskin KM,
+  Schwartz M, Sugnet CW, Thomas DJ, et~al (2003) The {U}{C}{S}{C} genome
+  browser database. Nucleic Acids Res 31(1):51--54
+
+\bibitem[{K{\"o}ster and Rahmann(2012)}]{koster2012snakemake}
+K{\"o}ster J, Rahmann S (2012) Snakemake — a scalable bioinformatics workflow
+  engine. Bioinformatics 28(19):2520--2522
+
+\bibitem[{Krämer et~al(2013)Krämer, Wiewiorra, and Weinhardt}]{netneutrality}
+Krämer J, Wiewiorra L, Weinhardt C (2013) Net neutrality: A progress report.
+  Telecommunications Policy 37(9):794 -- 813,
+  \doi{http://dx.doi.org/10.1016/j.telpol.2012.08.005}, papers from the 40th
+  Research Conference on Communication, Information and Internet Policy (TPRC
+  2012) Special issue on the first papers from the 'Mapping the Field'
+  initiative.
+
+\bibitem[{Lander et~al(2001)Lander, Linton, Birren, Nusbaum, Zody, Baldwin,
+  Devon, Dewar, Doyle, FitzHugh et~al}]{lander2001initial}
+Lander ES, Linton LM, Birren B, Nusbaum C, Zody MC, Baldwin J, Devon K, Dewar
+  K, Doyle M, FitzHugh W, et~al (2001) Initial sequencing and analysis of the
+  human genome. Nature 409(6822):860--921
+
+\bibitem[{Leipzig(2017)}]{leipzigreview}
+Leipzig J (2017) A review of bioinformatic pipeline frameworks. Briefings in
+  Bioinformatics 18(3):530--536, \doi{10.1093/bib/bbw020}
+
+\bibitem[{Lengauer(2007)}]{lengauer2007bioinformatics}
+Lengauer T (2007) Bioinformatics-From Genomes to Therapies. Wiley Online
+  Library
+
+\bibitem[{Li et~al(2009)Li, Handsaker, Wysoker, Fennell, Ruan, Homer, Marth,
+  Abecasis, Durbin et~al}]{li2009sequence}
+Li H, Handsaker B, Wysoker A, Fennell T, Ruan J, Homer N, Marth G, Abecasis G,
+  Durbin R, et~al (2009) The sequence alignment/map format and {S}{A}{M}tools.
+  Bioinformatics 25(16):2078--2079
+
+\bibitem[{Pabinger et~al(2014)Pabinger, Dander, Fischer, Snajder, Sperk,
+  Efremova, Krabichler, Speicher, Zschocke, and
+  Trajanoski}]{pabinger2014survey}
+Pabinger S, Dander A, Fischer M, Snajder R, Sperk M, Efremova M, Krabichler B,
+  Speicher MR, Zschocke J, Trajanoski Z (2014) A survey of tools for variant
+  analysis of next-generation genome sequencing data. Brief Bioinform
+  15(2):256--278
+
+\bibitem[{Reed(2010)}]{reed2010information}
+Reed C (2010) Information 'ownership' in the cloud. Queen Mary School of Law
+  Legal Studies Research Paper (45)
+
+\bibitem[{Sanger et~al(1977)Sanger, Nicklen, and Coulson}]{sanger1977dna}
+Sanger F, Nicklen S, Coulson AR (1977) {D}{N}{A} sequencing with
+  chain-terminating inhibitors. PNAS 74(12):5463--5467
+
+\bibitem[{Wang et~al(2010)Wang, Li, and Hakonarson}]{wang2010annovar}
+Wang K, Li M, Hakonarson H (2010) Annovar: functional annotation of genetic
+  variants from high-throughput sequencing data. Nucleic acids research
+  38(16):e164--e164
+
+\bibitem[{Warden et~al(2014)Warden, Adamson, Neuhausen, and
+  Wu}]{warden2014detailed}
+Warden CD, Adamson AW, Neuhausen SL, Wu X (2014) Detailed comparison of two
+  popular variant calling packages for exome and targeted exon studies. PeerJ
+  2:e600
 
 \end{thebibliography}
