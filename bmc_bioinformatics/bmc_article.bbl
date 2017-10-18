@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -42,6 +42,12 @@ Felter W, Ferreira A, Rajamony R, Rubio J (2015) An updated performance
   comparison of virtual machines and linux containers. In: Performance Analysis
   of Systems and Software (ISPASS), 2015 IEEE International Symposium On, IEEE,
   pp 171--172
+
+\bibitem[{Gr{\"u}ning et~al(2017)Gr{\"u}ning, Chilton, K{\"o}ster, Dale,
+  Goecks, Backofen, Nekrutenko, and Taylor}]{gruening200683}
+Gr{\"u}ning B, Chilton J, K{\"o}ster J, Dale R, Goecks J, Backofen R,
+  Nekrutenko A, Taylor J (2017) Practical computational reproducibility in the
+  life sciences. bioRxiv \doi{10.1101/200683}
 
 \bibitem[{Hinrichs et~al(2016)Hinrichs, Raney, Speir, Rhead, Casper, Karolchik,
   Kuhn, Rosenbloom, Zweig, Haussler et~al}]{hinrichs2016ucsc}
