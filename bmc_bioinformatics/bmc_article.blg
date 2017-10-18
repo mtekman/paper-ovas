@@ -5,45 +5,45 @@ The style file: spbasic.bst
 Database file #1: bibliography.bib
 Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
 Warning--there's a number but no volume in reed2010information
-You've used 21 entries,
+You've used 22 entries,
             3270 wiz_defined-function locations,
-            812 strings with 9900 characters,
-and the built_in function-call counts, 39848 in all, are:
-= -- 4413
-> -- 1130
+            818 strings with 10182 characters,
+and the built_in function-call counts, 41503 in all, are:
+= -- 4558
+> -- 1204
 < -- 7
-+ -- 519
-- -- 369
-* -- 2971
-:= -- 4513
-add.period$ -- 21
-call.type$ -- 21
-change.case$ -- 223
-chr.to.int$ -- 21
-cite$ -- 22
-duplicate$ -- 3961
-empty$ -- 2873
-format.name$ -- 431
-if$ -- 8260
++ -- 544
+- -- 393
+* -- 3130
+:= -- 4741
+add.period$ -- 22
+call.type$ -- 22
+change.case$ -- 236
+chr.to.int$ -- 22
+cite$ -- 23
+duplicate$ -- 4101
+empty$ -- 3012
+format.name$ -- 458
+if$ -- 8605
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 286
-newline$ -- 73
-num.names$ -- 84
-pop$ -- 1065
+missing$ -- 300
+newline$ -- 76
+num.names$ -- 88
+pop$ -- 1102
 preamble$ -- 1
-purify$ -- 199
+purify$ -- 211
 quote$ -- 0
-skip$ -- 1514
+skip$ -- 1535
 stack$ -- 0
-substring$ -- 4027
-swap$ -- 2154
+substring$ -- 4208
+swap$ -- 2182
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 186
+type$ -- 195
 warning$ -- 1
-while$ -- 257
+while$ -- 269
 width$ -- 0
-write$ -- 243
+write$ -- 254
 (There was 1 warning)

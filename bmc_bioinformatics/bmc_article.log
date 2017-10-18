@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.13)  13 AUG 2017 22:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.9.26)  18 OCT 2017 19:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -581,7 +581,9 @@ Now handling font encoding PD1 ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-)) (./bmc_article.aux)
+))
+\c@changeCount=\count114
+ (./bmc_article.aux)
 \openout1 = `bmc_article.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
@@ -601,16 +603,16 @@ LaTeX Font Info:    ... okay on input line 102.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count114
+\scratchcounter=\count115
 \scratchdimen=\dimen118
 \scratchbox=\box32
-\nofMPsegments=\count115
-\nofMParguments=\count116
+\nofMPsegments=\count116
+\nofMParguments=\count117
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count117
+\MPscratchCnt=\count118
 \MPscratchDim=\dimen119
-\MPnumerator=\count118
-\makeMPintoPDFobject=\count119
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
 \everyMPtoPDFconversion=\toks31
 )
 Package lastpage Info: Please have a look at the pageslts package at
@@ -624,7 +626,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count120
+\c@section@level=\count121
 )
 LaTeX Info: Redefining \ref on input line 102.
 LaTeX Info: Redefining \pageref on input line 102.
@@ -668,132 +670,144 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 \address@aff2=\toks33
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 208.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 209.
+
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 252.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 253.
 
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 301--301
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--301
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
  []
 
 
-Underfull \hbox (badness 986) in paragraph at lines 301--301
+Underfull \hbox (badness 986) in paragraph at lines 294--294
 []\OT1/cmr/m/n/10 First, a gene con-text is ap-pended to the vari-
  []
 
 
-Underfull \hbox (badness 1097) in paragraph at lines 301--301
+Underfull \hbox (badness 1097) in paragraph at lines 294--294
 \OT1/cmr/m/n/10 are also an-no-tated to the vari-ant by per-form-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--301
+Underfull \hbox (badness 10000) in paragraph at lines 294--295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--302
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
 
  []
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 328--328
+Underfull \hbox (badness 1558) in paragraph at lines 333--333
 \OT1/cmr/m/n/10 This sec-tion per-forms trait pen-e-trance mod-elling
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 328.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 333.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 328.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 333.
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--329
+Overfull \hbox (3.22267pt too wide) in paragraph at lines 333--334
+[]\OT1/cmr/m/n/10 This pro-vides a good overview of po-ten-tially causative
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--329
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
 
  []
 
 [4] [5]
-Underfull \hbox (badness 2181) in paragraph at lines 404--405
+Underfull \hbox (badness 2181) in paragraph at lines 412--413
 []\OT1/cmr/m/n/10 Cloud-based pipelines pro-vide pro-cess-ing power
  []
 
 
-Underfull \hbox (badness 1400) in paragraph at lines 427--427
+Underfull \hbox (badness 1400) in paragraph at lines 428--429
 \OT1/cmr/m/n/10 frame-work to aid in the con-struc-tion of cus-tom
  []
 
 [6] (./bmc_article.bbl [7])
-Overfull \hbox (2.96812pt too wide) in paragraph at lines 561--592
+Underfull \vbox (badness 4595) has occurred while \output is active []
+
+
+Overfull \hbox (2.96812pt too wide) in paragraph at lines 559--590
  [][] 
  []
 
 
 AED: lastpage setting LastPage
 [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 605.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 605.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 603.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 603.
  (./bmc_article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 605.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 605.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 603.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 603.
 Package rerunfilecheck Info: File `bmc_article.out' has not changed.
 (rerunfilecheck)             Checksum: 182B3DAD6554CBE9FDC7BD8A0EE281FD;347.
 
@@ -804,34 +818,42 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 605.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 603.
  ) 
 Here is how much of TeX's memory you used:
- 7167 strings out of 492990
- 98794 string characters out of 6138688
- 213870 words of memory out of 5000000
- 10603 multiletter control sequences out of 15000+600000
- 13142 words of font info for 47 fonts, out of 8000000 for 9000
+ 7179 strings out of 492990
+ 98975 string characters out of 6138688
+ 214232 words of memory out of 5000000
+ 10613 multiletter control sequences out of 15000+600000
+ 13451 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,8n,39p,1346b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.
-pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on bmc_article.pdf (8 pages, 238708 bytes).
+ 30i,8n,39p,1345b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </usr/share/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr8.pk> </home/tetr
+is/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmmi8.600pk> </home/tetris/.tex
+live/texmf-var/fonts/pk/ljfour/public/cm/cmssbx10.480pk> </home/tetris/.texlive
+/texmf-var/fonts/pk/ljfour/public/cm/cmtt8.525pk> </home/tetris/.texlive/texmf-
+var/fonts/pk/ljfour/public/cm/cmssbx10.420pk> </usr/share/texmf-dist/fonts/pk/l
+jfour/public/cm/dpi600/cmmi10.pk> </usr/share/texmf-dist/fonts/pk/ljfour/public
+/cm/dpi600/cmsy10.pk> </usr/share/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/c
+msl10.pk> </usr/share/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmbx10.pk> </
+usr/share/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmti10.pk> </home/tetris/
+.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmsy5.600pk> </home/tetris/.texliv
+e/texmf-var/fonts/pk/ljfour/public/cm/cmss8.525pk> </home/tetris/.texlive/texmf
+-var/fonts/pk/ljfour/public/cm/cmss8.375pk> </usr/share/texmf-dist/fonts/pk/ljf
+our/public/cm/dpi600/cmr10.pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour
+/public/cm/cmssi10.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/publ
+ic/cm/cmbx5.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/c
+mss10.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssbx1
+0.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmsy8.600pk
+> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss10.657pk> </ho
+me/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss17.864pk> </home/tet
+ris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssbx10.720pk> </home/tetris/
+.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssi8.600pk> </home/tetris/.texli
+ve/texmf-var/fonts/pk/ljfour/public/cm/cmss8.600pk>
+Output written on bmc_article.pdf (8 pages, 217020 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 500000)
+ 906 PDF objects out of 1000 (max. 8388607)
+ 270 compressed objects within 3 object streams
+ 67 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
