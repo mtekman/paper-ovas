@@ -85,14 +85,14 @@
 
 
 %% Changes
-\newcommand{\changes}[1]{#1}
+%\newcommand{\changes}[1]{#1}
 
-%%\newcounter{changeCount}
-%%\newcommand{\changes}[1]{
-%%	\stepcounter{changeCount}
-%%	{\tiny\bf\color{violet}\arabic{changeCount}}
-%%	{\color{red} #1}
-%%}
+\newcounter{changeCount}
+\newcommand{\changes}[1]{
+	\stepcounter{changeCount}
+	{\tiny\bf\color{violet}\arabic{changeCount}}
+	{\color{red} #1}
+}
 
 
 \endlocaldefs
@@ -201,14 +201,15 @@ Faculty of Medicine, King Abdulaziz University},
 \begin{abstract} % abstract
 
 
+
 \parttitle{Background}\
-The advent of modern high-throughput genetics continually broadens the gap between the rising volume of sequencing data, and the tools required to process them. The need to pinpoint a small subset of functionally important variants has now shifted towards identifying the critical differences between normal variants and disease-causing ones. The ever-increasing reliance on cloud-based services for sequence analysis and the non-transparent methods they utilize has prompted the need for more in-situ services that can provide a safer and more accessible environment to process patient data, especially in circumstances where continuous internet usage is limited.
+The advent of modern high-throughput genetics continually broadens the gap between the rising volume of sequencing data, and the tools required to process them. The need to pinpoint a small subset of functionally important variants has now shifted towards identifying the critical differences between normal variants and disease-causing ones, \changes{especially within the scope of  Mendelian disorders. Further,} the ever-increasing reliance on cloud-based services for sequence analysis and the non-transparent methods they utilize has prompted the need for more in-situ services that can provide a safer and more accessible environment to process patient data, especially in circumstances where continuous internet usage is limited. 
 
 \parttitle{Results}\
-To address these issues, we herein propose our standalone Open-source Variant Analysis Sequencing \emph{(\app{})} pipeline; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. Up to 12 filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed an autosomal recessive case study. \app{} made effective use of the filtering modules to recapitulate the results of the study by identifying the prescribed compound-heterozygous disease pattern from exome-capture sequence input samples.
+To address these issues, we herein propose our standalone Open-source Variant Analysis Sequencing \emph{(\app{})} pipeline; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. \changes{Inheritance-model filtering in conjunction with 11 other} filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed an autosomal recessive case study. \app{} made effective use of the filtering modules to recapitulate the results of the study by identifying the prescribed compound-heterozygous disease pattern from exome-capture sequence input samples.
 
 \parttitle{Conclusion}
-\app{} is an offline open-source modular-driven analysis environment, designed to annotate and extract useful variants from Variant Call Format (VCF) files, and process them under an inheritance context through a top-down filtering schema of swappable modules, run entirely off a live bootable medium and accessed locally through a web-browser.
+\app{} is an offline open-source modular-driven analysis environment designed to annotate and extract useful variants from Variant Call Format (VCF) files \changes{and process them through a novel inheritance-context based approach} under a top-down filtering schema of swappable modules, run entirely off a live bootable medium and accessed locally through a web-browser.
 
 %\parttitle{Supplementary information} Supplementary data is available from \textit{BMC-Bioinformatics} online.\\
 \end{abstract}
@@ -250,7 +251,7 @@ BAM and VCF data are orthogonally related, with the former storing horizontal st
 
 The VCF specification was designed for the 1000 Genomes project to produce a robust format that could house the many samples often sequenced under the same batch, but has since been adopted by projects such as UK10K, dbSNP, NHLBI Exome Project, amongst others. The format is flexible with annotations, where additional fields can be outlined in the header and adhered to in the body of the data. Each line of the VCF body describes a single variant; physical position paired with a reference allele (as ascribed by a reference genome consistent across the entire VCF file) and alternate alleles that appear within samples. Major and minor alleles are specific only to the sample population but their frequencies can be pre-computed and appended to a variant line as additional information to then be utilized in small population analyses such as inheritance modelling \cite{danecek2011variant}.
 
-Variant analysis suites all work under the same principle; filtering variants under a user-specified set of criteria against the various variant annotations present in the VCF in order to produce a subset informative to the phenotype. \changes{Stringent filtering measures will produce a smaller set with the drawback of missing key causative variants, and more optimistic filtering measures will produce too many false positives}. The effectiveness of an analysis rests primarily upon the accuracy of the variant annotations which can attribute to as much as 15\% of false negatives \cite{warden2014detailed}, as well as the frequency of false negatives that are discarded due to overly-stringent quality filtering. A common approach to addressing both issues is through learning algorithms that can be trained to favour individual variants over others with the caveat of producing results via 'black-box' methods that may create some disparity between the user and their data \cite{pabinger2014survey}.
+Variant analysis suites all work under the same principle; filtering variants under a user-specified set of criteria against the various variant annotations present in the VCF in order to produce a subset informative to the phenotype. Stringent filtering measures will produce a smaller set with the drawback of missing key causative variants, and more optimistic filtering measures will produce too many false positives. The effectiveness of an analysis rests primarily upon the accuracy of the variant annotations which can attribute to as much as 15\% of false negatives \cite{warden2014detailed}, as well as the frequency of false negatives that are discarded due to overly-stringent quality filtering. A common approach to addressing both issues is through learning algorithms that can be trained to favour individual variants over others with the caveat of producing results via 'black-box' methods that may create some disparity between the user and their data \cite{pabinger2014survey}.
 
 A more transparent approach is to expand the scope of the filtering beyond the variant / gene-level and explore variants under a larger trait-penetrance context.% outlined in Figure~\ref{fig:inheritance}.
 
@@ -265,18 +266,18 @@ The core ideology behind \app{} was to preserve the VCF specification at each st
 
 Module ordering is flexible in this regard, with the exception of the primary annotation modules which are required to run prior to any filtering in order to produce an effective analysis of the variants. Pre-existing gene and function annotations within input data are ignored unless generated by a previous run of the \app{} pipeline, supplanting foreign annotations with the pipeline's own if required. This is to ensure unambiguous results stemming from external annotations using unknown sources that may result in erroneous output variants.
 
-\changes{\app{} annotates variants using data from trusted public domain databases such as RefGene, dbSNP, UniProt, and many others through the UCSC Genome Browser's MySQL back-end portal \cite{karolchik2003ucsc}}. The explicitly open nature of pipeline also prompts a predilection towards open-source or scripted languages and frameworks, which further serve to uphold the confidence between the end-user and their data.
+\app{} annotates variants using data from trusted public domain databases such as RefGene, dbSNP, UniProt, and many others through the UCSC Genome Browser's MySQL back-end portal \cite{karolchik2003ucsc}. The explicitly open nature of pipeline also prompts a predilection towards open-source or scripted languages and frameworks, which further serve to uphold the confidence between the end-user and their data.
 
-\changes{Core pipeline functionality is managed through back-end shell scripts which serve to chain subsequent pipeline modules as shown in Figure~\ref{fig1}. The modular-centric design and development enables each pipeline module to be run as a standalone script without the need for an overarching framework. It also allows for the pipeline to be initiated manually for the more commandline-oriented users, where input VCF files can be placed into a new folder on the desktop along with a pedigree file and an appropriate configuration file (see manual in software repository), and executed via the starting script. 
+Core pipeline functionality is managed through back-end shell scripts which serve to chain subsequent pipeline modules as shown in Figure~\ref{fig1}. The modular-centric design and development enables each pipeline module to be run as a standalone script without the need for an overarching framework. It also allows for the pipeline to be initiated manually for the more commandline-oriented users, where input VCF files can be placed into a new folder on the desktop along with a pedigree file and an appropriate configuration file (see manual in software repository), and executed via the starting script. 
 
 However, \app{} was designed to cater towards all users, and is accessed primarily through a graphical user-interface within a web browser which facilitates in the VCF file placement and configuration process through file selection dialogues and configurable forms to generate run profiles, as well a means to manage and view ongoing analyses as shown in Figure~\ref{fig2}.
 
-\app{} is split into three separable parts, with each component encapsulated by the next; the processing back-end, the web-interface front-end, and the live operating system. Instructions to acquire and set up each as distinct items are provided in the software repository, but \app{} is bundled principally as an all-encompassing standalone bootable ISO image that can be deployed onto a DVD or USB.}
+\app{} is split into three separable parts, with each component encapsulated by the next; the processing back-end, the web-interface front-end, and the live operating system. Instructions to acquire and set up each as distinct items are provided in the software repository, but \app{} is bundled principally as an all-encompassing standalone bootable ISO image that can be deployed onto a DVD or USB.
 
 
 \subsection{Pipeline Overview}
 
-\changes{\app{} is composed of five main stages of processing followed by a generated report detailing the findings of the analysis.\\
+\app{} is composed of five main stages of processing followed by a generated report detailing the findings of the analysis.\\
 
 \triplesub{\bf Pre-processing}{All VCF files immediately undergo initial preparation upon file submission from the web interface, where a background shell script renames the files to better emulate their pedigree counterparts, and asserts that all variants are in correct order following a chromosome:position sorting scheme.}
 
@@ -298,7 +299,7 @@ Once fully annotated, variants are then subject to the conventional filtration m
 OVAS provides a \textit{Mutation Type Filter} which acts upon the functional annotations provided by OVAS to keep/discard any variation of missense, nonsense, and synonymous mutations. It also provides an \textit{Alternate Allele Frequency} module which screens for rarity by comparing alternate allele frequencies against the reference genome via dbSNP (version 147).
 
 Variants are also filtered over multiple VCF files, with the \textit{Same Variant Filter} discarding variants not shared across all cases, and the \textit{Same Gene Filter} discarding those that do not reside within the same gene context shared across all cases. Both modules are used extensively in the inheritance filters.
-}}
+}
 
 \triplesub{\bf Inheritance Filtering}{
 This section performs trait penetrance modelling for differently affected individuals following sibling-sibling, and sibling-parent relations. For all detected parent-offspring trios, variants undergo context-based filtering depending on the penetrance-model specified:\\
@@ -321,11 +322,17 @@ Siblings are then filtered for common variants existing within affecteds sibling
 	\triplesub{Mosaicism}{Mosaic inheritance is treated as a special case, where allele frequencies are pre-calculated for each variant and then filtered against user-set thresholds conforming to expected mosaic frequency ranges (typically between 10-35\%).}
 }
 
-\changes{\triplesub{\bf Extended annotation}{The last processing stage of pipeline constitutes a small set of potentially causative variants that successfully passed through the main filtering stages and require finer annotation and analysis that was too costly to perform for all variants at the start. Here, gene transcripts are assigned RefSeq IDs to better distinguish them against external sources(\textit{Isoform Context}), variants falling within known protein domains provided by UniProt are further functionally annotated (\textit{Protein Context}), and tissue-specific data from the Encode GNF Atlas2 database are used to filter for/against genes falling within user-specified gene expression thresholds (\textit{Gene Expression}).}
+\enlargethispage{0.6cm}
 
-\triplesub{\bf Web Report}{All remaining variants across all output VCF files are then consolidated into an interactive HTML table which summarizes variants under sortable and filterable columns of chromosome, position, rsID, gene, gene context, cDNA and protein change, functional change, and heterozygous/homozygous occurrence in cases and controls (see Figure~\ref{fig3}). This provides a good overview of potentially causative variants, especially in recessive disease models where compound-heterozygosity can occur.
-}}
+\triplesub{\bf Extended annotation}{The last processing stage of pipeline constitutes a small set of potentially causative variants that successfully passed through the main filtering stages and require finer annotation and analysis that was too costly to perform for all variants at the start. Here, gene transcripts are assigned RefSeq IDs to better distinguish them against external sources(\textit{Isoform Context}), variants falling within known protein domains provided by UniProt are further functionally annotated (\textit{Protein Context}), and tissue-specific data from the Encode GNF Atlas2 database are used to filter for/against genes falling within user-specified gene expression thresholds (\textit{Gene Expression}).}
+
+\triplesub{\bf Web Report}{All remaining variants across all output VCF files are then consolidated into an interactive HTML table which summarizes variants under sortable and filterable columns of chromosome, position, rsID, gene, gene context, cDNA and protein change, functional change, and heterozygous/homozygous occurrence in cases and controls (see Figure~\ref{fig3}). 
+
+This provides a good overview of potentially causative variants, especially in recessive disease models where compound-heterozygosity can occur.
 }
+}
+
+\enlargethispage{0.6cm}
 
 %%%%%%%%
 \section*{Results}
@@ -354,7 +361,7 @@ Truncating under this provided just 4 variants in each file (5 unique in total),
 
 %The second scenario (Figure~\ref{fig4} (bottom)) performed the annotation as with the first scenario, but this time only reduced an average of 15.9\% of variants in the \textit{Call Quality Filter} step to approximately 37,000 variants. The \textit{Alternate Allele Frequency Filter} reduced this to under 21,000 rare variants, and the \textit{Autosomal Recessive Inheritance Filter} further trimmed this to approximately 10,000 variants, whereupon applying the final \textit{Physical Linkage Filter}, outlined less than 9 output variants in each case.
 
-\changes{
+
 \subsection*{Second Case Study}
 A  single  family  displaying  a  phenotype  under  an  X-linked dominant inheritance model. Whole-exome sequencing was performed upon 8 individuals (7 affected, 1 unaffected) with almost 290,000  variants in each VCF file. 
 
@@ -369,7 +376,7 @@ performed on each sibling with an initial targeted set of approximately 70,000 v
 Applying the autosomal recessive inheritance module with same variant filtering resulted in just 15 variants common across affecteds only, of which 2 were
 homozygous in different genes. Additional gene expression annotation was prioritized; with one variant conforming to a standard house-keeping gene expression
 profile, and the other being the more likely disease-causing variant due to it displaying a strong organ specific expression.
-}
+
 
 
 
@@ -397,26 +404,25 @@ The AAF module created an noticeable lag of an average of 7.27 seconds per file 
 
 %The second scenario produced the almost the exact same output variants as the first scenario with the exception of case 22 which produced one extra variant in the analysis, despite using the exact same filters as the first with a single ordering modification. The cause of the discrepancy between these results is due to the method in which the \textit{Autosomal Recessive Inheritance Filter} processes compound-heterozygosity, whereby the module casts a conservative net over all genes that are intersected at least twice by variants. Given the number of overlapping regions (gene, gene isoforms, promoters, UTRs, and Splice Sites) that can be bisected by any variant, the number of potential compound-heterozygous genes can increase substantially with the pool of available variants.
 
+\enlargethispage{0.4cm}
 \subsection{Transparency and Deployment}
 
-The portability of \app{} grants a significant advantage over present-day web-based pipelines by keeping all analyses securely \textit{in situ}, which is greatly beneficial to regions of the world without consistent or active internet in addition to researchers handling personal or private data. \changes{The need for accessible offline tools is most present in Africa, where bioinformatical infrastructure and resources are limited \cite{h3africa2014enabling}.
+The portability of \app{} grants a significant advantage over present-day web-based pipelines by keeping all analyses securely \textit{in situ}, which is greatly beneficial to regions of the world without consistent or active internet in addition to researchers handling personal or private data. The need for accessible offline tools is most present in Africa, where bioinformatical infrastructure and resources are limited \cite{h3africa2014enabling}.
 
-Cloud-based pipelines provide processing power without incurring the hardware cost, but the progression of large whole-genome sequencing data coupled with restricted internet speeds hinder the uptake of these services somewhat as slow transfer speeds ultimately dictate service viability; a factor that is further confounded by the net neutrality debate \cite{netneutrality}.} Cloud-based analyses also require input data to be uploaded to an external server in order to perform processing, and data ownership after upload is not always retained especially in the case where the work was performed within the cloud \cite{reed2010information}. Further, many cloud-services employ non-transparent proprietary methods to reduce the number of false-positives and false-negatives. A common approach is to make use of an internal database or learning algorithm that favours some variants over others based on previous analyses (or a similar training set) \cite{pabinger2014survey}, resulting in informative variants produced by unquantifiable "black-box" means, creating disparity between the end-user and their analysis.
+Cloud-based pipelines provide processing power without incurring the hardware cost, but the progression of large whole-genome sequencing data coupled with restricted internet speeds hinder the uptake of these services somewhat as slow transfer speeds ultimately dictate service viability; a factor that is further confounded by the net neutrality debate \cite{netneutrality}. Cloud-based analyses also require input data to be uploaded to an external server in order to perform processing, and data ownership after upload is not always retained especially in the case where the work was performed within the cloud \cite{reed2010information}. Further, many cloud-services employ non-transparent proprietary methods to reduce the number of false-positives and false-negatives. A common approach is to make use of an internal database or learning algorithm that favours some variants over others based on previous analyses (or a similar training set) \cite{pabinger2014survey}, resulting in informative variants produced by unquantifiable "black-box" means, creating disparity between the end-user and their analysis.
 
 Transparent filtering methods are likelier to instil greater confidence in the data with the added benefit of customization to better tailor a filter to an analysis in the case of open-source implementations, as with the case of \app{}.
 
 
-\changes{
 \app{} is bundled within a lightweight Arch Linux environment that contains the pipeline and the web server, static files, and a minimal desktop environment. 
 This is in direct contrast to the more familiar virtualization container platforms such as Docker or Vagrant which provide snapshots of an existing OS, and then must then be run off a virtualization layer that uses more hardware resources during input/output operations than if the OS was run natively \cite{virtualcomparison}. Where virtualization strategies permit wider avenues of deployment, \app{} is specialized to be deployed on bootable mediums and is heavily optimized in this respect in terms of storage and runtime efficiencies which allow it to be run more readily upon more limited hardware by culling any resource-consuming middleware.
-}
+
 
 %difference of philosophy
 
-\changes{Initial development considered the use of pre-existing implicit convention frameworks such as \textit{Snakemake} \cite{koster2012snakemake}, but a predilection towards coding-flexibility and processing efficiency (especially with respect to extensive use of standard system input/ouput streams) meant that a more unix-driven pipeline framework was required. \app{} uses an over-arching shell-script framework that adheres to good-practice dependency and re-entrancy concepts \cite{leipzigreview}, by managing file dependencies between adjacent modules and by permitting resumeable workflows such that a VCF file will not undergo the same annotation module twice if it has already been processed under the same inputs.}
+Initial development considered the use of pre-existing implicit convention frameworks such as \textit{Snakemake} \cite{koster2012snakemake}, but a predilection towards coding-flexibility and processing efficiency (especially with respect to extensive use of standard system input/ouput streams) meant that a more unix-driven pipeline framework was required. \app{} uses an over-arching shell-script framework that adheres to good-practice dependency and re-entrancy concepts \cite{leipzigreview}, by managing file dependencies between adjacent modules and by permitting resumeable workflows such that a VCF file will not undergo the same annotation module twice if it has already been processed under the same inputs.
 
-
-\changes{
+\enlargethispage{0.4cm}
 \subsection{Comparison to Other Bioinformatic Utilities}
 
 \citeauthor{pabinger2014survey} surveys over 200 open-source bioinformatic tools, workflows, pipelines, and annotation modules. Workflows and pipelines are similar in function, with the former being a more general-processing framework to aid in the construction of custom pipelines for different data types.
@@ -424,7 +430,7 @@ This is in direct contrast to the more familiar virtualization container platfor
 13 pipelines and 9 workflows are compared, of which only 5 cater for VCF files. Most offer commandline access, and most perform variant annotation either by using ANNOVAR \cite{wang2010annovar} for providing a gene and functional context, or annotating metrics based on SNP or sequence analysis (see Table S1). However, \app{} is the only open-source pipeline that caters for inheritance contexts, and is also the only pipeline with both a commandline and web-interface that is aimed more are bioinformaticians than programmers.
 
 A further 32 distinct variant annotation modules are also compared; 10 which can take VCF files as input but only 4 of which output annotated VCF files (see Table S2). Other annotators either focus more on upstream genomic formats (FASTA / BAM) or they produce report summaries of the variants; most likely to escape the potential pitfall of the same  variant intersecting multiple sites (such as isoforms). \app{} overcomes this limitation by enclosing multiple sites and their related annotations as sideways associative arrays, and treating each site as a single entity when performing filtering later on in the pipeline. 
-}
+
 
 
 %% CONCLUSIONS
@@ -437,9 +443,11 @@ The live environment, paired with the web front-end, provides the additional adv
 
 The annotation step is crucial, especially for whole-genome sequence data where the vast majority of the variants would be deemed wholly intergenic and would be filtered out as uninformative to the analysis. More common exome-sequencing data typically observe less of a reduction at a much faster processing rate due to the smaller number of total variants, but at the impediment of missing regulatory elements due to lack of coverage. Modules downstream of the annotation stage run trivially, and due to the pipeline's resume feature which prevents \app{} from processing the same data twice, many subsequent analyses with different module configurations can be run in quick succession after the initial annotation step is complete.
 
-\changes{The main inheritance modelling feature provides a unique type of filtering that is not present in any other pipeline, and has a very significant impact in analyses with trios.}
+The main inheritance modelling feature provides a unique type of filtering that is not present in any other pipeline, and has a very significant impact in analyses with trios.
 
-\app{} is future-secure due to the inclusion of the background scripts that generated the static data being packaged with the live environment. Updates to the human genome reference, variant databases, and FASTA sequences can be retrieved on demand for platforms with active internet connections. Changes will preserve across successive boots for non-volatile storage mediums such as USB sticks, ideal in deployment scenarios with infrequent or absent internet access.
+\app{} is future-secure due to the inclusion of the background scripts that generated the static data being packaged with the live environment. Updates to the human genome reference, variant databases, and FASTA sequences can be retrieved on demand for platforms with active internet connections. Changes will preserve across successive boots for non-volatile storage mediums such as USB sticks, ideal in deployment scenarios with infrequent or absent internet access. \changes{The annotation components will additionally be merged into the Bioconda \cite{gruening200683} bioinformatic software distribution for the benefit of the wider bioinformatic community.}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -452,7 +460,6 @@ The annotation step is crucial, especially for whole-genome sequence data where 
 
 \section*{Availability of Data and Materials}
 \app{} was developed using C++, Python, Bash, Php, Javascript, and HTML under a Linux OS. It is free software licensed under GPLv3, with the source code and live ISO binary image freely accessible for download at \url{https://bitbucket.org/momo13/ovas-pipeline.git}. The data that support the results of this study have been sanitized against subsequential incidental findings as outlined by ACMG recommendations \cite{kalia2016recommendations}, and are available upon request. The \app{} pipeline can either be directly installed locally on a pre-existing Linux OS, or it can be accessed in-situ by booting the live image.
-
 
 \section*{List of Abbreviations}
 \textbf{UTR}:  Untranslateable Region, \textbf{cDNA}: Complementary DNA,\\
@@ -521,27 +528,18 @@ This work was supported by St. Peter's Trust for Kidney, Bladder and Prostate Re
 
 %\section*{Figures}
 %
-\enlargethispage{1.8cm}
+\enlargethispage{3cm}
 \begin{figure}[t]
-  %\centerline{\includegraphics[width=0.45\textwidth]{fig1.png}}
-  \caption{\csentence{}Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline and are processed in turn by the core annotation, optional filtering, trait penetrance modelling, and additional annotation modules. \label{fig1}}
+\caption{\csentence{}Overall structure of the \app{} pipeline: VCF files as referenced by a pedigree file are fed into the pipeline and are processed in turn by the core annotation, optional filtering, trait penetrance modelling, and additional annotation modules. \label{fig1}}
 \end{figure}
-
 \begin{figure}[t]
-  %\centerline{\includegraphics[width=0.45\textwidth]{fig2.png}}
-\caption{\csentence{}Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab. Here, 4 individuals' data from 3 families were analysed, with pipeline settings configured in the left side-bar; case VCF files auto selected, core modules running on default settings, optional modules configured to use linkage data, call quality filtering ($>$20), rare variant filtering ($<1\%$), non-synonymous mutations requested, and an autosomal recessive inheritance filtering model applied in conjunction with gene-level variant filtering.
-\label{fig2}}
+\caption{\csentence{}Web-interface displaying an ongoing analysis. The left sidebar shows the user-set configurations, and the central-right box displays the pedigrees used in the analysis stacked above a real-time progress box. Once complete, a summary will automatically open in a new browser tab. Here, 4 individuals' data from 3 families were analysed, with pipeline settings configured in the left side-bar; case VCF files auto selected, core modules running on default settings, optional modules configured to use linkage data, call quality filtering ($>$20), rare variant filtering ($<1\%$), non-synonymous mutations requested, and an autosomal recessive inheritance filtering model applied in conjunction with gene-level variant filtering.\label{fig2}}
 \end{figure}
-
 \begin{figure}[t]
-  %\centerline{\includegraphics[width=0.45\textwidth]{fig3.png}}
-\caption{\csentence{}The summary tab contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering and sorting upon any data field. Columns containing adjacent data in the rows above or below are merged for conciseness. Toggling the column headers sorts the data in that field in ascending/descending order, and the search bar can be used to isolate variants of interest such as those which cause missense mutations, or variants existing in promoter regions. Gene isoforms can be filtered in or out by using the ``ISO'' or ``REF'' keyword, respectively. Pedigrees can be quickly viewed by hovering over the \textit{Show Pedigrees} button above the \textit{Cases} and \textit{Controls} column headers, each of which display the presence and zygosity of the variant in sample individuals, with striped colouring for heterozygous and solid colouring for homozygous. Presented are the same 4 individuals from Figure~\ref{fig2}, showing compound-heterozygous mutations in \textit{PMM2}. Note, the promoter mutation is located within a bidirectional promoter region (i.e. \textit{PMM2/TMEM186}).
-\label{fig3}}
+\caption{\csentence{}The summary tab contains a comprehensive report of potential causative variants discovered in the analysis. The report is interactive and can perform dynamic filtering and sorting upon any data field. Columns containing adjacent data in the rows above or below are merged for conciseness. Toggling the column headers sorts the data in that field in ascending/descending order, and the search bar can be used to isolate variants of interest such as those which cause missense mutations, or variants existing in promoter regions. Gene isoforms can be filtered in or out by using the ``ISO'' or ``REF'' keyword, respectively. Pedigrees can be quickly viewed by hovering over the \textit{Show Pedigrees} button above the \textit{Cases} and \textit{Controls} column headers, each of which display the presence and zygosity of the variant in sample individuals, with striped colouring for heterozygous and solid colouring for homozygous. Presented are the same 4 individuals from Figure~\ref{fig2}, showing compound-heterozygous mutations in \textit{PMM2}. Note, the promoter mutation is located within a bidirectional promoter region (i.e. \textit{PMM2/TMEM186}).\label{fig3}}
 \end{figure}
-
-\enlargethispage{1.8cm}
+\enlargethispage{3cm}
 \begin{figure}[t]
-  %\centerline{\includegraphics[width=0.45\textwidth]{fig4.png}}
 \caption{\csentence{}The progression of variants filtered at each subsequent annotation or filtering stage for each of the 4 case VCFs under initial positional filtering. Input and Core Annotation are mandatory steps. Average variant reduction percentages in-between stages are displayed, and average module runtimes are displayed in seconds.\label{fig4}}
 \end{figure}
 
