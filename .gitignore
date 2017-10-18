@@ -18,7 +18,7 @@ bmc_bioinformatics/bmc_article7x.png
 bmc_bioinformatics/bmc_article8x.png
 bmc_bioinformatics/bmc_article9x.png
 bmc_bioinformatics/process.sh~
-*.pdf
+#*.pdf
 *.log
 *.blg
 *.bbl
