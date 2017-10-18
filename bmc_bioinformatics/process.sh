@@ -10,5 +10,6 @@ zip bmcbio_ovas_paper_${dfmt}.zip\
     bmcart.cls\
     bmcart-biblio.sty\
     "Reference PDF".pdf\
-    Response-to-Reviewers.docx\
-    manuscript_with_highlighted_changes.pdf
+    Response-to-Reviewers.second.docx\
+    manuscript_with_highlighted_changes.pdf\
+    Supplemental_Data.docx
