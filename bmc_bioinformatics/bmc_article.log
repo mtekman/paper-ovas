@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.9.26)  18 OCT 2017 19:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.9.26)  19 OCT 2017 13:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -581,9 +581,7 @@ Now handling font encoding PD1 ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-))
-\c@changeCount=\count114
- (./bmc_article.aux)
+)) (./bmc_article.aux)
 \openout1 = `bmc_article.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
@@ -603,16 +601,16 @@ LaTeX Font Info:    ... okay on input line 102.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
+\scratchcounter=\count114
 \scratchdimen=\dimen118
 \scratchbox=\box32
-\nofMPsegments=\count116
-\nofMParguments=\count117
+\nofMPsegments=\count115
+\nofMParguments=\count116
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count118
+\MPscratchCnt=\count117
 \MPscratchDim=\dimen119
-\MPnumerator=\count119
-\makeMPintoPDFobject=\count120
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
 \everyMPtoPDFconversion=\toks31
 )
 Package lastpage Info: Please have a look at the pageslts package at
@@ -626,7 +624,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count121
+\c@section@level=\count120
 )
 LaTeX Info: Redefining \ref on input line 102.
 LaTeX Info: Redefining \pageref on input line 102.
@@ -821,11 +819,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 603.
  ) 
 Here is how much of TeX's memory you used:
- 7179 strings out of 492990
- 98975 string characters out of 6138688
- 214232 words of memory out of 5000000
- 10613 multiletter control sequences out of 15000+600000
- 13451 words of font info for 48 fonts, out of 8000000 for 9000
+ 7172 strings out of 492990
+ 98887 string characters out of 6138688
+ 214144 words of memory out of 5000000
+ 10607 multiletter control sequences out of 15000+600000
+ 13142 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,8n,39p,1345b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
  </usr/share/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr8.pk> </home/tetr
@@ -842,18 +840,17 @@ e/texmf-var/fonts/pk/ljfour/public/cm/cmss8.525pk> </home/tetris/.texlive/texmf
 -var/fonts/pk/ljfour/public/cm/cmss8.375pk> </usr/share/texmf-dist/fonts/pk/ljf
 our/public/cm/dpi600/cmr10.pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour
 /public/cm/cmssi10.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/publ
-ic/cm/cmbx5.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/c
-mss10.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssbx1
-0.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmsy8.600pk
-> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss10.657pk> </ho
-me/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss17.864pk> </home/tet
-ris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssbx10.720pk> </home/tetris/
-.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssi8.600pk> </home/tetris/.texli
-ve/texmf-var/fonts/pk/ljfour/public/cm/cmss8.600pk>
-Output written on bmc_article.pdf (8 pages, 217020 bytes).
+ic/cm/cmss10.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/
+cmssbx10.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmsy
+8.600pk> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss10.657p
+k> </home/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss17.864pk> </h
+ome/tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssbx10.720pk> </home/
+tetris/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmssi8.600pk> </home/tetris
+/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss8.600pk>
+Output written on bmc_article.pdf (8 pages, 215374 bytes).
 PDF statistics:
- 906 PDF objects out of 1000 (max. 8388607)
- 270 compressed objects within 3 object streams
+ 897 PDF objects out of 1000 (max. 8388607)
+ 266 compressed objects within 3 object streams
  67 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
