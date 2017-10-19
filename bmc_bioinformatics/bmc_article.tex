@@ -85,14 +85,14 @@
 
 
 %% Changes
-%\newcommand{\changes}[1]{#1}
+\newcommand{\changes}[1]{#1}
 
-\newcounter{changeCount}
-\newcommand{\changes}[1]{
-	\stepcounter{changeCount}
-	{\tiny\bf\color{violet}\arabic{changeCount}}
-	{\color{red} #1}
-}
+%\newcounter{changeCount}
+%\newcommand{\changes}[1]{
+%	\stepcounter{changeCount}
+%	{\tiny\bf\color{violet}\arabic{changeCount}}
+%	{\color{red} #1}
+%}
 
 
 \endlocaldefs
@@ -203,13 +203,13 @@ Faculty of Medicine, King Abdulaziz University},
 
 
 \parttitle{Background}\
-The advent of modern high-throughput genetics continually broadens the gap between the rising volume of sequencing data, and the tools required to process them. The need to pinpoint a small subset of functionally important variants has now shifted towards identifying the critical differences between normal variants and disease-causing ones, \changes{especially within the scope of  Mendelian disorders. Further,} the ever-increasing reliance on cloud-based services for sequence analysis and the non-transparent methods they utilize has prompted the need for more in-situ services that can provide a safer and more accessible environment to process patient data, especially in circumstances where continuous internet usage is limited. 
+The advent of modern high-throughput genetics continually broadens the gap between the rising volume of sequencing data, and the tools required to process them. The need to pinpoint a small subset of functionally important variants has now shifted towards identifying the critical differences between normal variants and disease-causing ones. The ever-increasing reliance on cloud-based services for sequence analysis and the non-transparent methods they utilize has prompted the need for more in-situ services that can provide a safer and more accessible environment to process patient data, especially in circumstances where continuous internet usage is limited. 
 
 \parttitle{Results}\
-To address these issues, we herein propose our standalone Open-source Variant Analysis Sequencing \emph{(\app{})} pipeline; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. \changes{Inheritance-model filtering in conjunction with 11 other} filtering modules can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed an autosomal recessive case study. \app{} made effective use of the filtering modules to recapitulate the results of the study by identifying the prescribed compound-heterozygous disease pattern from exome-capture sequence input samples.
+To address these issues, we herein propose our standalone Open-source Variant Analysis Sequencing \emph{(\app{})} pipeline; consisting of three key stages of processing that pertain to the separate modes of annotation, filtering, and interpretation. Core annotation performs variant-mapping to gene-isoforms at the exon/intron level, append functional data pertaining the type of variant mutation, and determine hetero/homozygosity. \changes{An extensive inheritance-modelling module in conjunction with 11 other} filtering components can be used in sequence ranging from single quality control to multi-file penetrance model specifics such as X-linked recessive or mosaicism. Depending on the type of interpretation required, additional annotation is performed to identify organ specificity through gene expression and protein domains. In the course of this paper we analysed an autosomal recessive case study. \app{} made effective use of the filtering modules to recapitulate the results of the study by identifying the prescribed compound-heterozygous disease pattern from exome-capture sequence input samples.
 
 \parttitle{Conclusion}
-\app{} is an offline open-source modular-driven analysis environment designed to annotate and extract useful variants from Variant Call Format (VCF) files \changes{and process them through a novel inheritance-context based approach} under a top-down filtering schema of swappable modules, run entirely off a live bootable medium and accessed locally through a web-browser.
+\app{} is an offline open-source modular-driven analysis environment designed to annotate and extract useful variants from Variant Call Format (VCF) files, and process them under an inheritance context through a top-down filtering schema of swappable modules, run entirely off a live bootable medium and accessed locally through a web-browser.
 
 %\parttitle{Supplementary information} Supplementary data is available from \textit{BMC-Bioinformatics} online.\\
 \end{abstract}
